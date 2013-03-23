@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
   VALID_NAME_REGEX = /\A[\w+\-.]+\s+[\w+\-.]+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, format: { with: VALID_NAME_REGEX }
@@ -22,4 +23,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :password_confirmation, presence: true
   has_many :microposts
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
