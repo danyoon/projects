@@ -10,6 +10,7 @@
 #
 
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :user_id
-  belongs_to :user
+  attr_accessible :content #,:user_id
+  validates :user_id, presence: true
+  default_scope order: 'microposts.created_at DESC'
 end
