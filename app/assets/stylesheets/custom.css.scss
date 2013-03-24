@@ -49,14 +49,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.7em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
+	font-size: 24px;
+	padding: .5em 0 .2em 0;
+	line-height: 1.2;
+	font-family: 'Oswald', sans-serif;
+	font-weight:normal;
+	color:#444444 ;
+	text-transform:uppercase;
+	margin-bottom: 10px;
 }
-
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -66,19 +67,12 @@ p {
 /* header */
 
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+	font-family: 'Droid Sans', sans-serif;
+	padding:18px 20px 18px 10px !important;
+	font-weight:bold;
+	color:#888;
+	border-right:1px solid #dadada;
+	display:inline-block;
 }
 
 /* footer */
