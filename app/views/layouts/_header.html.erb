@@ -1,41 +1,35 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Stanford | San Francisco | Silicon Valley", root_path, id: "logo" %>
+      <div class="nav">
+        <%= link_to "Stanford | San Francisco | Silicon Valley", root_path, id: "logo" %></div>
       <div class="nav pull-right">
-	      <li><%= link_to image_tag("facebook.png", alt: "Rails"), 'https://www.facebook.com/pages/Thousand-Soft/437962876279830' %></li>
-	      <li><%= link_to image_tag("twitter.png", alt: "Rails"), 'https://www.twitter.com/thousandsoft' %></li>
-	      <li><%= link_to image_tag("email.png", alt: "Rails"), 'mailto:thousandsoft@gmail.com' %></li>
-
+        <li><%= link_to image_tag("facebook.png", alt: "Rails"), 'https://www.facebook.com/pages/Thousand-Soft/437962876279830' %></li>
+        <li><%= link_to image_tag("twitter.png", alt: "Rails"), 'https://www.twitter.com/thousandsoft' %></li>
+        <li><%= link_to image_tag("email.png", alt: "Rails"), 'mailto:thousandsoft@gmail.com' %></li>
       </div>
     </div>
   </div>
-  <div class="navbar-inner">
-    <div class="container">
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
-        </ul>
-      </nav>
+  <div class="container">
+    <div class="well">
+      <div class="row"><%= link_to "ThousandSoft - A Support Network for Startups", root_path, id: "biglogo" %></div>
+      <% if signed_in? %>
+        <div class="row">
+        <div class="btn-group">
+          <%= link_to "Profile", current_user, class: "btn"%>
+          <%= link_to "Settings", edit_user_path(current_user) %>
+          <%= link_to "Users", users_path %>
+        </div>
+        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
+      </div>        
+    <% else %>
+        <div class="row">
+        <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>
+        <%= link_to "Create Your Account", signup_path, 
+          class: "btn btn-large btn-success pull-right" %> 
+      </div>
+      <% end %>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+

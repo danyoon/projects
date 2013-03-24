@@ -49,14 +49,14 @@ h1 {
 }
 
 h2 {
-	font-size: 24px;
-	padding: .5em 0 .2em 0;
-	line-height: 1.2;
-	font-family: 'Oswald', sans-serif;
-	font-weight:normal;
-	color:#444444 ;
-	text-transform:uppercase;
-	margin-bottom: 10px;
+  font-size: 24px;
+  padding: .5em 0 .2em 0;
+  line-height: 1.2;
+  font-family: 'Oswald', sans-serif;
+  font-weight:normal;
+  color:#444444 ;
+  text-transform:uppercase;
+  margin-bottom: 10px;
 }
 p {
   font-size: 1.1em;
@@ -67,13 +67,23 @@ p {
 /* header */
 
 #logo {
-	font-family: 'Droid Sans', sans-serif;
-	padding:18px 20px 18px 10px !important;
-	font-weight:bold;
-	color:#888;
-	border-right:1px solid #dadada;
-	display:inline-block;
+  font-family: 'Droid Sans', sans-serif;
+  padding:18px 20px 18px 10px !important;
+  font-size:16px;
+  font-weight:bold;
+  color:#888;
+  border-right:1px solid #dadada;
+  display:inline-block;
 }
+
+#biglogo {
+  font-family: 'Oswald', Impact, sans-serif;
+  padding:18px 0px 18px 0px !important;
+  font-size:40px;
+  color:#444444;
+  display:inline-block;
+}
+
 
 /* footer */
 
@@ -195,9 +205,9 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
- }
+}
 
- /* users index */
+/* users index */
 
 .users {
   list-style: none;
@@ -217,7 +227,7 @@ input {
 .microposts {
   list-style: none;
   margin: 10px 0 0 0;
-  
+
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
