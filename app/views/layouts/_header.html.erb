@@ -13,14 +13,13 @@
 </header>
   <div class="container">
     <div class="well">
-      <div class="row"><%= link_to "ThousandSoft - A Support Network for Startups", root_path, id: "biglogo" %></div>
+      <h1> ThousandSoft - From Entrepreneurs to Startups</h1>
       <% if signed_in? %>
-        <div class="row">
+        <br>
+        <%= link_to "Users", users_path, class: "btn btn-large" %>
         <%= link_to "Profile", current_user, class: "btn btn-large" %>
         <%= link_to "Settings", edit_user_path(current_user), class: "btn btn-large" %>
-        <%= link_to "Users", users_path, class: "btn btn-large" %>
-        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
-      </div>      
+         <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
     <% else %>
         <div class="row">
         <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>
