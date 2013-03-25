@@ -4,9 +4,9 @@
       <div class="nav">
         <%= link_to "Stanford | San Francisco | Silicon Valley", root_path, id: "logo" %></div>
       <div class="nav pull-right">
-        <li><%= link_to image_tag("facebook.png", alt: "Rails"), 'https://www.facebook.com/pages/Thousand-Soft/437962876279830' %></li>
-        <li><%= link_to image_tag("twitter.png", alt: "Rails"), 'https://www.twitter.com/thousandsoft' %></li>
-        <li><%= link_to image_tag("email.png", alt: "Rails"), 'mailto:thousandsoft@gmail.com' %></li>
+        <li><%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/pages/Thousand-Soft/437962876279830' %></li>
+        <li><%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://www.twitter.com/thousandsoft' %></li>
+        <li><%= link_to image_tag("email.png", alt: "Email"), 'mailto:thousandsoft@gmail.com' %></li>
       </div>
     </div>
   </div>
@@ -21,11 +21,9 @@
         <%= link_to "Settings", edit_user_path(current_user), class: "btn btn-large" %>
          <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
     <% else %>
-        <div class="row">
         <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>
         <%= link_to "Create Your Account", signup_path, 
           class: "btn btn-large btn-success pull-right" %> 
-      </div>
       <% end %>
       </div>
     </div>

@@ -17,18 +17,33 @@
     </div>
   </div>
 <% else %>
-  <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
-
-    <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
-
-    <%= link_to "Sign up now!", signup_path, 
-                                class: "btn btn-large btn-primary" %>
+  <h1>Featured Entrepreneurs</h1>
+  <div class="row">
+    <div class="span5">
+      <section>
+        <h3><%= link_to "Susan Phillips Moskowitz", 'http://mrsmunchies.weebly.com' %></h3>
+      </section>
+      <section>
+        <li><%= link_to image_tag("mrsmunchies.png", alt: "Mrs. Munchies"), 'http://mrsmunchies.weebly.com' %></li>
+      </section>
+      <h2><%= link_to "Stanford Ignite 'W13", 'http://www.gsb.stanford.edu/ignite' %> </h2>
+      </section>
+    </div>
+    <div class="span2">
+      <br>
+    </div>
+      <div class="span5">
+      <section>
+        <h3>
+           Your Startup
+        </h3>
+      </section>
+      <section>
+        <%= link_to image_tag("stanford.png", alt: "Stanford"), 'http://www.gsb.stanford.edu/ignite' %></li>
+      </section>
+        <%= link_to "Submit Your Startup", signup_path, 
+          class: "btn btn-large btn-warning pull-right" %>
+      </section>
+    </div>
   </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>
