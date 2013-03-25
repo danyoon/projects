@@ -1,14 +1,7 @@
 <footer class="footer">
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-    </ul>
-  </nav>
-  <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
-  </small>
-  
+  <div class="container">
+    <%= link_to "Our Collection on Startups", about_path, id:"footerleft" %>
+    <%= link_to "Our Collection on Entrepreneurs", help_path, id:"footerleft" %>
+    <%= link_to "ThousandSoft", root_path, id:"footerright" %>
+  </div>
 </footer>
