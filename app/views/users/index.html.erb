@@ -1,10 +1,21 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1>All users</h1>
+    <%= will_paginate %>
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>
 
-<%= will_paginate %>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<%= will_paginate %>
