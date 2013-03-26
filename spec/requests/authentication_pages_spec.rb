@@ -21,7 +21,7 @@ describe "Authentication" do
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link "Stanford | San Francisco | Silicon Valley" }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
@@ -44,7 +44,7 @@ describe "Authentication" do
 
       describe "followed by signout" do
         before { click_link "Sign out" }
-        it { should have_link('Sign in') }
+        it { should have_link('Login To Your Account') }
       end
     end
   end
