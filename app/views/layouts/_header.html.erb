@@ -16,10 +16,13 @@
       <h1> ThousandSoft - From Entrepreneurs to Startups</h1>
       <% if signed_in? %>
         <br>
+        <%= link_to "Home", root_path, class: "btn btn-large" %> 
         <%= link_to "Users", users_path, class: "btn btn-large" %>
-        <%= link_to "Profile", current_user, class: "btn btn-large" %>
         <%= link_to "Settings", edit_user_path(current_user), class: "btn btn-large" %>
-         <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
+
+        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
+        <%= link_to "Profile", current_user, class: "btn btn-large pull-right" %>        
+
     <% else %>
         <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>
         <%= link_to "Create Your Account", signup_path, 
