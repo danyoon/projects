@@ -7,6 +7,12 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'simple_form'
+gem 'devise'
+gem "nifty-generators", :group => :development
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -37,3 +43,5 @@ end
 group :production do
   gem 'pg', '0.12.2'
 end
+
+gem "mocha", :group => :test

@@ -1,4 +1,9 @@
 FirstApp::Application.routes.draw do
+  match '/auth/:provider/callback' => 'authentications#create'
+  devise_for :users, :controllers => { :registrations => 'registrations' }
+  resources :projects
+  resources :tasks
+  resources :authentications
   resources :users do
     member do
       get :following, :followers
@@ -8,7 +13,7 @@ FirstApp::Application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
-  root to: 'static_pages#home'
+
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
@@ -16,6 +21,7 @@ FirstApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
+  root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
