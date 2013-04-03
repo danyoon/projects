@@ -2,7 +2,7 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="nav">
-        <%= link_to "Stanford | San Francisco | Silicon Valley", root_path, id: "logo" %></div>
+        <%= link_to "ThousandSoft", root_path, id: "logo" %></div>
       <div class="nav pull-right">
         <li><%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/thousandsoft' %></li>
         <li><%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://www.twitter.com/thousandsoft' %></li>
@@ -13,9 +13,9 @@
 </header>
   <div class="container">
     <div class="well">
-      <h1> ThousandSoft - From Entrepreneurs to Startups</h1>
-      <% if signed_in? %>
-        <br>
+      <h1> Software for Powersellers in the Sharing Economy</h1>
+      <br>
+      <% if user_signed_in? %>
         <%= link_to "Home", root_path, class: "btn btn-large" %> 
         <%= link_to "Users", users_path, class: "btn btn-large" %>
         <%= link_to "Settings", edit_user_path(current_user), class: "btn btn-large" %>
@@ -24,9 +24,10 @@
         <%= link_to "Profile", current_user, class: "btn btn-large pull-right" %>        
 
     <% else %>
-        <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>
-        <%= link_to "Create Your Account", signup_path, 
-          class: "btn btn-large btn-success pull-right" %> 
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn" %>
+        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-large btn" %>
+        <%= link_to "Login To Your Account", signin_path, class: "btn btn-large btn" %>        
+        <%= link_to "Create Your Account", signup_path, class: "btn btn-large btn-success pull-right" %> 
       <% end %>
     </div>
 

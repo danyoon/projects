@@ -1,22 +1,26 @@
 FirstApp::Application.routes.draw do
-  match '/auth/:provider/callback' => 'authentications#create'
-  devise_for :users, :controllers => { :registrations => 'registrations' }
-  resources :projects
-  resources :tasks
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } do
+
+    # Aliased routes to match Rails Tutorial
+    get 'signin',  to: 'devise/sessions#new'
+    get 'signout', to: 'devise/sessions#destroy'
+    get 'signup',  to: 'devise/registrations#new'
+  end
+  
   resources :authentications
   resources :users do
     member do
       get :following, :followers
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
+
+  # Additional user actions separated out into a new controller,
+  # ProfilesController, due to conflicts with /users/:id route and
+  # Devise's standard routes
   resources :microposts, only: [:create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
-
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'

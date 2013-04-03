@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  include SessionsHelper
-
-  # Force signout to prevent CSRF attacks
-  #def handle_unverified_request
-    #sign_out
-    #super
-  #end
+  
+  # This tells Devise where to re-direct to after successful sign up or sign in
+  def after_sign_in_path_for(user)
+    user_path(user.id)
+  end
 end
