@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
-  #validates :name, :presence => true, :length => { :maximum => 50 }
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
@@ -38,6 +37,7 @@ class User < ActiveRecord::Base
                          email: data["email"],
                          password: Devise.friendly_token[0,20]
                         )
+      user.authentications.build(provider:auth.provider, uid:auth.uid)
     end
     user
   end

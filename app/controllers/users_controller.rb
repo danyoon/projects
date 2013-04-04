@@ -10,12 +10,6 @@ class UsersController < ApplicationController
     @title = @user.name
   end
 
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
-  end
-
   def following
     @title = "Following"
     @user = User.find(params[:id])

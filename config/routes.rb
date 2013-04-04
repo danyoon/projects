@@ -18,7 +18,6 @@ FirstApp::Application.routes.draw do
   # ProfilesController, due to conflicts with /users/:id route and
   # Devise's standard routes
   resources :microposts, only: [:create, :destroy]
-  resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
   match '/help',    to: 'static_pages#help'
