@@ -17,49 +17,38 @@
   </div>
 </div>
 <% else %>
-  <div id="myCarousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
+  <div class="row">
+  <div class="span8">
+    <div id="myCarousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item">
+          <%= image_tag("sf.jpg", :size => "1000x600") %>
+          <div class="carousel-caption">
+            <h4>San Francisco</h4>
+            <%= link_to "Courtesy of FunCheapSF", 'https://www.facebook.com/pages/FunCheapSF/327396872503?fref=ts' %>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag("ny.jpg", :size => "1000x600") %>
+          <div class="carousel-caption">
+            <h4>New York</h4>
+            <%= link_to "Courtesy of NYMag", 'http://nymag.com/thecut/2012/11/more-images-from-new-yorks-sandy-cover.html' %>
+          </div>
+        </div>
+        <div class="item"><%= image_tag("dc.jpg", :size => "1000x600") %>
+        <div class="carousel-caption">
+            <h4>Washington D.C.</h4>
+            <%= link_to "Courtesy of Ian Livingston", 'http://www.flickr.com/photos/ianlivingston/3799179303/' %>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
   </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-<h1>Featured Entrepreneurs</h1>
-<div class="row">
-  <div class="span5">
-    <section>
-      <h3><%= link_to "Susan Phillips Moskowitz", 'http://mrsmunchies.weebly.com' %></h3>
-    </section>
-    <section>
-      <li><%= link_to image_tag("mrsmunchies.png", alt: "Mrs. Munchies"), 'http://mrsmunchies.weebly.com' %></li>
-    </section>
-    <h2><%= link_to "Stanford Ignite 'W13", 'http://www.gsb.stanford.edu/ignite' %> </h2>
-  </section>
-</div>
-<div class="span2">
-  <br>
-</div>
-<div class="span5">
-  <section>
-    <h3>
-      Your Startup
-    </h3>
-  </section>
-  <section>
-    <%= link_to image_tag("stanford.png", alt: "Stanford"), 'http://www.gsb.stanford.edu/ignite' %></li>
-  </section>
-  <%= link_to "Submit Your Startup", signup_path, 
-    class: "btn btn-large btn-warning pull-right" %>
-</section>
-</div>
+  <div class="span4">
   </div>
+</div>
 <% end %>
