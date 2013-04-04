@@ -1,49 +1,65 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="span8">
-      <h1>Micropost Feed</h1>
-      <%= render 'shared/feed' %>
-    </div>
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+      <%= render 'shared/micropost_form' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1>Micropost Feed</h1>
+    <%= render 'shared/feed' %>
   </div>
+</div>
 <% else %>
-  <h1>Featured Entrepreneurs</h1>
-  <div class="row">
-    <div class="span5">
-      <section>
-        <h3><%= link_to "Susan Phillips Moskowitz", 'http://mrsmunchies.weebly.com' %></h3>
-      </section>
-      <section>
-        <li><%= link_to image_tag("mrsmunchies.png", alt: "Mrs. Munchies"), 'http://mrsmunchies.weebly.com' %></li>
-      </section>
-      <h2><%= link_to "Stanford Ignite 'W13", 'http://www.gsb.stanford.edu/ignite' %> </h2>
-      </section>
-    </div>
-    <div class="span2">
-      <br>
-    </div>
-      <div class="span5">
-      <section>
-        <h3>
-           Your Startup
-        </h3>
-      </section>
-      <section>
-        <%= link_to image_tag("stanford.png", alt: "Stanford"), 'http://www.gsb.stanford.edu/ignite' %></li>
-      </section>
-        <%= link_to "Submit Your Startup", signup_path, 
-          class: "btn btn-large btn-warning pull-right" %>
-      </section>
-    </div>
+  <div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<h1>Featured Entrepreneurs</h1>
+<div class="row">
+  <div class="span5">
+    <section>
+      <h3><%= link_to "Susan Phillips Moskowitz", 'http://mrsmunchies.weebly.com' %></h3>
+    </section>
+    <section>
+      <li><%= link_to image_tag("mrsmunchies.png", alt: "Mrs. Munchies"), 'http://mrsmunchies.weebly.com' %></li>
+    </section>
+    <h2><%= link_to "Stanford Ignite 'W13", 'http://www.gsb.stanford.edu/ignite' %> </h2>
+  </section>
+</div>
+<div class="span2">
+  <br>
+</div>
+<div class="span5">
+  <section>
+    <h3>
+      Your Startup
+    </h3>
+  </section>
+  <section>
+    <%= link_to image_tag("stanford.png", alt: "Stanford"), 'http://www.gsb.stanford.edu/ignite' %></li>
+  </section>
+  <%= link_to "Submit Your Startup", signup_path, 
+    class: "btn btn-large btn-warning pull-right" %>
+</section>
+</div>
   </div>
 <% end %>

@@ -20,7 +20,7 @@
         <%= link_to "Users", users_path, class: "btn btn-large" %>
         <%= link_to "Settings", edit_user_registration_path, class: "btn btn-large" %>
 
-        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
+        <%= link_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
         <%= link_to "Profile", current_user, class: "btn btn-large pull-right" %>        
       </div>
     <% else %>
