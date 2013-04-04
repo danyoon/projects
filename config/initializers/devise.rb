@@ -215,7 +215,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'    
   config.omniauth :twitter, 'BUzlanjLqzjnIme1SPZw', 'DT1DPHWpQsDuPBLdUbM2ZDkBISPJfV5qWSKjLppnY'
-  config.omniauth :facebook, '520738901301637', '1abdd64496016aef69f7c9152e346913', :strategy_class => OmniAuth::Strategies::Facebook
+  config.omniauth :facebook, '520738901301637', '1abdd64496016aef69f7c9152e346913', :strategy_class => OmniAuth::Strategies::Facebook, {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
   config.omniauth :google_oauth2, '345860851528.apps.googleusercontent.com', 'SM_BG5xM9UGQHU7LQZIeyvYv', { access_type: "offline", approval_prompt: "" }
 
 
