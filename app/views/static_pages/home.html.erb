@@ -18,7 +18,7 @@
 </div>
 <% else %>
   <div class="row">
-  <div class="span8">
+  <div class="offset2 span8">
     <div id="myCarousel" class="carousel slide">
       <!-- Carousel items -->
       <div class="carousel-inner">
@@ -55,15 +55,6 @@
       <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
   </div>
-  <div class="span4">
-    <div id="carousel-text" class="well">
-      <h1>Tracked Cities</h1>
-      <li><h2 class="text-error">New York</h2></li>
-      <li><h2 class="text-warning">San Francisco</h2></li>      
-      <li><h2 class="text-success">Washington D.C.</h2></li>
-      <li><h2 class="text-info">Corvara/Cortina</h2></li>
-    </div>
-  </div>
 </div>
 <h1>New York</h1>
 <ul class="thumbnails">
@@ -74,7 +65,7 @@
       <h4>Four Seasons New York</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        57 East 57th Street<br>
         New York, NY 10022<br>
         <strong>Cross Street: </strong>57th<br>
         <strong>Cross Street: </strong>Park and Madison<br>
@@ -89,19 +80,19 @@
   </li>
   <li class="span4">
   <div class="thumbnail">
+    <%= image_tag("ny-stregis.jpg", :size => "320x200") %>
     <div class="caption">
-    <%= image_tag("ny-stregis.jpg", :size => "320x200") %>`
       <h4>St. Regis New York (HOT)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        2 East 55th Street<br>
         New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        <strong>Cross Street: </strong>55th<br>
+        <strong>Cross Street: </strong>Madison and 5th<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>229<br>
+        <strong>Owner: </strong>Starwood Hotels and Resorts (HOT)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -114,14 +105,14 @@
       <h4>New York Marriott Marquis (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        1535 Broadway<br>
+        New York, NY 10036<br>
+        <strong>Cross Street: </strong>46th<br>
+        <strong>Cross Street: </strong>8th and Broadway<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>1957<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -134,14 +125,14 @@
       <h4>New York Marriott Downtown (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        85 West Street<br>
+        New York, NY 10006<br>
+        <strong>Cross Street: </strong>West Stret<br>
+        <strong>Cross Street: </strong>Albany and Liberty<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>497<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -154,14 +145,14 @@
       <h4>Sheraton New York Times Square Hotel (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        811 7th Avenue<br>
         New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        <strong>Cross Street: </strong>7th Avenue<br>
+        <strong>Cross Street: </strong>52nd and 53rd<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>1780<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -174,14 +165,14 @@
       <h4>Westin New York Grand Central (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        212 East 42nd Street<br>
+        New York, NY 10017<br>
+        <strong>Cross Street: </strong>42nd<br>
+        <strong>Cross Street: </strong>2nd and 3rd<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>774<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -189,19 +180,19 @@
   </li>
   <li class="span4">
   <div class="thumbnail">
-    <%= image_tag("ny-wtimessquare.jpg", :size => "320x200") %> 
+    <%= image_tag("ny-wlexington.jpg", :size => "320x200") %> 
     <div class="caption">
       <h4>W New York (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        541 Lexington Avenue<br>
         New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        <strong>Cross Street: </strong>Lexington<br>
+        <strong>Cross Street: </strong>49th and 50th<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>693<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -214,14 +205,14 @@
       <h4>W New York Union Square (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        201 Park Avenue South<br>
+        New York, NY 10003<br>
+        <strong>Cross Street: </strong>Park Avenue<br>
+        <strong>Cross Street: </strong>17th and 18th<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>270<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -237,14 +228,14 @@
       <h4>Ritz Carlton San Francisco (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        600 Stockton Street<br>
+        San Francisco, CA 94108<br>
+        <strong>Cross Street: </strong>Stockton<br>
+        <strong>Cross Street: </strong>California and Pine<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>336<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -257,14 +248,14 @@
       <h4>St. Regis San Francisco (HOT)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        125 3rd Street<br>
+        San Francisco, CA 94103<br>
+        <strong>Cross Street: </strong>3rd<br>
+        <strong>Cross Street: </strong>Mission and Minna<br>
       </address>
       <address>
         <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Owner: </strong>Host Hotels and Resorts<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -277,14 +268,14 @@
       <h4>San Francisco Marriott Fisherman's Wharf (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        1250 Columbus Avenue<br>
         New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        <strong>Cross Street: </strong>Columbus<br>
+        <strong>Cross Street: </strong>North Point and Bay<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>285<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -297,14 +288,14 @@
       <h4>San Francisco Marriott Marquis (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        55 4th Street<br>
+        San Francisco, CA<br>
+        <strong>Cross Street: </strong>4th<br>
+        <strong>Cross Street: </strong>Market and Mission<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>1499<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -320,14 +311,14 @@
       <h4>Grand Hyatt Washington (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        1000 H Street NW<br>
+        Washington D.C.<br>
+        <strong>Cross Street: </strong>H Street<br>
+        <strong>Cross Street: </strong>10th and 11th<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>888<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -340,14 +331,14 @@
       <h4>Hyatt Regency on Capitol Hill (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        400 New Jersey Ave NW<br>
+        Washington D.C.<br>
+        <strong>Cross Street: </strong>New Jersey Avenue<br>
+        <strong>Cross Street: </strong>D Street and E Street<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>834<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -360,14 +351,14 @@
       <h4>JW Marriott Washington D.C. (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        1331 Pennsylvania Avenue NW<br>
+        Washington D.C.<br>
+        <strong>Cross Street: </strong>Pennsylvania Avenue<br>
+        <strong>Cross Street: </strong>13th and 14th<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>772<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -380,14 +371,14 @@
       <h4>Westin Georgetown, Washington D.C. (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
+        2350 M Street NW<br>
         New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        <strong>Cross Street: </strong>M Street<br>
+        <strong>Cross Street: </strong>23rd Street and 24th Street<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>267<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -400,14 +391,14 @@
       <h4>Washington Marriott at Metro Center (HST)</h4>
       <address>
         <strong>Address</strong><br>
-        57 East 57th Street, New York, NY 10021<br>
-        New York, NY 10022<br>
-        <strong>Cross Street: </strong>57th<br>
-        <strong>Cross Street: </strong>Park and Madison<br>
+        775 12th Street NW<br>
+        Washington D.C.<br>
+        <strong>Cross Street: </strong>12th<br>
+        <strong>Cross Street: </strong>G Street and H Street<br>
       </address>
       <address>
-        <strong>Rooms/Keys: </strong>368<br>
-        <strong>Owner: </strong>NA<br>
+        <strong>Rooms/Keys: </strong>459<br>
+        <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -421,7 +412,7 @@
   <div class="thumbnail">
     <%= image_tag("corvara.jpg", :size => "300x200") %>
     <div class="caption">
-      <h4>Grand Hyatt Washington (HST)</h4>
+      <h4>Posta Zirm</h4>
       <address>
         <strong>Address</strong><br>
         57 East 57th Street, New York, NY 10021<br>
@@ -441,7 +432,7 @@
   <div class="thumbnail">
     <%= image_tag("corvara.jpg", :size => "300x200") %>
     <div class="caption">
-      <h4>Hyatt Regency on Capitol Hill (HST)</h4>
+      <h4>Panorama</h4>
       <address>
         <strong>Address</strong><br>
         57 East 57th Street, New York, NY 10021<br>
@@ -461,7 +452,7 @@
   <div class="thumbnail">
     <%= image_tag("corvara.jpg", :size => "300x200") %>
     <div class="caption">
-      <h4>JW Marriott Washington D.C. (HST)</h4>
+      <h4>Marmolada</h4>
       <address>
         <strong>Address</strong><br>
         57 East 57th Street, New York, NY 10021<br>
@@ -481,7 +472,7 @@
   <div class="thumbnail">
     <%= image_tag("corvara.jpg", :size => "300x200") %>
     <div class="caption">
-      <h4>Westin Georgetown, Washington D.C. (HST)</h4>
+      <h4>Sassongher</h4>
       <address>
         <strong>Address</strong><br>
         57 East 57th Street, New York, NY 10021<br>
@@ -501,7 +492,47 @@
   <div class="thumbnail">
     <%= image_tag("corvara.jpg", :size => "300x200") %>
     <div class="caption">
-      <h4>Washington Marriott at Metro Center (HST)</h4>
+      <h4>La Perla</h4>
+      <address>
+        <strong>Address</strong><br>
+        57 East 57th Street, New York, NY 10021<br>
+        New York, NY 10022<br>
+        <strong>Cross Street: </strong>57th<br>
+        <strong>Cross Street: </strong>Park and Madison<br>
+      </address>
+      <address>
+        <strong>Rooms/Keys: </strong>368<br>
+        <strong>Owner: </strong>NA<br>
+      </address>
+      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+    </div>
+  </div>
+  </li>
+  <li class="span4">
+  <div class="thumbnail">
+    <%= image_tag("corvara.jpg", :size => "300x200") %>
+    <div class="caption">
+      <h4>Kolfuschgerhof</h4>
+      <address>
+        <strong>Address</strong><br>
+        57 East 57th Street, New York, NY 10021<br>
+        New York, NY 10022<br>
+        <strong>Cross Street: </strong>57th<br>
+        <strong>Cross Street: </strong>Park and Madison<br>
+      </address>
+      <address>
+        <strong>Rooms/Keys: </strong>368<br>
+        <strong>Owner: </strong>NA<br>
+      </address>
+      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+    </div>
+  </div>
+  </li>
+  <li class="span4">
+  <div class="thumbnail">
+    <%= image_tag("corvara.jpg", :size => "300x200") %>
+    <div class="caption">
+      <h4>Capella</h4>
       <address>
         <strong>Address</strong><br>
         57 East 57th Street, New York, NY 10021<br>
