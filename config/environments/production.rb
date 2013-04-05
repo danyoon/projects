@@ -49,9 +49,24 @@ FirstApp::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'yourapp.heroku.com' }
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'thousandsoft.heroku.com' }
+  config.action_mailer.delivery_method = :smtp
+  require 'tlsmail'       
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+  ActionMailer::Base.delivery_method = :smtp   
+  ActionMailer::Base.perform_deliveries = true   
+  ActionMailer::Base.raise_delivery_errors = true   
+  ActionMailer::Base.smtp_settings = {   
+    :enable_starttls_auto => true,     
+    :address            => 'smtp.gmail.com',   
+    :port               => 587,   
+    :tls                  => true,   
+    :domain             => 'www.thousandsoft.com',    
+    :authentication     => :plain,   
+    :user_name          => ENV["GMAIL_USERNAME"],   
+    :password           => ENV["GMAIL_PASSWORD"] # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+  }
   # Enable threaded mode
   # config.threadsafe!
 

@@ -13,6 +13,8 @@ gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'devise'
 gem "nifty-generators", :group => :development
+gem 'tlsmail'
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

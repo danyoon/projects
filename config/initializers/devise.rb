@@ -214,9 +214,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'    
-  config.omniauth :twitter, 'BUzlanjLqzjnIme1SPZw', 'DT1DPHWpQsDuPBLdUbM2ZDkBISPJfV5qWSKjLppnY'
-  config.omniauth :facebook, '520738901301637', '1abdd64496016aef69f7c9152e346913', {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-  config.omniauth :google_oauth2, '345860851528.apps.googleusercontent.com', 'SM_BG5xM9UGQHU7LQZIeyvYv', { access_type: "offline", approval_prompt: "" }
+  config.omniauth :twitter, ENV["TWITTER_ID"], ENV["TWITTER_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], { access_type: "offline", approval_prompt: "" }
 
 
   # ==> Warden configuration
