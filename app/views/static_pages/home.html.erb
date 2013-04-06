@@ -94,6 +94,7 @@
       <address>
         <strong>Rooms/Keys: </strong>368<br>
         <strong>Owner: </strong>NA<br>
+        <strong>Rate: </strong><br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -114,6 +115,7 @@
       <address>
         <strong>Rooms/Keys: </strong>229<br>
         <strong>Owner: </strong>Starwood Hotels (HOT)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -134,6 +136,7 @@
       <address>
         <strong>Rooms/Keys: </strong>1957<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -154,6 +157,7 @@
       <address>
         <strong>Rooms/Keys: </strong>693<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -174,6 +178,7 @@
       <address>
         <strong>Rooms/Keys: </strong>270<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -194,6 +199,7 @@
       <address>
         <strong>Rooms/Keys: </strong>774<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -214,6 +220,7 @@
       <address>
         <strong>Rooms/Keys: </strong>497<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -234,6 +241,7 @@
       <address>
         <strong>Rooms/Keys: </strong>1780<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -258,6 +266,7 @@
       <address>
         <strong>Rooms/Keys: </strong>336<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -278,6 +287,7 @@
       <address>
         <strong>Rooms/Keys: </strong>368<br>
         <strong>Owner: </strong>Host Hotels and Resorts<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -298,6 +308,7 @@
       <address>
         <strong>Rooms/Keys: </strong>1499<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <br>
       <br>
@@ -320,6 +331,7 @@
       <address>
         <strong>Rooms/Keys: </strong>285<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -344,6 +356,7 @@
       <address>
         <strong>Rooms/Keys: </strong>888<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -364,6 +377,7 @@
       <address>
         <strong>Rooms/Keys: </strong>772<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -384,6 +398,7 @@
       <address>
         <strong>Rooms/Keys: </strong>459<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <br>
       <br>
@@ -409,6 +424,7 @@
       <address>
         <strong>Rooms/Keys: </strong>834<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -429,6 +445,7 @@
       <address>
         <strong>Rooms/Keys: </strong>267<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -454,6 +471,7 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Kostner<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -473,7 +491,8 @@
       </address>
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
-        <strong>Owner: </strong>Family Costamoling<br>
+        <strong>Local Rate: </strong><%= @chargeablerate2['@nightlyRateTotal']+" "+@chargeablerate2['@currencyCode'] %><br>  
+        <strong>Translated Rate: </strong><%= @convertedrate2['@nightlyRateTotal']+" "+@convertedrate2['@currencyCode'] %><br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -494,6 +513,7 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Costamoling<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -514,6 +534,7 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Pescosta<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -534,6 +555,7 @@
       <address>
         <strong>Rooms/Keys: </strong>52<br>
         <strong>Owner: </strong>Family Costa<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -554,6 +576,8 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Ebner<br>
+        <strong>Local Rate: </strong><%= @chargeablerate1['@nightlyRateTotal']+" "+@chargeablerate1['@currencyCode'] %><br>  
+        <strong>Translated Rate: </strong><%= @convertedrate1['@nightlyRateTotal']+" "+@convertedrate1['@currencyCode'] %><br>
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
@@ -574,14 +598,15 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Pizzinini<br>
+        <strong>Rate: </strong><br>        
       </address>
       <%= link_to "More Information", signin_path, class:"btn btn-block"%>
     </div>
   </div>
   </li>
 </ul>
-<%= raw(@response1.to_json) %>
-<%= raw(@response2.to_json) %>
+<%#= raw(@response1.to_json) %>
+<%#= raw(@response2.to_json) %>
 <%= raw(@response3.to_json) %>
 <%= raw(@response4.to_json) %>
 <%= raw(@response5.to_json) %>
