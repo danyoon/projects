@@ -41,14 +41,7 @@ class StaticPagesController < ApplicationController
     #Sample API Code that Works
     #api= Expedia::Api.new    #
     #@response = api.get_list({:propertyName => 'Hotel Moa Berlin', :destinationString => 'berlin'})
-    
-    puts @response1
-    puts @response2
-    puts @response3
-    puts @response4
-    puts @response5
-    puts @response6
-    puts @response7
+    #puts @response
   end
   
   def help
