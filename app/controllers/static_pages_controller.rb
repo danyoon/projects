@@ -15,10 +15,10 @@ class StaticPagesController < ApplicationController
     #
     api1ny = Expedia::Api.new
     #Four Seasons New York - Expedia 131734
-    @response2ny = api1ny.get_availability({:arrivalDate => "06/14/2013",:departureDate => "06/15/2013",:hotelID =>  131734, :supplierType => "E",:room1 => "1"})
-    array2ny = @response2ny.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
-    @chargeablerate2ny = array2ny[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
-    @convertedrate2ny = array2ny[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
+    @response1ny = api1ny.get_availability({:arrivalDate => "06/14/2013",:departureDate => "06/15/2013",:hotelID =>  131734, :supplierType => "E",:room1 => "1"})
+    array1ny = @response1ny.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
+    @chargeablerate1ny = array1ny[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
+    @convertedrate1ny = array1ny[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
 
     api2ny = Expedia::Api.new
     #St. Regis New York - Expedia 309378
@@ -88,12 +88,12 @@ class StaticPagesController < ApplicationController
     @chargeablerate2sf = array2sf[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
     @convertedrate2sf = array2sf[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
 
-    api3sf = Expedia::Api.new
+    #api3sf = Expedia::Api.new
     #San Francisco Marriott Marquis - Expedia 120243
-    @response3sf = api3sf.get_availability({:arrivalDate => "06/14/2013",:departureDate => "06/15/2013",:hotelID => 120243, :supplierType => "E",:room1 => "1"})
-    array3sf = @response3sf.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
-    @chargeablerate3sf = array3sf[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
-    @convertedrate3sf = array3sf[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
+    #@response3sf = api3sf.get_availability({:arrivalDate => "06/14/2013",:departureDate => "06/15/2013",:hotelID => 120243, :supplierType => "E",:room1 => "1"})
+    #array3sf = @response3sf.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
+    #@chargeablerate3sf = array3sf[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
+    #@convertedrate3sf = array3sf[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
 
     api4sf = Expedia::Api.new
     #San Francisco Marriott Fisherman's Wharf - Expedia 106346
