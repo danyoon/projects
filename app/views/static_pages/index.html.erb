@@ -40,41 +40,41 @@
     <div id="myCarousel" class="carousel slide">
       <!-- Carousel items -->
       <div class="hero-unit">
-      <div class="carousel-inner">
-        <div class="active item">
-          <%= image_tag("sf.jpg", :size => "1000x600") %>
+        <div class="carousel-inner">
+          <div class="active item">
+            <%= image_tag("sf.jpg", :size => "1000x600") %>
+            <div class="carousel-caption">
+              <h4>San Francisco</h4>
+              <%= link_to "Courtesy of FunCheapSF", 'https://www.facebook.com/pages/FunCheapSF/327396872503?fref=ts' %>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("ny.jpg", :size => "1000x600") %>
+            <div class="carousel-caption">
+              <h4>New York</h4>
+              <%= link_to "Courtesy of NYMag", 'http://nymag.com/thecut/2012/11/more-images-from-new-yorks-sandy-cover.html' %>
+            </div>
+          </div>
+          <div class="item"><%= image_tag("dc.jpg", :size => "1000x600")%>
           <div class="carousel-caption">
-            <h4>San Francisco</h4>
-            <%= link_to "Courtesy of FunCheapSF", 'https://www.facebook.com/pages/FunCheapSF/327396872503?fref=ts' %>
+              <h4>Washington D.C.</h4>
+              <%= link_to "Courtesy of Ian Livingston", 'http://www.flickr.com/photos/ianlivingston/3799179303/' %>
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <%= image_tag("ny.jpg", :size => "1000x600") %>
-          <div class="carousel-caption">
-            <h4>New York</h4>
-            <%= link_to "Courtesy of NYMag", 'http://nymag.com/thecut/2012/11/more-images-from-new-yorks-sandy-cover.html' %>
-          </div>
-        </div>
-        <div class="item"><%= image_tag("dc.jpg", :size => "1000x600")%>
-        <div class="carousel-caption">
-            <h4>Washington D.C.</h4>
-            <%= link_to "Courtesy of Ian Livingston", 'http://www.flickr.com/photos/ianlivingston/3799179303/' %>
-          </div>
-        </div>
-        <div class="item"><%= image_tag("corvara.jpg", :size => "1000x600") %>
+          <div class="item"><%= image_tag("corvara.jpg", :size => "1000x600") %>
 
-        <div class="carousel-caption">
-            <h4>Corvara/Cortina</h4>
-            <%= link_to "Courtesy of Hotel Col Alto", 'http://www.colalto.it/photogallery/' %>
+          <div class="carousel-caption">
+              <h4>Corvara/Cortina</h4>
+              <%= link_to "Courtesy of Hotel Col Alto", 'http://www.colalto.it/photogallery/' %>
+            </div>
           </div>
         </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
   </div>
-</div>
 </div>
 <a name="newyork"></a>
 <h1>New York</h1>
@@ -94,10 +94,12 @@
       <address>
         <strong>Rooms/Keys: </strong>368<br>
         <strong>Owner: </strong>NA<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -117,10 +119,13 @@
       <address>
         <strong>Rooms/Keys: </strong>229<br>
         <strong>Owner: </strong>Starwood Hotels (HOT)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate2ny['@nightlyRateTotal']+" "+@chargeablerate2ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate2ny['@nightlyRateTotal']+" "+@convertedrate2ny['@currencyCode'] %><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+
+      <strong>Local Rate: </strong><%#= @chargeablerate2ny['@nightlyRateTotal']+" "+@chargeablerate2ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate2ny['@nightlyRateTotal']+" "+@convertedrate2ny['@currencyCode'] %><br> 
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -140,10 +145,12 @@
       <address>
         <strong>Rooms/Keys: </strong>1957<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate3ny['@nightlyRateTotal']+" "+@chargeablerate3ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate3ny['@nightlyRateTotal']+" "+@convertedrate3ny['@currencyCode'] %><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate3ny['@nightlyRateTotal']+" "+@chargeablerate3ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate3ny['@nightlyRateTotal']+" "+@convertedrate3ny['@currencyCode'] %><br>                
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -163,10 +170,12 @@
       <address>
         <strong>Rooms/Keys: </strong>693<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate4ny['@nightlyRateTotal']+" "+@chargeablerate4ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate4ny['@nightlyRateTotal']+" "+@convertedrate4ny['@currencyCode'] %><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate4ny['@nightlyRateTotal']+" "+@chargeablerate4ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate4ny['@nightlyRateTotal']+" "+@convertedrate4ny['@currencyCode'] %><br>          
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -186,10 +195,12 @@
       <address>
         <strong>Rooms/Keys: </strong>270<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate5ny['@nightlyRateTotal']+" "+@chargeablerate5ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate5ny['@nightlyRateTotal']+" "+@convertedrate5ny['@currencyCode'] %><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate5ny['@nightlyRateTotal']+" "+@chargeablerate5ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate5ny['@nightlyRateTotal']+" "+@convertedrate5ny['@currencyCode'] %><br>                
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -209,10 +220,12 @@
       <address>
         <strong>Rooms/Keys: </strong>774<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate6ny['@nightlyRateTotal']+" "+@chargeablerate6ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate6ny['@nightlyRateTotal']+" "+@convertedrate6ny['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate6ny['@nightlyRateTotal']+" "+@chargeablerate6ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate6ny['@nightlyRateTotal']+" "+@convertedrate6ny['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -232,15 +245,17 @@
       <address>
         <strong>Rooms/Keys: </strong>497<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate7ny['@nightlyRateTotal']+" "+@chargeablerate7ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate7ny['@nightlyRateTotal']+" "+@convertedrate7ny['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate7ny['@nightlyRateTotal']+" "+@chargeablerate7ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate7ny['@nightlyRateTotal']+" "+@convertedrate7ny['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
   </li>
-    <li class="span4">
+  <li class="span4">
   <div class="thumbnail">
     <%= image_tag("ny-sheraton.jpg", :size => "320x200") %> 
     <div class="caption">
@@ -255,10 +270,12 @@
       <address>
         <strong>Rooms/Keys: </strong>1780<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate8ny['@nightlyRateTotal']+" "+@chargeablerate8ny['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate8ny['@nightlyRateTotal']+" "+@convertedrate8ny['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate8ny['@nightlyRateTotal']+" "+@chargeablerate8ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate8ny['@nightlyRateTotal']+" "+@convertedrate8ny['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -282,10 +299,12 @@
       <address>
         <strong>Rooms/Keys: </strong>336<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate1sf['@nightlyRateTotal']+" "+@chargeablerate1sf['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate1sf['@nightlyRateTotal']+" "+@convertedrate1sf['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate1sf['@nightlyRateTotal']+" "+@chargeablerate1sf['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate1sf['@nightlyRateTotal']+" "+@convertedrate1sf['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -305,10 +324,11 @@
       <address>
         <strong>Rooms/Keys: </strong>368<br>
         <strong>Owner: </strong>Host Hotels and Resorts<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate2sf['@nightlyRateTotal']+" "+@chargeablerate2sf['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate2sf['@nightlyRateTotal']+" "+@convertedrate2sf['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "More Information", signin_path, class:"btn btn-block btn-info"%>
+      <strong>Local Rate: </strong><%#= @chargeablerate2sf['@nightlyRateTotal']+" "+@chargeablerate2sf['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate2sf['@nightlyRateTotal']+" "+@convertedrate2sf['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -328,12 +348,14 @@
       <address>
         <strong>Rooms/Keys: </strong>1499<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate3sf['@nightlyRateTotal']+" "+@chargeablerate3sf['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate3sf['@nightlyRateTotal']+" "+@convertedrate3sf['@currencyCode'] %><br>
       </address>
       <br>
       <br>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate3sf['@nightlyRateTotal']+" "+@chargeablerate3sf['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate3sf['@nightlyRateTotal']+" "+@convertedrate3sf['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -353,10 +375,12 @@
       <address>
         <strong>Rooms/Keys: </strong>285<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate4sf['@nightlyRateTotal']+" "+@chargeablerate4sf['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate4sf['@nightlyRateTotal']+" "+@convertedrate4sf['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate4sf['@nightlyRateTotal']+" "+@chargeablerate4sf['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate4sf['@nightlyRateTotal']+" "+@convertedrate4sf['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -380,10 +404,12 @@
       <address>
         <strong>Rooms/Keys: </strong>888<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate1dc['@nightlyRateTotal']+" "+@chargeablerate1dc['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate1dc['@nightlyRateTotal']+" "+@convertedrate1dc['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate1dc['@nightlyRateTotal']+" "+@chargeablerate1dc['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate1dc['@nightlyRateTotal']+" "+@convertedrate1dc['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -403,10 +429,12 @@
       <address>
         <strong>Rooms/Keys: </strong>772<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate2dc['@nightlyRateTotal']+" "+@chargeablerate2dc['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate2dc['@nightlyRateTotal']+" "+@convertedrate2dc['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate2dc['@nightlyRateTotal']+" "+@chargeablerate2dc['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate2dc['@nightlyRateTotal']+" "+@convertedrate2dc['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -426,15 +454,17 @@
       <address>
         <strong>Rooms/Keys: </strong>459<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate3dc['@nightlyRateTotal']+" "+@chargeablerate3dc['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate3dc['@nightlyRateTotal']+" "+@convertedrate3dc['@currencyCode'] %><br>
       </address>
       <br>
       <br>
       <br>
       <br>
       <br>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate3dc['@nightlyRateTotal']+" "+@chargeablerate3dc['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate3dc['@nightlyRateTotal']+" "+@convertedrate3dc['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -454,10 +484,12 @@
       <address>
         <strong>Rooms/Keys: </strong>834<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate4dc['@nightlyRateTotal']+" "+@chargeablerate4dc['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate4dc['@nightlyRateTotal']+" "+@convertedrate4dc['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate4dc['@nightlyRateTotal']+" "+@chargeablerate4dc['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate4dc['@nightlyRateTotal']+" "+@convertedrate4dc['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -477,10 +509,12 @@
       <address>
         <strong>Rooms/Keys: </strong>267<br>
         <strong>Owner: </strong>Host Hotels and Resorts (HST)<br>
-        <strong>Local Rate: </strong><%#= @chargeablerate4dc['@nightlyRateTotal']+" "+@chargeablerate5dc['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%#= @convertedrate5dc['@nightlyRateTotal']+" "+@convertedrate5dc['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate4dc['@nightlyRateTotal']+" "+@chargeablerate5dc['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate5dc['@nightlyRateTotal']+" "+@convertedrate5dc['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -505,9 +539,11 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Kostner<br>
-        <strong>Rate: </strong><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Rate: </strong><br>           
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -526,10 +562,13 @@
       </address>
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
-        <strong>Local Rate: </strong><%= @chargeablerate2['@nightlyRateTotal']+" "+@chargeablerate2['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%= @convertedrate2['@nightlyRateTotal']+" "+@convertedrate2['@currencyCode'] %><br>
+        <strong>Owner: </strong>Family Costamoling<br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%= @chargeablerate2['@nightlyRateTotal']+" "+@chargeablerate2['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%= @convertedrate2['@nightlyRateTotal']+" "+@convertedrate2['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -549,9 +588,11 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Costamoling<br>
-        <strong>Rate: </strong><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Rate: </strong><br>                
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -571,9 +612,10 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Pescosta<br>
-        <strong>Rate: </strong><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "More Information", signin_path, class:"btn btn-block btn-info"%>
+      <strong>Rate: </strong><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -593,9 +635,11 @@
       <address>
         <strong>Rooms/Keys: </strong>52<br>
         <strong>Owner: </strong>Family Costa<br>
-        <strong>Rate: </strong><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Rate: </strong><br>                
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -615,10 +659,12 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Ebner<br>
-        <strong>Local Rate: </strong><%= @chargeablerate1['@nightlyRateTotal']+" "+@chargeablerate1['@currencyCode'] %><br>  
-        <strong>Translated Rate: </strong><%= @convertedrate1['@nightlyRateTotal']+" "+@convertedrate1['@currencyCode'] %><br>
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%= @chargeablerate1['@nightlyRateTotal']+" "+@chargeablerate1['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%= @convertedrate1['@nightlyRateTotal']+" "+@convertedrate1['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
   </div>
@@ -638,9 +684,11 @@
       <address>
         <strong>Rooms/Keys: </strong>NA<br>
         <strong>Owner: </strong>Family Pizzinini<br>
-        <strong>Rate: </strong><br>        
       </address>
-      <%= link_to "More Information", signin_path, class:"btn btn-block"%>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Rate: </strong><br>                
+      <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>     
     </div>
   </div>
