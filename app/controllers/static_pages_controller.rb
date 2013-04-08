@@ -119,12 +119,12 @@ class StaticPagesController < ApplicationController
     @chargeablerate1 = array1[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
     @convertedrate1 = array1[0]['RateInfos']['RateInfo']['ConvertedRateInfo']    
 
-    api2 = Expedia::Api.new
+    #api2 = Expedia::Api.new
     #Sporthotel Panorama - Venere 330337
-    @response2 = api2.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 330337, :supplierType => "V",:room1 => "1"})
-    array2 = @response2.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
-    @chargeablerate2 = array2[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
-    @convertedrate2 = array2[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
+    #@response2 = api2.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 330337, :supplierType => "V",:room1 => "1"})
+    #array2 = @response2.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
+    #@chargeablerate2 = array2[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
+    #@convertedrate2 = array2[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
 
     api3 = Expedia::Api.new
     #Hotel Sassongher - Venere 365511
