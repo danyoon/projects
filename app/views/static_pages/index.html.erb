@@ -97,8 +97,8 @@
       </address>
       <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
       <br>
-      <strong>Local Rate: </strong><%= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
-      <strong>Translated Rate: </strong><#%= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
+      <strong>Local Rate: </strong><%#= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
       <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>      
     </div>
