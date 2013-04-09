@@ -21,6 +21,11 @@ def make_hotels
     :city => row[4],
     :country => row[5],
     :zipcode => row[6],
+    :mainstreet => row[7],
+    :crossstreet => row[8],
+    :key => row[9],
+    :owner => row[10],
+    :image => row[11]
     })
     #Hotel.create!(row.to_hash)
   end

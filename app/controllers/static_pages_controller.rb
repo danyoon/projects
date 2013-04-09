@@ -11,7 +11,14 @@ class StaticPagesController < ApplicationController
     @secondDate = Date.new(2013,6,8)
     firstDateString = @firstDate.strftime("%m/%d/%Y")
     secondDateString = @secondDate.strftime("%m/%d/%Y")
-    @hotels = Hotel.find(:all)
+    
+
+    @hash = Hash["New York", Hotel.find_all_by_city("New York"),
+                "San Francisco", Hotel.find_all_by_city("San Francisco"), 
+                "Washington DC", Hotel.find_all_by_city("Washington"),
+                "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
+    
+    @hotels = Hotel.find_all_by_city("New York")
     
     #
     #

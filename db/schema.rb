@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408205840) do
+ActiveRecord::Schema.define(:version => 20130409200807) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -27,8 +27,13 @@ ActiveRecord::Schema.define(:version => 20130408205840) do
     t.string   "city"
     t.string   "country"
     t.integer  "zipcode"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "mainstreet"
+    t.string   "crossstreet"
+    t.string   "key"
+    t.string   "owner"
+    t.string   "image"
   end
 
   create_table "microposts", :force => true do |t|
