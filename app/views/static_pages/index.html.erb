@@ -76,6 +76,36 @@
     </div>
   </div>
 </div>
+
+<ul class="thumbnails">
+  <% @hotels.each do |hotel| %>
+  <li class="span4">
+  <div class="thumbnail">
+    <%= image_tag("ny-fs.jpg", :size => "320x200") %>`
+    <div class="caption">
+      <h4><%= hotel.name %></h4>
+      <address>
+        <strong>Address</strong><br>
+        <%= hotel.address %><br>
+        New York, NY 10022<br>
+        <strong>Cross Street: </strong>57th<br>
+        <strong>Cross Street: </strong>Park and Madison<br>
+      </address>
+      <address>
+        <strong>Rooms/Keys: </strong>368<br>
+        <strong>Owner: </strong>NA<br>
+      </address>
+      <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
+      <br>
+      <strong>Local Rate: </strong><%#= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
+      <strong>Translated Rate: </strong><%#= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
+      <%= render 'shared/pricematrix' %>
+      <%= render 'shared/calendar' %>      
+    </div>
+  </div>
+  </li>
+<% end %>
+</ul>
 <a name="newyork"></a>
 <h1>New York</h1>
 <ul class="thumbnails">

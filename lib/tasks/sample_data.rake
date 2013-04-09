@@ -1,9 +1,28 @@
 namespace :db do
   desc "Fill database with sample data"
-  task populate: :environment do
-    make_users
-    make_microposts
-    make_relationships
+  #task populate: :environment do
+    #make_users
+    #make_microposts
+    #make_relationships
+  #end
+
+  task import: :environment do
+    make_hotels
+  end
+end
+
+def make_hotels
+  require 'csv'
+  file = "db/hotels.csv"
+  CSV.foreach(file, :headers => true) do |row|
+    Hotel.create!({ 
+    :name => row[2],
+    :address => row[3],
+    :city => row[4],
+    :country => row[5],
+    :zipcode => row[6],
+    })
+    #Hotel.create!(row.to_hash)
   end
 end
 

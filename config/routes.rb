@@ -8,6 +8,7 @@ FirstApp::Application.routes.draw do
   end
   
   resources :authentications
+  resources :hotels
   resources :users do
     member do
       get :following, :followers

@@ -11,8 +11,8 @@ class StaticPagesController < ApplicationController
     @secondDate = Date.new(2013,6,8)
     firstDateString = @firstDate.strftime("%m/%d/%Y")
     secondDateString = @secondDate.strftime("%m/%d/%Y")
+    @hotels = Hotel.find(:all)
     
-
     #
     #
     #NEW YORK
