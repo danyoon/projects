@@ -11,15 +11,27 @@ class StaticPagesController < ApplicationController
     @secondDate = Date.new(2013,6,8)
     firstDateString = @firstDate.strftime("%m/%d/%Y")
     secondDateString = @secondDate.strftime("%m/%d/%Y")
-    
+    firstDateNumber = @firstDate.yday
+    secondDateNumber = @firstDate.yday
 
     @hash = Hash["New York", Hotel.find_all_by_city("New York"),
                 "San Francisco", Hotel.find_all_by_city("San Francisco"), 
                 "Washington DC", Hotel.find_all_by_city("Washington"),
                 "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
     
-    @hotels = Hotel.find_all_by_city("New York")
-    
+    @hotels= Hotel.find_all_by_city("New York")
+    arr = Array.new
+    @hotels.each_with_index do |x,index|
+      arr[index] = @hotels[index][:name]
+    end
+    hotelsString = arr.join(", ")
+
+    api = Expedia::Api.new
+    @response = api.get_list({:arrivalDate => firstDateString,:departureDate => secondDateString,:hotelIDList =>  hotelsString, :room1 => "1"})
+
+    if !@response.exception?
+      @output = @response.body
+    end
     #
     #
     #NEW YORK
@@ -157,10 +169,21 @@ class StaticPagesController < ApplicationController
     
     #Col Alto
     #@response1 = api1.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 363469, :supplierType => "V",:room1 => "1"})
+    
+    
     #Sample API Code that Works
-    #api= Expedia::Api.new    #
+    #api= Expedia::Api.new
     #@response = api.get_list({:propertyName => 'Hotel Moa Berlin', :destinationString => 'berlin'})
     #puts @response
+
+    #Detailed Availability Code that Works
+    #api= Expedia::Api.new
+    #@response = api.get_availability({:arrivalDate => firstDateString,:departureDate => secondDateString,:hotelID =>  131734, :supplierType => "E",:room1 => "1"})
+    #array = @response.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
+    #@chargeablerate = array[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
+    #@convertedrate = array[0]['RateInfos']['RateInfo']['ConvertedRateInfo']
+    #puts @response
+    
   
   end
   def home
