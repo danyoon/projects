@@ -1,0 +1,30 @@
+<% provide(:title, 'All users') %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1>All hotels</h1>
+    <%= will_paginate %>
+    <ul class="hotels">
+      <%= render @hotels %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>
+<h2>Download Hotels</h2>
+<h6>
+  <%= link_to "CSV", hotels_path(format: "csv") %> |
+</h6>
+
+<h2>Import Hotels</h2>
+<%= form_tag import_hotels_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
