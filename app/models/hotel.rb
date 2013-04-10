@@ -1,5 +1,5 @@
 class Hotel < ActiveRecord::Base
-  attr_accessible :address, :city, :country, :name, :zipcode, :mainstreet, :crossstreet, :key, :owner, :image
+  attr_accessible :address, :city, :country, :name, :zipcode, :mainstreet, :crossstreet, :key, :owner, :image, :hotelID
   
   def self.to_csv
     CSV.generate do |csv|
