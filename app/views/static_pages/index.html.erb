@@ -76,7 +76,7 @@
     </div>
   </div>
 </div>
-<% @hash.each do |key, value|  %>
+<% @hash.each do |key, value| %>
   <a name=<%= key.gsub(/\s+/,"")%>></a>
 <h1><%= key %></h1>
 <ul class="thumbnails">
@@ -112,13 +112,13 @@
 <hr>
 <% end %>
 
-
-<%= raw(@output) %>
-<%#= raw(@response2.to_json) %>
-<%#= raw(@response3.to_json) %>
-<%#= raw(@response4.to_json) %>
-<%#= raw(@response5.to_json) %>
-<%#= raw(@response6.to_json) %>
-<%#= raw(@response7.to_json) %>
+<%= @dates.to_s %><hr>
+<%= raw(@hotelsString) %><hr>
+<%= @hotelGL %> <hr>
+<%= raw(@outputGL.to_json) %><hr>
+<%= @hotelGA %> <hr>
+<%= raw(@outputGA.to_json) %>
+<%#= @responseGL.body['HotelListResponse']['cacheKey'].to_json %><hr>
+<%#= @responseGL.body['HotelListResponse']['cacheLocation'].to_json %><hr>
 <% end %>
 

@@ -8,34 +8,15 @@
       </th>
     </tr>
     <tr>
-      <th colspan="2"><strong>Friday</strong></th>
-      <th colspan="2"><strong>Saturday</strong></th>
+      <th colspan="2"><strong>Day of the Week</strong></th>
     </tr>
   </thead>
   <tbody>
-  <tr>
-    <td class="muted"><%= @firstDate.to_formatted_s(:short) %></td>
-    <td>100</td>
-    <td class="muted"><%= @secondDate.to_formatted_s(:short) %></td>
-    <td>200</td>    
+  <% @dates.each do |date| %>
+    <tr>
+    <td class="muted"><%= date %></td>
+    <td>100</td>  
   </tr>
-  <tr>
-    <td class="muted"><%= @firstDate.to_formatted_s(:short) %></td>
-    <td>100</td>
-    <td class="muted"><%= @secondDate.to_formatted_s(:short) %></td>
-    <td>200</td>    
-  </tr>
-  <tr>
-    <td class="muted"><%= @firstDate.to_formatted_s(:short) %></td>
-    <td>100</td>
-    <td class="muted"><%= @secondDate.to_formatted_s(:short) %></td>
-    <td>200</td>    
-  </tr>
-  <tr>
-    <td class="muted"><%= @firstDate.to_formatted_s(:short) %></td>
-    <td>100</td>
-    <td class="muted"><%= @secondDate.to_formatted_s(:short) %></td>
-    <td>200</td>    
-  </tr>
+<% end %>
   </tbody>
 </table>
