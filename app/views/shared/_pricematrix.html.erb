@@ -12,10 +12,10 @@
     </tr>
   </thead>
   <tbody>
-  <% @dates.each do |date| %>
+  <% 14.times do |index| %>
     <tr>
-    <td class="muted"><%= date %></td>
-    <td>100</td>  
+    <td class="muted"><%= @dates[index] %></td>
+    <td><%= @prices[index] %></td>  
   </tr>
 <% end %>
   </tbody>
