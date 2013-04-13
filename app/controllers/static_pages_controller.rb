@@ -20,6 +20,7 @@ class StaticPagesController < ApplicationController
       if price
         if price.created_at.to_i > Time.now.beginning_of_day.to_i
           # do nothing if updated today
+          #StaticPagesController.rates(hotel, price)
         else
           # if not updated today
           StaticPagesController.rates(hotel, price)
@@ -108,6 +109,11 @@ class StaticPagesController < ApplicationController
     price.dateString = dateArray.join(',')
     price.rateString = priceArray.join(',')
     price.save
+  end
+
+  def self.array(string)
+    array = string.to_s.split(",")
+    return array
   end
 
   def home

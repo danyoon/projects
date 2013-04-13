@@ -85,9 +85,6 @@
   <div class="thumbnail">
     <%= image_tag(hotel.image, :size => "320x200") %>`
     <div class="caption">
-      <% hotel.prices.each do |price| %>
-        <%= price.rateString %>
-      <% end %>
       <h4><%= hotel.name %></h4>
       <address>
         <strong>Address</strong><br>
@@ -103,8 +100,13 @@
       </address>
       <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
       <br>
-      <strong>Local Rate: </strong><%#= @chargeablerate1ny['@nightlyRateTotal']+" "+@chargeablerate1ny['@currencyCode'] %><br>  
-      <strong>Translated Rate: </strong><%#= @convertedrate1ny['@nightlyRateTotal']+" "+@convertedrate1ny['@currencyCode'] %><br>        
+      <% hotel.prices.each do |price| %>
+        <% StaticPagesController.array(price.dateString).each_with_index do |x,index| %>
+          <%= x %>
+          <%= StaticPagesController.array(price.rateString)[index] %><br>
+          <br>
+        <% end %>
+      <% end %>
       <%= render 'shared/pricematrix' %>
       <%= render 'shared/calendar' %>     
     </div>
@@ -115,11 +117,6 @@
 <hr>
 <% end %>
 
-<%= @dates.to_s %><hr>
-<%= raw(@hotelsString) %><hr>
-<%= @hotelGL %> <hr>
-<%= @hotelGA %> <hr>
-<%= raw(@outputGA.to_json) %>
 <%#= @responseGL.body['HotelListResponse']['cacheKey'].to_json %><hr>
 <%#= @responseGL.body['HotelListResponse']['cacheLocation'].to_json %><hr>
 <% end %>
