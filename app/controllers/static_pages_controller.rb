@@ -13,35 +13,28 @@ class StaticPagesController < ApplicationController
                 "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
     
     #@hotelsString = arr.join(", ")
-    hotels= Hotel.find_all_by_city("Washington")
-    arr = Array.new
-    hotels.each_with_index do |x,index|
-      arr[index] = hotels[index][:hotelID]
+    
+    @hotels= Hotel.find_all_by_city("Washington")
+    @hotels.each do |hotel|
+      price = Price.find_by_hotel_id(hotel[:id])
+      if price
+        price.rate = 80
+        price.save
+      else
+        price = hotel.prices.build
+        price.rate = 50
+        price.save
+      end 
     end
+
+    @priceHash = Hash.new
+    @dates = Array.new
 
     #@firstDate = Date.new(2013,6,30)
     #@secondDate = Date.new(2013,7,1)    
     #firstDateNumber = @firstDate.yday
     #secondDateNumber = @firstDate.yday
-    today = Date.today
-    @dates = Array.new
-    @prices = Array.new
-    api = Expedia::Api.new    
-    14.times do |index|
-      firstDate = today + index.day
-      secondDate = today + 1.day + index.day
-      @dates[index] = firstDate
-      @responseGL = api.get_list({:numberOfResults =>"20", :arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"),:hotelIDList =>  "131734, 309378", :room1 => "2", :options => "ROOM_RATE_DETAILS"})
-      if @responseGL.exception?
-      else
-        @hotelGL = @responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['hotelId']
-        @prices[index] = @responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal']
-      end
-    end
-
-
-
-    
+    #
     #
     #
     #ITALY
@@ -65,28 +58,6 @@ class StaticPagesController < ApplicationController
     #Hotel Sassongher - Venere 365511
     #@response3 = api3.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 365511, :supplierType => "V",:room1 => "1"})
     
-
-    #api4 = Expedia::Api.new    
-    #Greif - Venere 375621
-    #@response4 = api4.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 375621, :supplierType => "E",:room1 => "1"})
-
-    #api5 = Expedia::Api.new    
-    #Hotel Sassongher - Expedia 399390
-    #@response5 = api5.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 399390, :supplierType => "E",:room1 => "1"})
- 
-    #api6 = Expedia::Api.new    
-    #Domina Home Miramonti - Expedia 228143
-    #@response6 = api6.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 228143, :supplierType => "E",:room1 => "1"})
-    
-
-    #api7 = Expedia::Api.new        
-    #Hotel La Perla - Expedia 235624
-    #@response7 = api7.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 235624, :supplierType => "E",:room1 => "1"})
-    
-    #Col Alto
-    #@response1 = api1.get_availability({:arrivalDate => firstDateString,:departureDate => "06/15/2013",:hotelID => 363469, :supplierType => "V",:room1 => "1"})
-    
-    
     #Sample API Code that Works
     #api= Expedia::Api.new
     #@response = api.get_list({:propertyName => 'Hotel Moa Berlin', :destinationString => 'berlin'})
@@ -94,13 +65,19 @@ class StaticPagesController < ApplicationController
 
     #Detailed Availability Code that Works
     #api= Expedia::Api.new
-    #@responseGA = api.get_availability({:arrivalDate => @firstDateString,:departureDate => @secondDateString,:hotelID => "131734", :supplierType => "E",:room1 => "2"})
+    #@responseGA = api.get_availability({:arrivalDate => firstDate.strftrime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"),:hotelID => "131734", :supplierType => "E",:room1 => "2"})
     #if @responseGA.exception?
     #else
       #@hotelGA = @responseGA.body['HotelRoomAvailabilityResponse']['hotelId']      
       #tempArray = @responseGA.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
       #@outputGA = tempArray[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
     #end 
+    
+    #Alternative Code That Works
+    #@api = Expedia::Api.new  
+    #@responseGL = @api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => "131734, 131734", :room1 => "2", :options => "ROOM_RATE_DETAILS"})
+    #@hotelGL = responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['hotelId']
+    
 
     #More Results Test Code that Doesn't WOrk
     #if @response.body['HotelListResponse']['moreResultsAvailable']
@@ -108,6 +85,7 @@ class StaticPagesController < ApplicationController
     #end
   
   end
+
   def home
     @title = 'Home'
     if signed_in?
