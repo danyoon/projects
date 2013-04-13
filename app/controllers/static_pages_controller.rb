@@ -14,16 +14,20 @@ class StaticPagesController < ApplicationController
     
     #@hotelsString = arr.join(", ")
     
-    @hotels= Hotel.find_all_by_city("Washington")
+    @hotels= Hotel.find_all_by_city("San Francisco")
     @hotels.each do |hotel|
       price = Price.find_by_hotel_id(hotel[:id])
       if price
-        price.rate = 80
-        price.save
+        if price.created_at.to_i > Time.now.beginning_of_day.to_i
+          # do nothing if updated today
+        else
+          # if not updated today
+          StaticPagesController.rates(hotel, price)
+        end
       else
+        # if no price record at all
         price = hotel.prices.build
-        price.rate = 50
-        price.save
+        StaticPagesController.rates(hotel, price)
       end 
     end
 
@@ -83,7 +87,27 @@ class StaticPagesController < ApplicationController
     #if @response.body['HotelListResponse']['moreResultsAvailable']
     #@output = api.get_list ({:cacheKey => @response.body['HotelListResponse']['cacheKey'], :cacheLocation => @response.body['HotelListResponse']['cacheLocation']})
     #end
-  
+  end
+
+  def self.rates(hotel, price)
+    api = Expedia::Api.new            
+    dateArray = Array.new
+    priceArray = Array.new
+    14.times do |index|
+      firstDate = Date.today + index.day
+      secondDate = Date.today + 1.day + index.day
+      responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel[:hotelID], :room1 => "2", :options => "ROOM_RATE_DETAILS"})
+      if responseGL.exception?
+        dateArray.push(firstDate)
+        priceArray.push(0)
+      else
+        dateArray.push(firstDate)
+        priceArray.push(responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'])
+      end
+    end
+    price.dateString = dateArray.join(',')
+    price.rateString = priceArray.join(',')
+    price.save
   end
 
   def home

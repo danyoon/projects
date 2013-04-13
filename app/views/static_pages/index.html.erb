@@ -86,7 +86,7 @@
     <%= image_tag(hotel.image, :size => "320x200") %>`
     <div class="caption">
       <% hotel.prices.each do |price| %>
-        <%= price.rate %>
+        <%= price.rateString %>
       <% end %>
       <h4><%= hotel.name %></h4>
       <address>
