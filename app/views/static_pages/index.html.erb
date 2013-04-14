@@ -17,66 +17,7 @@
   </div>
 </div>
 <% else %>
-  <div class="row">
-  <div class="span4">
-    <div class="hero-unit">
-      <ul class="nav-list">
-        <li class="nav-header"><h4>Tracking Cities</h4></li>
-        <br>
-        <li><h4><a href="#NewYork">New York</a></h4></li>
-        <br>
-        <li><h4><a href="#SanFrancisco">San Francisco</a></h4></li>
-        <br>
-        <li><h4><a href="#WashingtonDC">Washington D.C.</a></h4></li>
-        <br>
-        <li><h4><a href="#Corvara/Cortina">Corvara/Cortina</a></h4></li>
-        <br>
-        <br>
-        <h4><%= link_to "Suggest More Cities", 'mailto:thousandsoft@gmail.com' %></h4>
-      </ul>
-    </div>
-  </div>
-  <div class="span8">
-    <div id="myCarousel" class="carousel slide">
-      <!-- Carousel items -->
-      <div class="hero-unit">
-        <div class="carousel-inner">
-          <div class="active item">
-            <%= image_tag("sf.jpg", :size => "1000x600") %>
-            <div class="carousel-caption">
-              <h4>San Francisco</h4>
-              <%= link_to "Courtesy of FunCheapSF", 'https://www.facebook.com/pages/FunCheapSF/327396872503?fref=ts' %>
-            </div>
-          </div>
-          <div class="item">
-            <%= image_tag("ny.jpg", :size => "1000x600") %>
-            <div class="carousel-caption">
-              <h4>New York</h4>
-              <%= link_to "Courtesy of NYMag", 'http://nymag.com/thecut/2012/11/more-images-from-new-yorks-sandy-cover.html' %>
-            </div>
-          </div>
-          <div class="item"><%= image_tag("dc.jpg", :size => "1000x600")%>
-          <div class="carousel-caption">
-              <h4>Washington D.C.</h4>
-              <%= link_to "Courtesy of Ian Livingston", 'http://www.flickr.com/photos/ianlivingston/3799179303/' %>
-            </div>
-          </div>
-          <div class="item"><%= image_tag("corvara.jpg", :size => "1000x600") %>
-
-          <div class="carousel-caption">
-              <h4>Corvara/Cortina</h4>
-              <%= link_to "Courtesy of Hotel Col Alto", 'http://www.colalto.it/photogallery/' %>
-            </div>
-          </div>
-        </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      </div>
-    </div>
-  </div>
-</div>
-<% @hash.each do |key, value| %>
+  <% @hash.each do |key, value| %>
   <a name=<%= key.gsub(/\s+/,"")%>></a>
 <h1><%= key %></h1>
 <ul class="thumbnails">
@@ -100,14 +41,27 @@
       </address>
       <%= link_to "Track / Follow", signin_path, class:"btn btn-block btn-info"%>
       <br>
-      <% hotel.prices.each do |price| %>
-        <% StaticPagesController.array(price.dateString).each_with_index do |x,index| %>
-          <%= x %>
-          <%= StaticPagesController.array(price.rateString)[index] %><br>
-          <br>
-        <% end %>
+      <table class="table-condensed table-bordered table-striped">
+        <th colspan="7" >
+          <a class="btn"><i class="icon-chevron-left"></i></a>
+          <a class="btn">June 2013</a>
+          <a class="btn"><i class="icon-chevron-right"></i></a>
+        </th>
+        <tbody>
+        <% hotel.prices.each do |price| %>
+          <tr>
+          <% StaticPagesController.array(price.dateString).each_with_index do |x,index| %>
+            <td class="muted">
+            <%= x %>
+          </td>
+          <td>
+            <%= StaticPagesController.array(price.rateString)[index] %><br>
+          </td>
+        </tr>
       <% end %>
-      <%= render 'shared/pricematrix' %>
+      <% end %>
+        </tbody>
+      </table>
       <%= render 'shared/calendar' %>     
     </div>
   </div>
@@ -116,8 +70,5 @@
 </ul>
 <hr>
 <% end %>
-
-<%#= @responseGL.body['HotelListResponse']['cacheKey'].to_json %><hr>
-<%#= @responseGL.body['HotelListResponse']['cacheLocation'].to_json %><hr>
 <% end %>
 
