@@ -68,7 +68,7 @@ class StaticPagesController < ApplicationController
     api = Expedia::Api.new            
     dateArray = Array.new
     priceArray = Array.new
-    2.times do |index|
+    1.times do |index|
       firstDate = Date.today + index.day
       secondDate = Date.today + 1.day + index.day
       responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel[:hotelID], :room1 => "2", :options => "ROOM_RATE_DETAILS"})
