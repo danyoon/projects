@@ -1,0 +1,16 @@
+<% provide(:title, @hotel.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @hotel.name %>
+      </h1>
+    </section>
+    <section>
+      <%#= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <%#= render 'connect_form' if signed_in? %>
+  </div>
+</div>
