@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :connections, foreign_key: "connecter_id", dependent: :destroy
+  has_many :connected_hotels, through: :connections, source: :connected
   has_many :authentications
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     data = auth.info
@@ -64,5 +66,17 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def connecting?(other_hotel)
+    connections.find_by_connected_id(other_hotel.id)
+  end
+
+  def connect!(other_hotel)
+    connections.create!(connected_id: other_hotel.id)
+  end
+
+  def disconnect!(other_hotel)
+    connections.find_by_connected_id(other_hotel.id).destroy
   end
 end

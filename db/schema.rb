@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413033825) do
+ActiveRecord::Schema.define(:version => 20130417000049) do
 
   create_table "authentications", :force => true do |t|
     t.integer   "user_id"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20130413033825) do
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
   end
+
+  create_table "connections", :force => true do |t|
+    t.integer  "connecter_id"
+    t.integer  "connected_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "connections", ["connected_id"], :name => "index_connections_on_connected_id"
+  add_index "connections", ["connecter_id", "connected_id"], :name => "index_connections_on_connecter_id_and_connected_id", :unique => true
+  add_index "connections", ["connecter_id"], :name => "index_connections_on_connecter_id"
 
   create_table "hotels", :force => true do |t|
     t.string    "name"
@@ -47,12 +58,12 @@ ActiveRecord::Schema.define(:version => 20130413033825) do
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
   create_table "prices", :force => true do |t|
-    t.decimal  "rate"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "hotel_id"
-    t.string   "rateString"
-    t.string   "dateString"
+    t.decimal   "rate"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.integer   "hotel_id"
+    t.string    "rateString"
+    t.string    "dateString"
   end
 
   create_table "relationships", :force => true do |t|

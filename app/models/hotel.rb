@@ -1,6 +1,10 @@
 class Hotel < ActiveRecord::Base
   attr_accessible :address, :city, :country, :name, :zipcode, :mainstreet, :crossstreet, :key, :owner, :image, :hotelID
   has_many :prices, dependent: :destroy
+  has_many :reverse_connections, foreign_key: "connected_id",
+                                   class_name:  "Connection",
+                                   dependent:   :destroy
+  has_many :connecters, through: :reverse_connections, source: :connecter
 
   def self.to_csv
     CSV.generate do |csv|

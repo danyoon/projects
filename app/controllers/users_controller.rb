@@ -23,4 +23,11 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
+  def connecting
+    @title = "Connecting"
+    @user = User.find(params[:id])
+    @hotels = @hotel.followed_hotels.paginate(page: params[:page])
+    render 'show_connect'
+  end
 end

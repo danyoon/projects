@@ -9,13 +9,13 @@ FirstApp::Application.routes.draw do
   
   resources :authentications
   resources :hotels do
-    collection { post :import }  
- end
+    member {get :connecters}
+    collection {post :import }  
+  end
 
   resources :users do
-    member do
-      get :following, :followers
-    end
+    member {get :following, :followers}
+    member {get :connecting}
   end
 
   # Additional user actions separated out into a new controller,
@@ -23,6 +23,7 @@ FirstApp::Application.routes.draw do
   # Devise's standard routes
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :prices, only: [:create, :destroy]
 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

@@ -11,6 +11,12 @@ class HotelsController < ApplicationController
     end
   end
 
+  def show
+    @hotel = Hotel.find(params[:id])
+    #@prices = @hotel.prices.paginate(page: params[:page])
+    @title = @hotel.name
+  end
+
   def import
     Hotel.import(params[:file])
   redirect_to hotels_url, notice: "Hotels imported."

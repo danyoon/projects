@@ -1,3 +1,6 @@
 <li>
-<%= hotel.id%> | <%= hotel.name %>
+  <% if current_user.admin == TRUE %>
+    <%= image_tag(hotel.image, :size => "160x100") %>`
+    <%= link_to hotel.name, hotel %>
+  <% end %>
 </li>

@@ -28,7 +28,11 @@ class StaticPagesController < ApplicationController
       else
         # if no price record at all
         price = hotel.prices.build
-        StaticPagesController.rates(hotel, price)
+        if price.save
+          StaticPagesController.rates(hotel, price)
+        else
+          #do nothing if can't save price
+        end
       end
     end
   end
