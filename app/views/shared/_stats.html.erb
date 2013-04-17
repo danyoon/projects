@@ -13,9 +13,9 @@
     </strong>
     followers
   </a>
-  <a href="<%#= connecting_hotel_path(@hotel) %>">
+  <a href="<%= connecting_user_path(@user) %>">
     <strong id="connecting" class="stat">
-      <%#= @user.connecting_hotels.count %>
+      <%= @user.connected_hotels.count %>
     </strong>
     connecting
   </a>

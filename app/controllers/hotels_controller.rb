@@ -13,12 +13,19 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
-    #@prices = @hotel.prices.paginate(page: params[:page])
+    @prices = @hotel.prices.paginate(page: params[:page])
     @title = @hotel.name
   end
 
   def import
     Hotel.import(params[:file])
   redirect_to hotels_url, notice: "Hotels imported."
+  end
+
+  def connecters
+    @title = "Connecters"
+    @user = User.find(params[:id])
+    @users = @user.connecters.paginate(page: params[:page])
+    render 'show_connect'
   end
 end

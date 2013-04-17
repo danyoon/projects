@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :connections, foreign_key: "connecter_id", dependent: :destroy
   has_many :connected_hotels, through: :connections, source: :connected
   has_many :authentications
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     data = auth.info
     user = User.where(:email => data["email"]).first

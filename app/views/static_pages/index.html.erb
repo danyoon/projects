@@ -50,15 +50,13 @@
         <tbody>
         <% hotel.prices.each do |price| %>
           <tr>
-          <% StaticPagesController.array(price.dateString).each_with_index do |x,index| %>
             <td class="muted">
-            <%= x %>
+            <%= price.date_for %>
           </td>
           <td>
-            <%= StaticPagesController.array(price.rateString)[index] %><br>
+            <%= price.rate %><br>
           </td>
         </tr>
-      <% end %>
       <% end %>
         </tbody>
       </table>

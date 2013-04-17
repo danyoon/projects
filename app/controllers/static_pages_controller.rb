@@ -11,34 +11,10 @@ class StaticPagesController < ApplicationController
                 "San Francisco", Hotel.find_all_by_city("San Francisco"), 
                 "Washington DC", Hotel.find_all_by_city("Washington"),
                 "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
-    
-    #@hotelsString = arr.join(", ")
-    
-    @hotels= Hotel.find_all_by_city("San Francisco")
-    @hotels.each do |hotel|
-      price = Price.find_by_hotel_id(hotel[:id])
-      if price
-        if price.created_at.to_i > Time.now.beginning_of_day.to_i
-          # do nothing if updated today
-          #StaticPagesController.rates(hotel, price)
-        else
-          # if not updated today
-          StaticPagesController.rates(hotel, price)
-        end
-      else
-        # if no price record at all
-        price = hotel.prices.build
-        if price.save
-          StaticPagesController.rates(hotel, price)
-        else
-          #do nothing if can't save price
-        end
-      end
-    end
-  end
+  end  
 
-    #@firstDate = Date.new(2013,6,30)
-    #@secondDate = Date.new(2013,7,1)    
+  #@firstDate = Date.new(2013,6,30)
+  #@secondDate = Date.new(2013,7,1)    
     #firstDateNumber = @firstDate.yday
     #secondDateNumber = @firstDate.yday
 
@@ -67,27 +43,6 @@ class StaticPagesController < ApplicationController
     #if @response.body['HotelListResponse']['moreResultsAvailable']
     #@output = api.get_list ({:cacheKey => @response.body['HotelListResponse']['cacheKey'], :cacheLocation => @response.body['HotelListResponse']['cacheLocation']})
     #end
-
-  def self.rates(hotel, price)
-    api = Expedia::Api.new            
-    dateArray = Array.new
-    priceArray = Array.new
-    1.times do |index|
-      firstDate = Date.today + index.day
-      secondDate = Date.today + 1.day + index.day
-      responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel[:hotelID], :room1 => "2", :options => "ROOM_RATE_DETAILS"})
-      if responseGL.exception?
-        dateArray.push(firstDate)
-        priceArray.push(0)
-      else
-        dateArray.push(firstDate)
-        priceArray.push(responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'])
-      end
-    end
-    price.dateString = dateArray.join(',')
-    price.rateString = priceArray.join(',')
-    price.save
-  end
 
   def self.array(string)
     array = string.to_s.split(",")

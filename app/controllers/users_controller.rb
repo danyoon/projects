@@ -27,7 +27,8 @@ class UsersController < ApplicationController
   def connecting
     @title = "Connecting"
     @user = User.find(params[:id])
-    @hotels = @hotel.followed_hotels.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])
+    @hotels = @user.connected_hotels.paginate(page: params[:page])
     render 'show_connect'
   end
 end
