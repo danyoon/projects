@@ -1,6 +1,5 @@
 <li>
-  <span class="content"><%= price.date_for %></span>
-  <span class="content"><%= price.rate %></span>
+  <span class="content">$<%= price.rate %> on <%= price.date_for %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(price.created_at) %> ago.
   </span>

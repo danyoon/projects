@@ -1,4 +1,4 @@
-<%= provide(:title, @title) %>
+<% provide(:title, @title) %>
 <div class="row">
   <aside class="span4">
     <section>
@@ -9,10 +9,10 @@
     </section>
     <section>
       <%= render 'shared/stats' %>
-      <% if @users.any? %>
+      <% if @hotels.any? %>
         <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+          <% @hotels.each do |hotel| %>
+            <%= link_to image_tag(hotel.image, :size => "160x100"), hotel %>
           <% end %>
         </div>
       <% end %>
@@ -20,9 +20,9 @@
   </aside>
   <div class="span8">
     <h1><%= @title %></h1>
-    <% if @users.any? %>
-      <ul class="users">
-        <%= render @users %>
+    <% if @hotels.any? %>
+      <ul class="hotels">
+        <%= render @hotels %>
       </ul>
       <%= will_paginate %>
     <% end %>
