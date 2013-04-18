@@ -5,7 +5,7 @@
       <%#= gravatar_for @hotel, size: 52 %>
       <h1>
         <%= @hotel.name %>
-        <%#= render 'connect_form' if signed_in? %>
+        <%= render 'connect_form' if signed_in? %>
       </h1>
     </section>
     <section>
