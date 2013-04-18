@@ -7,6 +7,19 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <% if current_user.admin == TRUE %>
+      <section>
+      <h2>Import Hotels</h2>
+      <%= form_tag import_hotels_path, multipart: true do %>
+        <%= file_field_tag :file %>
+      <%= submit_tag "Import" %>
+    <% end %>
+      <h2>Download Hotels</h2>
+      <h6>
+        <%= link_to "Download as CSV", hotels_path(format: "csv") %>
+      </h6>
+    <% end %>
+    </section>
   </aside>
   <div class="span8">
     <h1>All hotels</h1>
@@ -17,14 +30,4 @@
     <%= will_paginate %>
   </div>
 </div>
-<h2>Download Hotels</h2>
-<h6>
-  <%= link_to "CSV", hotels_path(format: "csv") %> |
-</h6>
-
-<h2>Import Hotels</h2>
-<%= form_tag import_hotels_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 
