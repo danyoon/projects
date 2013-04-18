@@ -31,25 +31,25 @@ def make_prices(cityName)
   #@hotelsString = arr.join(", ") 
   hotels= Hotel.find_all_by_city(cityName)
   hotels.each do |hotel|
-    2.times do |index|
-      hotelName = hotel[:id]
+    14.times do |index|
       firstDate = Date.today + index.day
       secondDate = firstDate + 1.day
-      price = Price.find_or_create_by_hotel_id_and_date_for(hotelName,firstDate)
-      if price.created_at.to_i < Time.now.beginning_of_day.to_i
+      price = Price.find_or_create_by_hotel_id_and_date_for(hotel.id,firstDate)
+      #if price.created_at.to_i < Time.now.beginning_of_day.to_i
         api = Expedia::Api.new
-        responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotelName, :room1 => "2", :options => "ROOM_RATE_DETAILS"})
-        if responseGL.exception?
-          price.date_for = firstDate
-          price.rate = 0.0
-          price.save!
+        responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel.hotelID, :room1 => "2", :options => "ROOM_RATE_DETAILS"})
+        unless (responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'] rescue nil).nil?
+            temp = responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal']
+            price.rate = temp
+            price.date_for = firstDate
+            price.save!
         else
-          price.date_for = firstDate
-          price.rate = 20.0
-          #responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal']
-          price.save!
+            temp = 0.0
+            price.rate = temp          
+            price.date_for = firstDate
+            price.save!
         end
-      end
+      #end
     end
   end
   #@firstDate = Date.new(2013,6,30)
