@@ -1,10 +1,11 @@
 <li>
-  <span class="rate"><%= price.rate %></span>
+  <span class="content"><%= price.date_for %></span>
+  <span class="content"><%= price.rate %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(price.created_at) %> ago.
   </span>
   <% if current_user.admin == TRUE %>
-    <%= link_to "Delete", price.rate, method: :delete,
+    <%= link_to "Delete", price, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: price.rate %>
   <% end %>

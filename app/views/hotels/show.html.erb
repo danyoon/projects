@@ -2,15 +2,24 @@
 <div class="row">
   <aside class="span4">
     <section>
+      <%#= gravatar_for @hotel, size: 52 %>
       <h1>
         <%= @hotel.name %>
+        <%#= render 'connect_form' if signed_in? %>
       </h1>
     </section>
     <section>
-      <%#= render 'shared/stats' %>
+      <%= render 'shared/stats' %>
     </section>
   </aside>
   <div class="span8">
-    <%#= render 'connect_form' if signed_in? %>
+    <% if @hotel.prices.any? %>
+      <h1>Prices (<%= @hotel.prices.count %>)</h1>
+      <%= will_paginate @prices %>
+      <ol class="prices">
+        <%= render @prices %>
+      </ol>
+      <%= will_paginate @prices %>
+    <% end %>
   </div>
 </div>
