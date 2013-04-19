@@ -3,6 +3,7 @@ class HotelsController < ApplicationController
 
   def index
     @hotels = Hotel.paginate(page: params[:page])
+    @user = current_user
     @title = "All Hotels"    
     hotelsall = Hotel.order(:id)
     respond_to do |format|

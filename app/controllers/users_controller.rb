@@ -1,34 +1,35 @@
 class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
-    @title = "All Users"
+    @user = current_user
+    @title = "All Users"        
   end
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
-    @title = @user.name
+    @title = @user.name    
+    @hotelfeed_items = @user.hotelfeed.paginate(page: params[:page])
   end
 
   def following
-    @title = "Following"
     @user = User.find(params[:id])
+    @title = "Following"    
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
     @user = User.find(params[:id])
+    @title = "Followers"    
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def connecting
-    @title = "Connecting"
     @user = User.find(params[:id])
-    @users = User.paginate(page: params[:page])
+    @title = "Connecting"    
     @hotels = @user.connected_hotels.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])    
     render 'show_connect'
   end
 end

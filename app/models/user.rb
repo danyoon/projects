@@ -53,8 +53,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def feed
+  def userfeed
     Micropost.from_users_followed_by(self)
+  end
+
+  def hotelfeed
+    Price.from_hotels_connected_to(self)
   end
 
   def following?(other_user)

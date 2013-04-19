@@ -2,7 +2,7 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <%#= gravatar_for @hotel, size: 52 %>
+      <%= image_tag(@hotel.image, :size => "160x100") %>`
       <h1>
         <%= @hotel.name %>
         <%= render 'connect_form' if signed_in? %>
