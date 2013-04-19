@@ -2,10 +2,7 @@ class StaticPagesController < ApplicationController
   require 'json'
   def index
     @title = 'Home'
-    if signed_in?
-      @hotelfeed_items = current_user.hotelfeed.paginate(page: params[:page])
-    end
-
+    @user = current_user
     @hash = Hash["New York", Hotel.find_all_by_city("New York"),
                 "San Francisco", Hotel.find_all_by_city("San Francisco"), 
                 "Washington DC", Hotel.find_all_by_city("Washington"),

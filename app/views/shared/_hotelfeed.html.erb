@@ -1,0 +1,6 @@
+<% if @hotelfeed_items.any? %>
+  <ol class="prices">
+    <%= render partial: 'shared/hotelfeed_item', collection: @hotelfeed_items %>
+  </ol>
+  <%= will_paginate @hotelfeed_items %>
+<% end %>
