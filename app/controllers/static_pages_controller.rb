@@ -40,11 +40,6 @@ class StaticPagesController < ApplicationController
     #@output = api.get_list ({:cacheKey => @response.body['HotelListResponse']['cacheKey'], :cacheLocation => @response.body['HotelListResponse']['cacheLocation']})
     #end
 
-  def self.array(string)
-    array = string.to_s.split(",")
-    return array
-  end
-
   def home
     @title = 'Home'
     if signed_in?
@@ -53,15 +48,17 @@ class StaticPagesController < ApplicationController
     end
   end
   
-  def help
+  def statichotels
+    @hotels = Hotel.paginate(page: params[:page])
     @title = 'Help'
   end
 
-  def about
+  def staticusers
+    @users = User.paginate(page: params[:page])
     @title = 'About'
   end
 
-  def contact
+  def staticcontact
     @title = 'Contact'
   end
 end

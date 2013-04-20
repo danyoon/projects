@@ -15,7 +15,7 @@ gem 'devise'
 gem "nifty-generators", :group => :development
 gem 'figaro'
 gem 'expedia'
-gem 'database_cleaner'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -37,9 +37,6 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.1.0'
   gem 'cucumber-rails', '1.2.1', :require => false
-  # gem 'launchy', '2.1.0'
-  # gem 'rb-fsevent', '0.9.1', :require => false
-  # gem 'growl', '1.0.3'
 end
 
 group :production do

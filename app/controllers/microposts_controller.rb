@@ -1,5 +1,4 @@
 class MicropostsController < ApplicationController
-  before_filter :authenticate_user!
 
   def create
     @micropost = current_user.microposts.build(params[:micropost])
