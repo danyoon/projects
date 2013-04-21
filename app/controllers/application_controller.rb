@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  after_filter :store_location
 
-  # This tells Devise where to re-direct to after successful sign up or sign in
-  def after_sign_in_path_for(user)
-    user_url(user)
+  def store_location
+    # store last url as long as it isn't a /users path
+    session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || user_url(user)
   end
 
 end

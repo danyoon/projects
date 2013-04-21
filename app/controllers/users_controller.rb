@@ -8,28 +8,28 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name    
-    @hotelfeed_items = @user.hotelfeed.paginate(page: params[:page])
+    @hotelfeed_items = @user.connected_hotels.paginate(page: params[:page])
+    #@hotelfeed_items = @user.hotelfeed.paginate(page: params[:page])
   end
 
   def following
     @user = User.find(params[:id])
-    @title = "Following"    
+    @title = "Following"
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @user = User.find(params[:id])
-    @title = "Followers"    
+    @title = "Followers"
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def connecting
     @user = User.find(params[:id])
-    @title = "Connecting"    
+    @title = "Connecting"
     @hotels = @user.connected_hotels.paginate(page: params[:page])
-    @users = User.paginate(page: params[:page])    
     render 'show_connect'
   end
 end
