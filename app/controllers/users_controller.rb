@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.name    
     @hotelfeed_items = @user.connected_hotels.paginate(page: params[:page])
-    #@hotelfeed_items = @user.hotelfeed.paginate(page: params[:page])
+    @hotelfeed_prices = @user.hotelfeed.paginate(page: params[:page])
   end
 
   def following

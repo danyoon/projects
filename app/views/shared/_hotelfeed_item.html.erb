@@ -2,6 +2,8 @@
   <% if user_signed_in? %>
     <%= image_tag(hotelfeed_item.image, :size => "80x50") %>`
     <%= link_to hotelfeed_item.name, hotelfeed_item %>
+    <%= render :partial => 'shared/hotelfeed_price', :collection => @hotelfeed_prices %>
+
   <% else %>
     <%= image_tag(hotelfeed_item.image, :size => "80x50") %>`
     <%= hotelfeed_item.name %>
