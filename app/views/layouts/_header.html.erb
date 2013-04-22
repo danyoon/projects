@@ -14,26 +14,27 @@
 </header>
 <div class="container">
   <div class="well">
+    <% if user_signed_in? %>
     <div class="row">
-      <% if user_signed_in? %>
-        <div class="span10">
-        <h1>Welcome <%= current_user.name %></h1><br>
-        <%= link_to "Profile", current_user, class: "btn btn-large" %>
-        <%= link_to "Users", users_path, class: "btn btn-large" %>
-        <%= link_to "Hotels", hotels_path, class: "btn btn-large" %>
-        <%= link_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-large btn-success pull-right" %>
-        <%= link_to "Settings", edit_user_registration_path, class: "btn btn-large pull-right" %>
-        
-      </div>
-    <% else %>
-        <div class="span7"><h1>Software to Track Room Rates</h1></div>
+      <div class="span10"><h1>Welcome <%= current_user.name %></h1><br></div>
+    </div>
+    <div class="row">
+      <div class="span2"><%= link_to "Profile", current_user, class: "btn btn-large btn-block" %></div>
+      <div class="span2"><%= link_to "Users", users_path, class: "btn btn-large btn-block" %></div>
+      <div class="span2"><%= link_to "Hotels", hotels_path, class: "btn btn-large btn-block" %></div>
+      <div class="span2 offset1"><%= link_to "Settings", edit_user_registration_path, class: "btn btn-large btn-block" %></div>
+      <div class="span2"><%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-large btn-block btn-success" %></div>      
+    </div>
+  <% else %>
+      <div class="row">
+      <div class="span7"><h1>Software to Track Room Rates</h1></div>
       <div class="span3">
         <h2>Sign in with</h2>
         <%= link_to image_tag("facebookbig.png", alt: "Sign in with Facebook"), user_omniauth_authorize_path(:facebook), class: "pull-left" %>
         <%= link_to image_tag("googlebig.png", alt: "Sign in with Google"), user_omniauth_authorize_path(:google_oauth2), class: "pull-left" %>
         <%= link_to image_tag("emailbig.png", alt: "Sign in with Email"), signin_path, class: "pull-left" %>        
       </div>
-    <% end %>
     </div>
+  <% end %>
   </div>
 

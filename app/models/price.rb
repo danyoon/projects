@@ -7,6 +7,14 @@ class Price < ActiveRecord::Base
   def self.from_hotels_connected_to(user)
     connected_user_ids = "SELECT connected_id FROM connections
                          WHERE connecter_id = :hotel_id"
-    where("hotel_id IN (#{connected_user_ids})", hotel_id: user.id)
+    where("hotel_id IN (#{connected_user_ids}) OR hotel_id = :hotel_id",
+          :hotel_id => user.id)
+  end
+
+  def self.from(hotel)
+    connected_hotel_ids = "SELECT * FROM prices
+                         WHERE hotel_id = :hotel_id"
+    where("hotel_id = :hotel_id",
+          :hotel_id => hotel.id)
   end
 end
