@@ -1,0 +1,16 @@
+<li id="<%= hotelfeed_price.id %>">
+  <%= link_to image_tag(hotelfeed_price.hotel.image), hotelfeed_price.hotel %>
+    <span class="user">
+      <%= link_to hotelfeed_price.hotel.name, hotelfeed_price.hotel %>
+    </span>
+    <span class="price"><%= hotelfeed_price.rate %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(hotelfeed_price.created_at) %> ago.
+    </span>
+  <% if current_user.admin == TRUE %>
+    <%= link_to "delete", hotelfeed_price, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: hotelfeed_price.rate %>
+  <% end %>
+  </li>
+

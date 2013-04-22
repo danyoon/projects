@@ -12,7 +12,7 @@
       <% if @hotels.any? %>
         <div class="user_avatars">
           <% @hotels.each do |hotel| %>
-            <%= link_to image_tag(hotel.image, :size => "160x100"), hotel %>
+            <%= link_to image_tag(hotel.image, :size => "40x25"), hotel %>
           <% end %>
         </div>
       <% end %>
