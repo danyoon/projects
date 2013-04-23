@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || user_url(user)
+    root_url
+    #old way was user_url(@user)
   end
 
 end

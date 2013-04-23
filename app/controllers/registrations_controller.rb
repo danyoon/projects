@@ -17,4 +17,9 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
+
+  def after_sign_up_path_for(resource)
+    root_url
+    #old way was user_url(@user)    
+  end
 end

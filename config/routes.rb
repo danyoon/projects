@@ -30,6 +30,9 @@ FirstApp::Application.routes.draw do
   match '/staticblurb',   to: 'static_pages#staticblurb'
   match '/staticcontact', to: 'static_pages#staticcontact'
 
+  authenticated :user do
+    root to: 'users#show'
+  end
   root to: 'static_pages#index'
 
   # The priority is based upon order of creation:
