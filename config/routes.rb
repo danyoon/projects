@@ -27,7 +27,7 @@ FirstApp::Application.routes.draw do
   resources :connections, only: [:create, :destroy]
   
   match '/statichotels',  to: 'static_pages#statichotels'
-  match '/staticusers',   to: 'static_pages#staticusers'
+  match '/staticblurb',   to: 'static_pages#staticblurb'
   match '/staticcontact', to: 'static_pages#staticcontact'
 
   root to: 'static_pages#index'
