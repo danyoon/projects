@@ -1,12 +1,13 @@
 <div class="span1"> 
-    <span class="price"><%= link_to hotelfeed_price.rate, hotelfeed_price.hotel %></span><br>
-    <span class="price"><%= link_to hotelfeed_price.date_for, hotelfeed_price.hotel %></span><br>    
-    <span class="timestamp">
-    <%= hotelfeed_price.created_at %></span>
+  <span class="rate"><%= link_to hotelfeed_price.date_for.strftime("%a"), hotelfeed_price.hotel %></span><br>    
+  <span class="rate"><%= link_to hotelfeed_price.date_for.strftime("%b %e"), hotelfeed_price.hotel %></span><br>    
+  <span class="rate"><h5>$<%= link_to hotelfeed_price.rate, hotelfeed_price.hotel %></h5></span><br>
+  <span class="rate">
+    Checked <%= time_ago_in_words(hotelfeed_price.created_at) %> ago</span>
   <% if current_user.admin == TRUE %>
     <br>
-    <%= link_to "delete", hotelfeed_price, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: hotelfeed_price.rate %>
-  <% end %>
-</div>
+  <%= link_to "Delete", hotelfeed_price, method: :delete,
+    data: { confirm: "You sure?" },
+    title: hotelfeed_price.rate %>
+<% end %>
+  </div>

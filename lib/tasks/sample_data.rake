@@ -25,6 +25,18 @@ namespace :db do
     make_prices("Corvara in Badia")
   end
 
+  task makenypremium: :environment do
+    make_premium("New York")    
+  end
+    task makesfpremium: :environment do
+    make_premium("San Francisco")
+  end
+  task makedcpremium: :environment do
+    make_premium("Washington")
+  end
+  task makecorvarapremium: :environment do
+    make_premium("Corvara in Badia")
+  end
 end
 
 def make_prices(cityName)
@@ -39,10 +51,12 @@ def make_prices(cityName)
         api = Expedia::Api.new
         responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel.hotelID, :room1 => "2", :options => "ROOM_RATE_DETAILS"})
         unless (responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'] rescue nil).nil?
-            temp = responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal']
-            price.rate = temp
-            price.date_for = firstDate
-            price.save!
+            temp = BigDecimal.new (responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'])
+            if (price.rate > temp || price.rate == 0.0 || price.rate.nil? )
+              price.rate = temp
+              price.date_for = firstDate
+              price.save!
+            end
         else
             temp = 0.0
             price.rate = temp          
@@ -52,6 +66,43 @@ def make_prices(cityName)
       #end
     end
   end
+end
+  
+def make_premium(cityName)
+  #@hotelsString = arr.join(", ") 
+  hotels= Hotel.find_all_by_city(cityName)
+  hotels.each do |hotel|
+    14.times do |index|
+      firstDate = Date.today + index.day
+      secondDate = firstDate + 1.day
+      price = Price.find_or_create_by_hotel_id_and_date_for(hotel.id,firstDate)
+      #if price.created_at.to_i < Time.now.beginning_of_day.to_i
+        api = Expedia::Api.new
+        responseGA = api.get_availability({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"),:hotelID => hotel.hotelID, :supplierType => "E",:room1 => "2"})
+        unless (responseGA.body['HotelRoomAvailabilityResponse']['HotelRoomResponse'] rescue nil).nil?
+            #hotelID = responseGA.body['HotelRoomAvailabilityResponse']['hotelId']
+            tempArray = responseGA.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
+            tempArray.each do |t|
+              unless (t['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'] rescue nil).nil?
+                temp = BigDecimal.new(t['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'])
+                if (price.rate > temp || price.rate == 0.0 || price.rate.nil? )
+                  price.rate = temp
+                  price.date_for = firstDate
+                  price.save!
+                end
+              end
+            end
+        else
+            temp = 0.0
+            price.rate = temp          
+            price.date_for = firstDate
+            price.save!
+        end
+      #end
+    end
+  end
+end
+
   #@firstDate = Date.new(2013,6,30)
   #@secondDate = Date.new(2013,7,1)    
   #firstDateNumber = @firstDate.yday
@@ -61,27 +112,17 @@ def make_prices(cityName)
   #api= Expedia::Api.new
   #@response = api.get_list({:propertyName => 'Hotel Moa Berlin', :destinationString => 'berlin'})
   #puts @response
-
-  #Detailed Availability Code that Works
-  #api= Expedia::Api.new
-  #@responseGA = api.get_availability({:arrivalDate => firstDate.strftrime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"),:hotelID => "131734", :supplierType => "E",:room1 => "2"})
-  #if @responseGA.exception?
-  #else
-    #@hotelGA = @responseGA.body['HotelRoomAvailabilityResponse']['hotelId']      
-    #tempArray = @responseGA.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
-    #@outputGA = tempArray[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
-  #end 
     
   #Alternative Code That Works
   #@api = Expedia::Api.new  
   #@responseGL = @api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => "131734, 131734", :room1 => "2", :options => "ROOM_RATE_DETAILS"})
   #@hotelGL = responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['hotelId']
     
-  #More Results Test Code that Doesn't WOrk
+  #More Results Test Code that Doesn't Work
   #if @response.body['HotelListResponse']['moreResultsAvailable']
   #@output = api.get_list ({:cacheKey => @response.body['HotelListResponse']['cacheKey'], :cacheLocation => @response.body['HotelListResponse']['cacheLocation']})
   #end
-end
+
 
 def make_hotels
   require 'csv'

@@ -1,15 +1,12 @@
 <li>
 <% if user_signed_in? %>
   <div class="row">
-  <div class="span7"> 
-    <%= image_tag(hotelfeed_item.image, :size => "80x50") %>
-    <%= link_to hotelfeed_item.name, hotelfeed_item %>
-  </div>
+  <%= image_tag(hotelfeed_item.image, :size => "80x50") %>
+  <%= link_to hotelfeed_item.name, hotelfeed_item %>
 </div>
-<div class="row">
-  <% hotelfeed_prices = Price.from(hotelfeed_item) %> 
-  <%= render :partial => 'shared/hotelfeed_price', :collection => hotelfeed_prices %>
-</div>
+<% hotelfeed_prices = Price.from(hotelfeed_item) %> 
+<%= render :partial => 'shared/hotelfeed_price', :collection => hotelfeed_prices %>
+
   <% else %>
   <%= image_tag(hotelfeed_item.image, :size => "80x50") %>`
 <%= hotelfeed_item.name %>

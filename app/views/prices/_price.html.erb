@@ -1,12 +1,14 @@
-<li>
-  <span class="content">$<%= price.rate %> on <%= price.date_for %></span>
+<div class="span1">
+  <span class="rate"><%= link_to price.date_for.strftime("%a"), price.hotel %></span><br>  
+  <span class="rate"><%= link_to price.date_for.strftime("%b %e"), price.hotel %></span><br>    
+  <span class="rate"><h5>$<%= link_to price.rate, price.hotel %></h5></span><br>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(price.created_at) %> ago.
+    Checked <%= time_ago_in_words(price.created_at) %> ago.
   </span>
   <% if current_user.admin == TRUE %>
     <%= link_to "Delete", price, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: price.rate %>
+      data: { confirm: "You sure?" },
+      title: price.rate %>
   <% end %>
-</li>
+    </div>
 
