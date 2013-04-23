@@ -5,7 +5,6 @@
   <span class="rate">
     Checked <%= time_ago_in_words(hotelfeed_price.created_at) %> ago</span>
   <% if current_user.admin == TRUE %>
-    <br>
   <%= link_to "Delete", hotelfeed_price, method: :delete,
     data: { confirm: "You sure?" },
     title: hotelfeed_price.rate %>
