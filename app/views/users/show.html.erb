@@ -9,8 +9,8 @@
       <%= render 'shared/stats' %>
     </section>
     <section>
-      <%= link_to "Add Users", users_path, class: "btn btn-large btn-block" if @user == current_user %>
-      <%= link_to "Add Hotels", hotels_path, class: "btn btn-large btn-block" if @user == current_user %>
+      <%= link_to "Add Users", users_path, class: "btn btn-large" if @user == current_user %>
+      <%= link_to "Add Hotels", hotels_path, class: "btn btn-large" if @user == current_user %>
     </section>
   </aside>
   <div class="span8">

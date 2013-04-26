@@ -9,14 +9,13 @@
     </section>
     <% if current_user.admin == TRUE %>
       <section>
-      <h2>Import Hotels</h2>
       <%= form_tag import_hotels_path, multipart: true do %>
         <%= file_field_tag :file %>
-        <%= submit_tag "Import from CSV", class: "btn btn-large" %>
+        <%= submit_tag "Load from CSV", class: "btn btn-large" %>
     <% end %>
-      <h2>Download Hotels</h2>
-      <%= link_to "Download as CSV", hotels_path(format: "csv"), class: "btn btn-large" %>
-    <% end %>
+  <% end %>
+    <%= link_to "Export to CSV", hotels_path(format: "csv"), class: "btn btn-large" %>
+    
     </section>
   </aside>
   <div class="span8">
