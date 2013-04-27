@@ -1,6 +1,11 @@
 <% if @hotelfeed_items.any? %>
   <ol class="prices">
+    <% 14.times do |index| %>
+      <% firstDate = Date.today + index.day %>
+      <% secondDate = firstDate + 1.day %>
+      <%= firstDate.strftime("%a") %>
+      <%= firstDate.strftime("%b %e") %>
+    <% end %>
     <%= render :partial => 'shared/hotelfeed_item', :collection => @hotelfeed_items %>
   </ol>
-  <%= will_paginate @hotelfeed_items %>
 <% end %>

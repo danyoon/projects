@@ -1,6 +1,4 @@
 <div class="span1">
-  <span class="rate"><%= link_to hotelfeed_price.date_for.strftime("%a"), hotelfeed_price.hotel %></span>   
-  <span class="rate"><%= link_to hotelfeed_price.date_for.strftime("%b %e"), hotelfeed_price.hotel %></span>  
   <span class="rate"><h5>$<%= link_to hotelfeed_price.rate, hotelfeed_price.hotel %></h5></span>
   <span class="rate">
     Checked <%= time_ago_in_words(hotelfeed_price.created_at) %> ago</span>
