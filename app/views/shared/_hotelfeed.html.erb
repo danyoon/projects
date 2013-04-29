@@ -1,8 +1,6 @@
-<% if @hotelfeed_prices.any? %>
-  <ol class="prices">
-    <% 14.times do |index| %>
-      <% firstDate = Date.today + index.day %>
-      <%= render :partial => 'shared/hotelfeed_item', :locals => { :firstDate => firstDate } %>
-    <% end %>
-  </ol>
+<ol class="prices">
+  <% 14.times do |index| %>
+    <% firstDate = Date.today + index.day %>
+  <%= render :partial => 'shared/hotelfeed_item', :locals => { :firstDate => firstDate } %>
 <% end %>
+</ol>
