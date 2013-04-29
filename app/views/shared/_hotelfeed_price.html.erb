@@ -1,14 +1,11 @@
-<% price = Price.for_date_and_hotel(firstDate, hotelfeed_price) %>
-  <%= image_tag(hotelfeed_price.image, :size => "80x50") %>
-  <%= link_to hotelfeed_price.name, hotelfeed_price %>
-  <% unless (price.rate rescue nil).nil? %>
-    <%= price.rate %>
-    Checked <%= time_ago_in_words(price.created_at)%> ago
-  <% end %>
-
-<% if current_user.admin == TRUE && price.nil? %>
-  <%= link_to "Delete", price, method: :delete,
-      data: { confirm: "You sure?" },
-      title: price.rate %>
-    <hr>
+<% price = Price.for_date_and_hotel(firstDate, hotelfeed_price).first %>
+<%= link_to image_tag(hotelfeed_price.image, :size => "80x50"), hotelfeed_price %>
+<br>
+<% unless (price.rate rescue nil).nil? %>
+  <%= price.rate %>
+  <%#= time_ago_in_words(price.created_at) %>
+<% else %>
+  0.0
 <% end %>
+
+
