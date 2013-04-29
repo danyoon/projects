@@ -47,16 +47,14 @@ def make_prices(cityName)
       firstDate = Date.today + index.day
       secondDate = firstDate + 1.day
       price = Price.find_or_create_by_hotel_id_and_date_for(hotel.id,firstDate)
-      #if price.created_at.to_i < Time.now.beginning_of_day.to_i
+      #if price.updated_at.to_i < Time.now.beginning_of_day.to_i
         api = Expedia::Api.new
         responseGL = api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => hotel.hotelID, :room1 => "2", :options => "ROOM_RATE_DETAILS"})
         unless (responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'] rescue nil).nil?
             temp = BigDecimal.new (responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['RoomRateDetailsList']['RoomRateDetails']['RateInfos']['RateInfo']['ChargeableRateInfo']['@nightlyRateTotal'])
-            if (price.rate > temp || price.rate == 0.0 || price.rate.nil? )
-              price.rate = temp
-              price.date_for = firstDate
-              price.save!
-            end
+            price.rate = temp
+            price.date_for = firstDate
+            price.save!
         else
             temp = 0.0
             price.rate = temp          
