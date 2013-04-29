@@ -1,7 +1,7 @@
 <div class="span1">
   <span class="rate"><%= price.date_for.strftime("%a") %></span>
   <span class="rate"><%= price.date_for.strftime("%b %e") %></span>    
-  <span class="rate"><h5>$<%= link_to price.rate, price.hotel %></h5></span>
+  <span class="rate"><h5><%= number_to_currency(price.rate) %></h5></span>
   <span class="timestamp">
     <%= time_ago_in_words(price.updated_at) %>
   </span>
