@@ -11,10 +11,9 @@ class Price < ActiveRecord::Base
           :hotel_id => user.id)
   end
 
-  def self.from(hotel)
-    connected_hotel_ids = "SELECT * FROM prices
-                         WHERE hotel_id = :hotel_id"
-    where("hotel_id = :hotel_id",
-          :hotel_id => hotel.id)
+  def self.for_date_and_hotel(date, hotel)
+    connected_prices_ids = "SELECT * FROM prices
+                         WHERE date_for = :date_for AND hotel_id = :hotel_id"
+    where(:date_for => date, :hotel_id => hotel.id)
   end
 end

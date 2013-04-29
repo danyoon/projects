@@ -1,11 +1,14 @@
-<div class="span1">
-  <span class="rate"><h5>$<%= link_to hotelfeed_price.rate, hotelfeed_price.hotel %></h5></span>
-  <span class="rate">
-    Checked <%= time_ago_in_words(hotelfeed_price.created_at) %> ago</span>
-  <% if current_user.admin == TRUE %>
-  <%= link_to "Delete", hotelfeed_price, method: :delete,
-    data: { confirm: "You sure?" },
-    title: hotelfeed_price.rate %>
-  <hr>
+<% price = Price.for_date_and_hotel(firstDate, hotelfeed_price) %>
+  <%= image_tag(hotelfeed_price.image, :size => "80x50") %>
+  <%= link_to hotelfeed_price.name, hotelfeed_price %>
+  <% unless (price.rate rescue nil).nil? %>
+    <%= price.rate %>
+    Checked <%= time_ago_in_words(price.created_at)%> ago
+  <% end %>
+
+<% if current_user.admin == TRUE && price.nil? %>
+  <%= link_to "Delete", price, method: :delete,
+      data: { confirm: "You sure?" },
+      title: price.rate %>
+    <hr>
 <% end %>
-  </div>

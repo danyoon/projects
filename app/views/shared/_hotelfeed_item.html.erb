@@ -1,17 +1,6 @@
-<li>
-<% if user_signed_in? %>
-  <div class="row">
-  <%= image_tag(hotelfeed_item.image, :size => "80x50") %>
-  <%= link_to hotelfeed_item.name, hotelfeed_item %>
+<div class="span1">
+  <%= firstDate.strftime("%a") %><br>
+  <%= firstDate.strftime("%b %e") %>
+  <%= render :partial => 'shared/hotelfeed_price', :collection => @hotelfeed_prices, :locals => { :firstDate => firstDate } %>
+  <hr>
 </div>
-<% @hotelfeed_prices = Price.from(hotelfeed_item) %>
-<% @hotelfeed_prices.in_groups_of(7,false) do |hotelfeed_prices| %>
-  <% hotelfeed_prices.each do |hotelfeed_price| %>
-  <%= hotelfeed_price.rate %>
-    <% end %>
-<% end %>
-<% else %>
-  <%= image_tag(hotelfeed_item.image, :size => "80x50") %>`
-<%= hotelfeed_item.name %>
-<% end %>
-</li>
