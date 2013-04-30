@@ -19,8 +19,7 @@
       <div class="span10"><h1>Welcome <%= current_user.name %></h1><br></div>
     </div>
     <div class="row">
-      <div class="span2"><%= link_to "Profile", current_user, class: "btn btn-large btn-block" %></div>
-      <div class="span2 offset4"><%= link_to "Settings", edit_user_registration_path, class: "btn btn-large btn-block" %></div>
+      <div class="span2"><%= link_to "Settings", edit_user_registration_path, class: "btn btn-large btn-block" %></div>
       <div class="span2"><%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-large btn-block btn-success" %></div>      
     </div>
   <% else %>
