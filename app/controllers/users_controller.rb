@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     end
     @title = @user.name    
     @hotelfeed_prices = @user.connected_hotels.paginate(page: params[:page])
-    #@hotelfeed_prices = @user.hotelfeed.paginate(page: params[:page])
   end
 
   def following

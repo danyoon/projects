@@ -17,11 +17,9 @@
   </aside>
   <div class="span8">
     <h1><%= @title %></h1>
-    <% if @historicalprices.any? %>
-      <ul class="historicalprices">
-        <%= render @historicalprices %>
-      </ul>
-    <% end %>
+      <ol class="prices">
+        <%= render 'shared/historical' %>
+      </ol>
   </div>
 </div>
 

@@ -1,15 +1,17 @@
-<div class="span1">
-  <span class="rate"><%= price.date_for.strftime("%a") %></span>
+<li>
+<div class="row">
+  <div class="span1">
+    <span class="rate"><%= price.date_for.strftime("%a") %></span>
+  </div>
+  <div class="span1">
+    <span class="rate"><%= price.date_for.strftime("%b %e") %></span> 
+  </div>
+  <div class="span2">
+    <span class="rate"><b><%= number_to_currency(price.rate) %></b></span>
+  </div>
+  <div class="span3">
+    <span class="timestamp">Checked <%=  time_ago_in_words(price.updated_at) %> ago</span>
+  </div>
 </div>
-<div class="span1">    
-  <span class="rate"><%= price.date_for.strftime("%b %e") %></span> 
-</div>
-<div class="span1">      
-  <span class="rate"><b><%= number_to_currency(price.rate) %></b></span>
-</div>
-<div class="span4">  
-  <span class="timestamp">Checked <%=  time_ago_in_words(price.updated_at) %> ago</span>
-</div>
-
-
+</li>
 

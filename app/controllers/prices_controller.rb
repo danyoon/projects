@@ -1,11 +1,12 @@
 class PricesController < ApplicationController
-
+  require 'will_paginate'
+  
   def historical
     @title = "Historical Prices"
     @user = current_user
     @hotels = @user.connected_hotels.all
-    @historicalprice = Price.find(params[:id])
-    @historicalprices = Price.find_all_by_date_for_and_hotel_id(@historicalprice.date_for,@historicalprice.hotel_id)
+    @price = Price.find(params[:id])
+    @historical_prices = Price.find_all_by_date_for_and_hotel_id(@price.date_for,@price.hotel_id)
     render 'show_historical'
   end
 

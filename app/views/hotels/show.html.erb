@@ -14,7 +14,7 @@
   </aside>
   <div class="span8">
     <% if @hotel.prices.any? %>
-      <h1>Prices (<%= @hotel.prices.count %>)</h1>
+      <h1><%= @title %></h1>
       <%= will_paginate @prices %>
       <ol class="prices">
         <%= render @prices %>
