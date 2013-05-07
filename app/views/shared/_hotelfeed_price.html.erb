@@ -2,7 +2,7 @@
 <%= link_to image_tag(hotelfeed_price.image, :size => "80x50"), hotelfeed_price %>
 <br>
 <% unless (price.rate rescue nil).nil? %>
-  <h5><%= number_to_currency(price.rate) %><br></h5>  <%#= time_ago_in_words(price.updated_at) %>
+  <h5><%= link_to number_to_currency(price.rate), historical_price_path(price.id) %><br></h5>  <%#= time_ago_in_words(price.updated_at) %>
 <% else %>
   <h5><%= number_to_currency(0.0) %><br><h5>
 <% end %>

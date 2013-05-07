@@ -18,6 +18,10 @@ FirstApp::Application.routes.draw do
     member {get :connecting}
   end
 
+  resources :prices do
+    member {get :historical}
+  end
+
   # Additional user actions separated out into a new controller,
   # ProfilesController, due to conflicts with /users/:id route and
   # Devise's standard routes

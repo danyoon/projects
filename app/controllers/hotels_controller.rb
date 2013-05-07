@@ -20,7 +20,7 @@ class HotelsController < ApplicationController
 
   def import
     Hotel.import(params[:file])
-  redirect_to hotels_url, notice: "Hotels imported."
+    redirect_to hotels_url, notice: "Hotels imported."
   end
 
   def connecters

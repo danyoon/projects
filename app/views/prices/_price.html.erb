@@ -1,15 +1,15 @@
 <div class="span1">
   <span class="rate"><%= price.date_for.strftime("%a") %></span>
-  <span class="rate"><%= price.date_for.strftime("%b %e") %></span>    
-  <span class="rate"><h5><%= number_to_currency(price.rate) %></h5></span>
-  <span class="timestamp">
-    <%= time_ago_in_words(price.updated_at) %>
-  </span>
-  <% if current_user.admin == TRUE %>
-    <%= link_to "Delete", price, method: :delete,
-      data: { confirm: "You sure?" },
-      title: price.rate %>
-  <% end %>
-      <hr>
-    </div>
+</div>
+<div class="span1">    
+  <span class="rate"><%= price.date_for.strftime("%b %e") %></span> 
+</div>
+<div class="span1">      
+  <span class="rate"><b><%= number_to_currency(price.rate) %></b></span>
+</div>
+<div class="span4">  
+  <span class="timestamp">Checked <%=  time_ago_in_words(price.updated_at) %> ago</span>
+</div>
+
+
 

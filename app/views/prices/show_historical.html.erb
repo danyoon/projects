@@ -1,0 +1,27 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+      <% if @hotels.any? %>
+        <div class="user_avatars">
+          <% @hotels.each do |hotel| %>
+            <%= link_to image_tag(hotel.image, :size => "40x25"), hotel %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h1><%= @title %></h1>
+    <% if @historicalprices.any? %>
+      <ul class="historicalprices">
+        <%= render @historicalprices %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
