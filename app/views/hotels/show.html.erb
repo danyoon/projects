@@ -2,7 +2,8 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <%= image_tag(@hotel.image, :size => "160x100") %>`
+      <%= link_to image_tag(@hotel.image, :size => "160x100"), hotel_path(@hotel) %>`
+      <br>
       <h1>
         <%= @hotel.name %>
         <%= render 'connect_form' if signed_in? %>
