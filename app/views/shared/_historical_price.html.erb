@@ -6,6 +6,9 @@
 <% end %>
   </div>
   <div class="span3">
+    0 Rooms Left
+  </div>    
+  <div class="span2">
 <% unless (historical_price.updated_at rescue nil).nil? %>
     <span class="timestamp">Checked <%=  time_ago_in_words(historical_price.updated_at) %> ago</span>
 <% end %>

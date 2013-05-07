@@ -3,13 +3,13 @@
   <div class="span1">
     <span class="rate"><%= price.date_for.strftime("%a") %></span>
   </div>
-  <div class="span1">
+  <div class="span2">
     <span class="rate"><%= price.date_for.strftime("%b %e") %></span> 
   </div>
   <div class="span2">
     <span class="rate"><b><%= number_to_currency(price.rate) %></b></span>
   </div>
-  <div class="span3">
+  <div class="span2">
     <span class="timestamp">Checked <%=  time_ago_in_words(price.updated_at) %> ago</span>
   </div>
 </div>
