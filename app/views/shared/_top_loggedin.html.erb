@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="span2">
+    <h1><%= link_to gravatar_for(@user, size: 200), user_path(@user)  %></h1>
+    <%= render 'follow_form' if signed_in? %>
+  </div>
+  <div class="span4">
+    <h1><%= @user.name %></h1><hr>   
+    <%= render 'shared/stats' %>
+  </div>
+  <div class="span2 offset3">
+      <br>
+      <%= link_to "Add Users", users_path, class: "btn btn btn-link" if @user == current_user %>
+      <%= link_to "Add Hotels", hotels_path, class: "btn btn btn-link" if @user == current_user %>
+      <%= link_to "Settings", edit_user_registration_path, class: "btn btn-link" if @user == current_user %>
+      <%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-link" if @user == current_user %>   
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="span1">
+  <%= firstDate.strftime("%a") %><br>
+  <%= firstDate.strftime("%b %e") %>
+  <%= render :partial => 'shared/summary_price', :collection => @summary_prices, :locals => { :firstDate => firstDate } %>
+  <hr>
+</div>

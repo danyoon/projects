@@ -1,6 +1,6 @@
 <ol class="prices">
   <% 14.times do |index| %>
     <% firstDate = Date.today + index.day %>
-  <%= render :partial => 'shared/hotelfeed_item', :locals => { :firstDate => firstDate } %>
+  <%= render :partial => 'shared/summary_week', :locals => { :firstDate => firstDate } %>
 <% end %>
 </ol>
