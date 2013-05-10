@@ -2,7 +2,8 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="nav">
-        <%= link_to "THOUSANDSOFT", root_path, id: "logo" %></div>
+        <%= link_to "THOUSANDSOFT", root_path, id: "logo" %>
+      </div>
       <div class="nav pull-right">
         <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/thousandsoft', class: "pull-right"  %>
         <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://www.twitter.com/thousandsoft', class: "pull-right"  %>
@@ -17,7 +18,7 @@
       <%= render 'shared/top_loggedin' %> 
     <% else %>
       <%= render 'shared/top_main' %> 
-    </div>
-  <% end %>
+    <% end %>
   </div>
+</div>
 

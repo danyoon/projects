@@ -1,0 +1,10 @@
+<div class="span1">
+  <div class="thumbnail">
+    <h5><%= firstDate.strftime("%a") %></h5>
+    <h6><%= firstDate.strftime("%b") %></h6>
+    <h6><%= firstDate.strftime("%e") %></h6>
+    
+    <hr>
+    <%= render :partial => 'shared/calendar_price', :locals => { :firstDate => firstDate } %>
+  </div>
+</div>

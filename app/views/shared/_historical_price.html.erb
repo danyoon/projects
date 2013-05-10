@@ -1,14 +1,13 @@
 <li>
 <div class="row">
-  <div class="span2">
-<% unless (historical_price.rate rescue nil).nil? %>
-    <span class="price"><b><%= number_to_currency(historical_price.rate) %></b></span>
-<% end %>
+  <div class="pull-left">
+    <h2>Room Type</h2>
   </div>
-  <div class="span3">
-    0 Rooms Left
-  </div>    
-  <div class="span2">
+  <div class="pull-right">
+<% unless (historical_price.rate rescue nil).nil? %>
+  <span class="price"><b><%= number_to_currency(historical_price.rate) %></b><br></span>
+  <% end %>
+  0 Rooms Left<br>
 <% unless (historical_price.updated_at rescue nil).nil? %>
     <span class="timestamp">Checked <%=  time_ago_in_words(historical_price.updated_at) %> ago</span>
 <% end %>

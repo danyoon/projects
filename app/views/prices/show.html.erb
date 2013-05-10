@@ -1,31 +1,32 @@
 <% provide(:title, @title) %>
+<h1>Detailed Prices</h1>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-      <% if @hotels.any? %>
-        <div class="user_avatars">
-          <% @hotels.each do |hotel| %>
-            <%= link_to image_tag(hotel.image, :size => "40x25"), hotel %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
   <div class="span8">
-    <h1>Detailed Prices</h1>
-    <h2>Historical Prices</h2>
-      <ol class="prices">
-        <%= render 'shared/historical' %>
-      </ol>
-    <h2>More Prices</h2>
-      <ol class="prices">
-        <%= render 'shared/historical' %>
-      </ol>
+    <h2>Price Calendar</h2>
+    <%#= link_to image_tag(@hotel.image, :size => "40x25"), @hotel %>
+    <ol class="prices">    
+      <%= render 'shared/calendar' %>
+    </ol>
+    <hr>
+    <h2>Price Chart</h2>
+    <ol class="prices">    
+      <%= image_tag("kayak.png") %>
+    </ol>
 
   </div>
+  <div class="span6">  
+    <h2>Price Details</h2>
+    <ol class="prices">
+      <%= render 'shared/historical' %>
+    </ol>
+    <ol class="prices">
+      <%= render 'shared/historical' %>
+    </ol>
+    <ol class="prices">
+      <%= render 'shared/historical' %>
+    </ol>
+
+  </div>
+</div>
 </div>
 

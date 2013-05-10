@@ -1,7 +1,7 @@
 <div class="row">
   <div class="span2">
     <h1><%= link_to gravatar_for(@user, size: 200), user_path(@user)  %></h1>
-    <%= render 'follow_form' if signed_in? %>
+    <%= render 'shared/follow_form' if signed_in? %>
   </div>
   <div class="span4">
     <h1><%= @user.name %></h1><hr>   

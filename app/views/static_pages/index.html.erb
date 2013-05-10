@@ -1,18 +1,1 @@
-<% if signed_in? %>
-  <div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="span8">
-    <%= render 'shared/hotelpin' %>
-  </div>
-</div>
-<% else %>
-  <%= render 'shared/hotelpin' %>
-<% end %>
-
+<%= render 'shared/hotelpin' %>

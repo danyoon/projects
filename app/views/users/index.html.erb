@@ -1,14 +1,6 @@
 <% provide(:title, 'All users') %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="span8">
+<div class="container">
+  <div class="span12">
     <h1>All users</h1>
     <ul class="users">
       <%= render @users %>
