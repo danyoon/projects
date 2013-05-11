@@ -16,6 +16,7 @@ gem "nifty-generators", :group => :development
 gem 'figaro'
 gem 'expedia'
 gem 'whenever', :require => false
+gem 'fullcalendar-rails' 
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

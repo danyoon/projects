@@ -3,8 +3,7 @@
   <head>
     <title><%= title %></title>
     <%= stylesheet_link_tag  "application", media: "all" %>
-    <%= javascript_include_tag "raphael-min" %>
-    <%= javascript_include_tag "application" %>
+    <!-- these are needed for the calendar. -->
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>    
   </head>

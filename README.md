@@ -1,5 +1,4 @@
-# Ruby on Rails Tutorial: first application
+# ThousandSoft - Maximizing Your Hotel Revenues by Benchmarking Your
+Rooms versus Your Peers
 
-This is the first application for
-[*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com/).
+Open Source Code (Ruby on Rails on Postgres DB) 

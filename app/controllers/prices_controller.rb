@@ -7,7 +7,7 @@ class PricesController < ApplicationController
     @hotels = @user.connected_hotels.all
     @price = Price.find(params[:id])
     @historical_prices = Price.find_all_by_date_for_and_hotel_id(@price.date_for,@price.hotel_id)
-    @calendar_prices = Price.first(@price.hotel_id)
+    @calendar_prices = Price.find_all_by_hotel_id(@price.hotel_id)
     render 'show'
   end
 

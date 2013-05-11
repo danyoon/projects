@@ -1,12 +1,6 @@
 <% provide(:title, 'All hotels') %>
 <div class="row">
   <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
     <% if current_user.admin == TRUE %>
       <section>
       <%= form_tag import_hotels_path, multipart: true do %>
