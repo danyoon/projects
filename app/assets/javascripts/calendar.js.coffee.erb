@@ -10,17 +10,17 @@ height: 500,
 slotMinutes: 30,
 
 eventSources: [{
-url: '/events',
+url: '/prices',
 }],
 
 timeFormat: 'h:mm t{ - h:mm t} ',
 dragOpacity: "0.5"
 
 eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
-updateEvent(event);
+updateEvent(event); 
 
 eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
-updateEvent(event);
+updateEvent(event); 
 
 
 updateEvent = (the_event) ->

@@ -3,7 +3,7 @@
   <head>
     <title><%= title %></title>
     <%= stylesheet_link_tag  "application", media: "all" %>
-    <!-- these are needed for the calendar. -->
+    <%= javascript_include_tag "applications" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>    
   </head>
