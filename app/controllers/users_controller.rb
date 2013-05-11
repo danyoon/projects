@@ -6,11 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id].nil? && current_user
-      @user = current_user
-    else
-      @user = User.find(params[:id])
-    end
+    @user = current_user
     @title = @user.name    
     @summary_prices = @user.connected_hotels.paginate(page: params[:page])
   end
