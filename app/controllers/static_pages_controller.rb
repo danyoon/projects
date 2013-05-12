@@ -9,37 +9,6 @@ class StaticPagesController < ApplicationController
                 "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
   end  
 
-  #@firstDate = Date.new(2013,6,30)
-  #@secondDate = Date.new(2013,7,1)    
-    #firstDateNumber = @firstDate.yday
-    #secondDateNumber = @firstDate.yday
-
-    #Sample API Code that Works
-    #api= Expedia::Api.new
-    #@response = api.get_list({:propertyName => 'Hotel Moa Berlin', :destinationString => 'berlin'})
-    #puts @response
-
-    #Detailed Availability Code that Works
-    #api= Expedia::Api.new
-    #@responseGA = api.get_availability({:arrivalDate => firstDate.strftrime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"),:hotelID => "131734", :supplierType => "E",:room1 => "2"})
-    #if @responseGA.exception?
-    #else
-      #@hotelGA = @responseGA.body['HotelRoomAvailabilityResponse']['hotelId']      
-      #tempArray = @responseGA.body['HotelRoomAvailabilityResponse']['HotelRoomResponse']
-      #@outputGA = tempArray[0]['RateInfos']['RateInfo']['ChargeableRateInfo']
-    #end 
-    
-    #Alternative Code That Works
-    #@api = Expedia::Api.new  
-    #@responseGL = @api.get_list({:arrivalDate => firstDate.strftime("%m/%d/%Y"),:departureDate => secondDate.strftime("%m/%d/%Y"), :hotelIDList => "131734, 131734", :room1 => "2", :options => "ROOM_RATE_DETAILS"})
-    #@hotelGL = responseGL.body['HotelListResponse']['HotelList']['HotelSummary']['hotelId']
-    
-
-    #More Results Test Code that Doesn't WOrk
-    #if @response.body['HotelListResponse']['moreResultsAvailable']
-    #@output = api.get_list ({:cacheKey => @response.body['HotelListResponse']['cacheKey'], :cacheLocation => @response.body['HotelListResponse']['cacheLocation']})
-    #end
-
   def home
     @title = 'Home'
     if signed_in?
@@ -49,16 +18,19 @@ class StaticPagesController < ApplicationController
   end
   
   def statichotels
+    @user = current_user    
     @hotels = Hotel.paginate(page: params[:page])
     @title = 'Help'
   end
 
-  def staticusers
+  def staticblurb
+    @user = current_user    
     @users = User.paginate(page: params[:page])
-    @title = 'About'
+    @title = 'Mission Statement'
   end
 
   def staticcontact
-    @title = 'Contact'
+    @user = current_user 
+    @title = 'Contact Information'
   end
 end

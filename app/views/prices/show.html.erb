@@ -1,10 +1,7 @@
 <% provide(:title, @title) %>
+<div class="container">
 <h1>Detailed Prices</h1>
 <%#= link_to image_tag(@hotel.image, :size => "40x25"), @hotel %>
-<h2>Price Calendar</h2>
-<%= render 'shared/calendarjava' %>
-<h2>Price Chart</h2>
-<%= image_tag("kayak.png") %>
 <h2>Price Details</h2>
 <ol class="prices">
   <%= render 'shared/historical' %>
@@ -15,5 +12,13 @@
 <ol class="prices">
   <%= render 'shared/historical' %>
 </ol>
-
-
+<div class="row">
+<div class="span8">
+  <h2>Price Chart</h2>
+<%= render 'shared/chart' %>
+</div>
+<div class="span4">
+<h2>Price Calendar</h2>
+<%= render 'shared/calendarjava' %>
+</div>
+</div>

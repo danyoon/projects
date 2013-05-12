@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require fullcalendar
-//= require raphael
+//= require jquery.flot
+//= require jquery.flot.pie

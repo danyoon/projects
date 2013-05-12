@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/Kjarrigan/flot-rails.git
+  revision: ddfe40e2db82dbe7bfb7f64512d905efb6b9e648
+  specs:
+    flot-rails (0.0.3)
+      jquery-rails (>= 2.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -271,6 +278,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   faker (= 1.0.1)
   figaro
+  flot-rails!
   fullcalendar-rails
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)

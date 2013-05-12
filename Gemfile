@@ -15,8 +15,9 @@ gem "nifty-generators", :group => :development
 gem 'figaro'
 gem 'expedia'
 gem 'whenever', :require => false
-gem 'fullcalendar-rails' 
 gem 'therubyracer'
+gem 'fullcalendar-rails' 
+gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

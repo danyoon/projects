@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Flot
 
  def title
     @title.nil? ? 'ThousandSoft' : @title
