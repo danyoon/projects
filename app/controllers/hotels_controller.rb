@@ -14,6 +14,7 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
+    @user = current_user
     @prices = @hotel.prices.paginate(page: params[:page])
     @title = @hotel.name
   end

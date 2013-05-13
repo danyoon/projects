@@ -1,9 +1,5 @@
-<li>
-  <% if user_signed_in? %>
-    <%= image_tag(hotel.image, :size => "80x50") %>`
-    <%= link_to hotel.name, hotel %>
+<% if user_signed_in? %>
+  <%= render 'shared/hotel_loggedin', :hotel => hotel%> 
   <% else %>
-    <%= image_tag(hotel.image, :size => "80x50") %>`
-    <%= hotel.name %>
-  <% end %>
-</li>
+  <%= render 'shared/hotel_main', :hotel => hotel%> 
+<% end %>
