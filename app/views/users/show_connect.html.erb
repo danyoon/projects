@@ -1,9 +1,11 @@
 <% provide(:title, @title) %>
-<h1><%= @title %></h1>
-<% if @hotels.any? %>
-  <ul class="hotels">
-  <%= render @hotels %>
-</ul>
-<%= will_paginate @hotels %>
-    <% end %>
+<div class="container">
+  <h1><%= @title %></h1>
+  <% if @hotels.any? %>
+    <ul class="hotels">
+    <%= render @hotels %>
+  </ul>
+  <%= will_paginate @hotels %>
+<% end %>
+</div>
 
