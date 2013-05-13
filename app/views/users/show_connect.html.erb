@@ -3,7 +3,7 @@
   <h1><%= @title %></h1>
   <% if @hotels.any? %>
     <ul class="hotels">
-    <%= render @hotels %>
+    <%= render @thumbnails %>
   </ul>
   <%= will_paginate @hotels %>
 <% end %>

@@ -2,7 +2,7 @@
 <div class="container">
   <h1><%= @title %></h1>
   <% if @users.any? %>
-    <ul class="users">
+    <ul class="thumbnails">
     <%= render @users %>
   </ul>
   <%= will_paginate @users %>
