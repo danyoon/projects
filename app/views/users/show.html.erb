@@ -1,5 +1,8 @@
 <% provide(:title, @user.name) %>
+<% if user_signed_in? %>
+  <%= render 'shared/summary' %>
+<% end %>
+  
 <h1>Summary of Prices</h1>
 <ul class="thumbnails">
-  <%= render 'shared/summary' %>
 </ul>

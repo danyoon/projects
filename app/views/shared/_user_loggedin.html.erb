@@ -1,0 +1,9 @@
+<li class="span4">
+<div class="thumbnail">
+  <%= image_tag(gravitar_for(user), :size => "320x200") %>`
+  <div class="caption">
+    <h4><%= user.name %></h4>
+    <%= link_to "Track / Follow", user, class:"btn btn-block btn-info"%>
+  </div>
+</div>
+</li>

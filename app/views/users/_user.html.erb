@@ -1,9 +1,7 @@
 <li>
 <% if user_signed_in? %>
-    <%= gravatar_for user, size: 52 %>
-    <%= link_to user.name, user %>
+    <%= render 'shared/user_loggedin', :user => user%> 
   <% else %>
-    <%= gravatar_for user, size: 52 %>
-    <%= user.name %>
+    <%= render 'shared/user_main', :user => user%> 
   <% end %>
 </li>

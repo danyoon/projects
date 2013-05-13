@@ -1,14 +1,12 @@
 <% provide(:title, @hotel.name) %>
 <div class="container">
-    <h1>
-    </h1>
-    <% if @hotel.prices.any? %>
-      <h1>Calendar of Prices for <%= @hotel.name %></h1>
-      <%= link_to image_tag(@hotel.image, :size => "160x100"), hotel_path(@hotel) %>`
-      <%= render 'connect_form' if signed_in? %>    
-      <ol class="prices">
-        <%= render @prices %>
-      </ol>
-      <%= will_paginate @prices %>
-    <% end %>
+  <% if @hotel.prices.any? %>
+    <h1>Calendar of Prices for <%= @hotel.name %></h1>
+  <%= link_to image_tag(@hotel.image, :size => "160x100"), hotel_path(@hotel) %>`
+  <%= render 'connect_form' if signed_in? %>    
+  <ol class="prices">
+    <%= render @prices %>
+  </ol>
+  <%= will_paginate @prices %>
+<% end %>
 </div>
