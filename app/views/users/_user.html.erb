@@ -1,7 +1,5 @@
-<li>
 <% if user_signed_in? %>
-    <%= render 'shared/user_loggedin', :user => user%> 
+  <%= render 'shared/user_loggedin', :user => user%> 
   <% else %>
-    <%= render 'shared/user_main', :user => user%> 
-  <% end %>
-</li>
+  <%= render 'shared/user_main', :user => user%> 
+<% end %>
