@@ -11,7 +11,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'devise'
-gem "nifty-generators", :group => :development
 gem 'figaro'
 gem 'expedia'
 gem 'whenever', :require => false
@@ -25,6 +24,8 @@ group :development, :test do
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'  
   gem 'spork', '0.9.2'
+  gem 'therubyracer'
+  gem "nifty-generators"
 end
 
 # Gems used only for assets and not required
@@ -43,6 +44,7 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
+  gem 'therubyracer-heroku'
 end
 
 gem "mocha", :group => :test
