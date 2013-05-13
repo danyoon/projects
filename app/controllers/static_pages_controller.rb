@@ -3,10 +3,7 @@ class StaticPagesController < ApplicationController
   def index
     @title = 'Home'
     @user = current_user
-    @hash = Hash["New York", Hotel.find_all_by_city("New York"),
-                "San Francisco", Hotel.find_all_by_city("San Francisco"), 
-                "Washington DC", Hotel.find_all_by_city("Washington"),
-                "Corvara/Cortina", Hotel.find_all_by_city("Corvara in Badia")] 
+    @location = request.location
   end  
 
   def home

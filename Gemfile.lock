@@ -99,6 +99,7 @@ GEM
       rails (>= 3, < 5)
     formatador (0.2.4)
     fullcalendar-rails (1.5.4.0)
+    geocoder (1.1.8)
     gherkin (2.12.0)
       multi_json (~> 1.3)
     guard (1.8.0)
@@ -280,6 +281,7 @@ DEPENDENCIES
   figaro
   flot-rails!
   fullcalendar-rails
+  geocoder
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)
   jquery-rails (= 2.0.2)

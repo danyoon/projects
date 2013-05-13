@@ -18,6 +18,7 @@ gem 'whenever', :require => false
 gem 'therubyracer'
 gem 'fullcalendar-rails' 
 gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
+gem 'geocoder'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
