@@ -285,7 +285,7 @@ DEPENDENCIES
   geocoder
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)
-  jquery-rails (= 2.0.2)
+  jquery-rails
   mocha
   nifty-generators
   omniauth-facebook
