@@ -1,14 +1,13 @@
 <% price = Price.for_date_and_hotel(firstDate, summary_price).first %>
+
 <% unless (price.id rescue nil).nil? %>
-  <%= link_to image_tag(summary_price.image, :size => "50x50"), historical_price_path(price.id) %><br>
+  <h5><%= link_to summary_price.name, historical_price_path(price.id) %><br></h5>  
 <% else %>
-  <%= link_to image_tag(summary_price.image, :size => "50x50") %><br>
+  <h5><%= link_to summary_price.name %><br></h5>  
 <% end %>
 
-<% unless (price.rate rescue nil).nil? %>
-  <h5><%= link_to number_to_currency(price.rate), historical_price_path(price.id) %><br></h5>  
+<% unless (price.id rescue nil).nil? || (price.rate rescue nil).nil? %>
+  <h4><%= link_to image_tag(summary_price.image, :size => "50x50")+number_to_currency(price.rate), historical_price_path(price.id) %><br></h4>
 <% else %>
-  <h5><%= number_to_currency(0.0) %><br><h5>
+  <h4><%= link_to image_tag(summary_price.image, :size => "50x50")+number_to_currency(0.0) %><br></h4>
 <% end %>
-
-
