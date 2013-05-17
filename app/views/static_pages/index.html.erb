@@ -7,7 +7,13 @@
     </div>
     <div class="span4">
       <div class="well">
-        <h1>Room Rates By City</h1>
+        <% form_tag hotels_path, :method => 'get' do %>
+        <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+        </p>
+        <% end %>
+        <h1>Hotel vs. Airbnb Rates By City</h1>
         <label class="radio">
           <h5><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">New York</h5>
         </label>
