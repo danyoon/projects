@@ -1,45 +1,12 @@
 <div class="container">
   <div class="row">
-  <div id="world-map" style="width: 600px; height: 400px"></div>
+    <div class="span12">
+      <div class="thumbnail" id="world-map" style="height: 600px"></div>
+    </div>
   <script>
     $(function(){
       $('#world-map').vectorMap();
     });
-
   </script>
-  </div>
-  <div class="row">
-    <div class="span8">
-      <div class="thumbnail">
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
-      </div>
-    </div>
-    <div class="span4">
-      <div class="well">
-        <% form_tag hotels_path, :method => 'get' do %>
-        <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-        </p>
-        <% end %>
-        <h1>Hotel vs. Airbnb Rates By City</h1>
-        <label class="radio">
-          <h5><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">New York</h5>
-        </label>
-        <label class="radio">
-          <h5><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">San Francisco</h5>
-        </label>
-        <label class="radio">
-          <h5><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Washington D.C.</h5>
-        </label>
-        <label class="radio">
-          <h5><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Corvara</h5>
-        </label>
-        <div class="input-append">
-          <h4><input type="text" placeholder="Enter New Location"></h4>
-          <h4><button class="btn btn-block" type="button">Search</button></h4>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
