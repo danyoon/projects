@@ -1,15 +1,11 @@
 <div class="row">
   <div class="span2">
-    <h1><%= link_to image_tag("logo-world.png"), root_path  %></h1>
-  </div>
-  <div class="span7">
-    <h1>Maximize Your Room Revenue</h1><hr>
-    <h3>Benchmark Your Rates vs. Your Peers</h3> 
+      <%= link_to "I Went", user_omniauth_authorize_path(:facebook), class: "btn btn-block" %>
   </div>
   <div class="span2">
-    <br>
-      <%= link_to image_tag("facebookbig.png", alt: "Sign in with Facebook") + "Sign in", user_omniauth_authorize_path(:facebook), class: "btn btn-link" %>
-      <%= link_to image_tag("googlebig.png", alt: "Sign in with Google") + "Sign in", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-link" %>
-      <%= link_to image_tag("emailbig.png", alt: "Sign in with Email") + "Sign in", signin_path, class: "btn btn-link" %>
+      <%= link_to "I Liked", user_omniauth_authorize_path(:facebook), class: "btn btn-block" %>
+  </div>
+  <div class="span2">
+      <%= link_to "I Want", user_omniauth_authorize_path(:facebook), class: "btn btn-block" %>    
   </div>
 </div>
