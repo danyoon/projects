@@ -1,5 +1,14 @@
 <div class="container">
   <div class="row">
+  <div id="world-map" style="width: 600px; height: 400px"></div>
+  <script>
+    $(function(){
+      $('#world-map').vectorMap();
+    });
+
+  </script>
+  </div>
+  <div class="row">
     <div class="span8">
       <div class="thumbnail">
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>

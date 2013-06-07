@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require jquery.flot
 //= require jquery.flot.pie
+//= require jvectormap
