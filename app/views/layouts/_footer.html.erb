@@ -1,5 +1,8 @@
 <div class="container">
-  <footer class="footer">  
+  <footer class="footer"> 
+      <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/thousandsoft' %>
+      <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://www.twitter.com/thousandsoft' %>
+      <%= link_to image_tag("email.png", alt: "Email"), 'mailto:thousandsoft@gmail.com' %> 
       <%= link_to "Hotel Collection", statichotels_path, id:"footerleft" %>
       <%= link_to "Mission Statement", staticblurb_path, id:"footerleft" %>    
       <%= link_to "ThousandSoft", staticcontact_path, id:"footerright" %>

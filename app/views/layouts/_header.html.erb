@@ -5,9 +5,9 @@
         <%= link_to "THOUSANDSOFT", root_path, id: "logo" %>
       </div>
       <div class="nav pull-right">
-        <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/thousandsoft', class: "pull-right"  %>
-        <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://www.twitter.com/thousandsoft', class: "pull-right"  %>
-        <%= link_to image_tag("email.png", alt: "Email"), 'mailto:thousandsoft@gmail.com', class: "pull-right"  %>
+         <%= link_to image_tag("facebookbig.png", alt: "Sign in with Facebook") + "Sign in", user_omniauth_authorize_path(:facebook), class: "btn btn-link" %>
+      <%= link_to image_tag("googlebig.png", alt: "Sign in with Google") + "Sign in", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-link" %>
+      <%= link_to image_tag("emailbig.png", alt: "Sign in with Email") + "Sign in", signin_path, class: "btn btn-link" %>
       </div>
     </div>
   </div>
