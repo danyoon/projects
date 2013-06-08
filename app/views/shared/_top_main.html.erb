@@ -1,7 +1,6 @@
-<div class="row">
-  <div class="btn-group">
-  <button class="btn">I Did</button>
-  <button class="btn">I Liked</button>
-  <button class="btn">I Wish</button>
-  </div>
+<div class="nav pull-right">
+  <%= link_to image_tag("facebook.png", alt: "Sign in with Facebook") + "Sign in", user_omniauth_authorize_path(:facebook), class: "btn btn-link" %>
+  <%= link_to image_tag("google.png", alt: "Sign in with Google") + "Sign in", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-link" %>
+  <%= link_to image_tag("email.png", alt: "Sign in with Email") + "Sign in", signin_path, class: "btn btn-link" %>
 </div>
+
