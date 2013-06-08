@@ -70,7 +70,7 @@ p {
 /* header */
 
 #logo {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Droid Sans', Impact, sans-serif;
   padding:18px 20px 18px 10px !important;
   font-size:16px;
   font-weight:bold;
@@ -79,14 +79,14 @@ p {
   display:inline-block;
   a {
     color: $gray;
-    &:hover { 
+    &:hover {
       color: $grayMediumLight;
     }
   }
 }
 
 #biglogo {
-  font-family: 'Oswald', Impact, sans-serif;
+  font-family: 'Droid Sans', Impact, sans-serif;
   padding:18px 0px 18px 0px !important;
   font-size:40px;
   color:#444444;
@@ -103,21 +103,20 @@ footer {
 }
 
 #footerleft {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', Impact, sans-serif;
     float: left;
-    padding:18px 18px 18px 18px !important;
+    padding:9px 18px 9px 18px !important;
     font-size:20px;
 
     border-left:1px solid #dadada;
     border-right:1px solid #dadada;
 
- 
 }
 #footerright {
     font-family: 'Droid Sans', Impact, sans-serif;
     float: right;
-    padding:18px 18px 18px 18px !important;
-    font-size:30px;
+    padding:18px 18px 1px 18px !important;
+    font-size:36px;
     font-weight:bold;
     border-right:1px solid #dadada;
     text-transform:uppercase;
