@@ -27,30 +27,34 @@ $(function(){
 
   map = new jvm.WorldMap({
     map: 'world_mill_en',
+    regionsSelectable: true,
+    markersSelectable: true,
+    regionStyle: {
+      initial: {
+        fill: 'white'
+      },
+      selected: {
+        fill: 'gray'
+      }
+    },
     markerStyle: {
       initial: {
         fill: 'blue'
+      },
+      selected: {
+        fill: 'red'
       }
     },
     container: $('#world-map'),
-    onMarkerLabelShow: function(e, label, code){
-      map.label.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
-    },
-    onMarkerClick: function(e, code){
-      map.removeMarkers([code]);
-      map.label.hide();
+    onRegionSelected: function(){
+      if (window.localStorage) {
+        window.localStorage.setItem(
+          'jvectormap-selected-regions',
+          JSON.stringify(map.getSelectedRegions())
+        );
+      }
     }
   });
-
-  map.container.click(function(e){
-    var latLng = map.pointToLatLng(e.offsetX, e.offsetY),
-    targetCls = $(e.target).attr('class');
-
-    if (latLng && (!targetCls || (targetCls && $(e.target).attr('class').indexOf('jvectormap-marker') === -1))) {
-      markersCoords[markerIndex] = latLng;
-      map.addMarker(markerIndex, {latLng: [latLng.lat, latLng.lng]});
-      markerIndex += 1;
-    }
+  map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
   });
-});
 </script>
