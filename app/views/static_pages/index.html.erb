@@ -1,20 +1,54 @@
 <div class="container">
-  <hr>
-  <div class="span12">
-    <div class="row">
-      <div class="btn-group">
-        <button class="btn span2">I Did</button>
-        <button class="btn span2">I Liked</button>
-        <button class="btn span2">I Wish</button>
-      </div>
+  <br>
+  <div class="row">
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button class="btn btn active btn-large btn-info span3">I Did</button>
+      <button class="btn btn-large btn-info span3">I Liked</button>
+      <button class="btn btn-large btn-info span3">I Wish</button>
     </div>
-    <div class="row">
-      <div class="thumbnail" id="world-map" style="height: 600px"></div>
+    <div class="btn-group">
+      <a class="btn btn-large dropdown-toggle pull-right" data-toggle="dropdown" href="#">Maps<span class="caret"></span></a>
+      <ul class="dropdown-menu pull-right">
+
+      </ul>
     </div>
-    <script>
-$(function(){
-  $('#world-map').vectorMap();
-});
-    </script>
+  </div>
+  <div class="row">
+    <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
 </div>
+<script>
+$(function(){
+  var map,
+  markerIndex = 0,
+  markersCoords = {};
+
+  map = new jvm.WorldMap({
+    map: 'world_mill_en',
+    markerStyle: {
+      initial: {
+        fill: 'blue'
+      }
+    },
+    container: $('#world-map'),
+    onMarkerLabelShow: function(e, label, code){
+      map.label.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
+    },
+    onMarkerClick: function(e, code){
+      map.removeMarkers([code]);
+      map.label.hide();
+    }
+  });
+
+  map.container.click(function(e){
+    var latLng = map.pointToLatLng(e.offsetX, e.offsetY),
+    targetCls = $(e.target).attr('class');
+
+    if (latLng && (!targetCls || (targetCls && $(e.target).attr('class').indexOf('jvectormap-marker') === -1))) {
+      markersCoords[markerIndex] = latLng;
+      map.addMarker(markerIndex, {latLng: [latLng.lat, latLng.lng]});
+      markerIndex += 1;
+    }
+  });
+});
+</script>
