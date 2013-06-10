@@ -9,14 +9,13 @@
   </a>
   <a href="<%= followers_user_path(@user) %>">
     <strong id="followers" class="stat">
-      <%= @user.followers.count %>
+      <%= @user.followers.count %> followers
     </strong>
-    followers
   </a>
   <a href="<%= connecting_user_path(@user) %>">
     <strong id="connecting" class="stat">
       <%= @user.connected_hotels.count %>
+    connecting    
     </strong>
-    connecting
   </a>
 </div>
