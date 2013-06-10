@@ -1,19 +1,12 @@
-<% if user_signed_in? %>
-<div class="row">
-  <div class="span2">
-    <h1><%= link_to gravatar_for(@user, size: 200), user_path(@user) %></h1>
-    <%= render 'shared/follow_form' %>
-  </div>
-  <div class="span4">
-    <h1><%= @user.name %></h1><hr>   
-    <%= render 'shared/stats' %>
-  </div>
-  <div class="span2 offset3">
-      <br>
-      <%= link_to "Add Users", users_path, class: "btn btn btn-link" %>
-      <%= link_to "Add Hotels", hotels_path, class: "btn btn btn-link" %>
-      <%= link_to "Settings", edit_user_registration_path, class: "btn btn-link" %>
-      <%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-link" %>   
-  </div>
+<div class="nav pull-right">
+  <%= link_to gravatar_for(@user, size: 50), user_path(@user) %>
+  <div class="btn btn btn-large dropdown-toggle" data-toggle="dropdown", id:"logo"><%=@user.name%><b class="caret"></b></div>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Add Users", users_path, class: "btn btn btn-link" %></li>
+    <li><%= link_to "Add Hotels", hotels_path, class: "btn btn btn-link" %></li>
+    <li><%= link_to "Settings", edit_user_registration_path, class: "btn btn-link" %></li>
+    <li><%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-link" %></li>
+  </ul>
+  <%#= render 'shared/stats' %>    
+  <%#= render 'shared/follow_form' %>  
 </div>
-<% end %>

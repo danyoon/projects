@@ -71,12 +71,10 @@ p {
 
 #logo {
   font-family: 'Droid Sans', Impact, sans-serif;
-  padding:18px 20px 18px 10px !important;
-  font-size:16px;
-  font-weight:bold;
-  color:#888;
-  border-right:1px solid #dadada;
-  display:inline-block;
+  padding:0px 0px 0px 0px !important;
+  font-size:18px;
+  color:#444444;
+  display:inline-block
   a {
     color: $gray;
     &:hover {
@@ -90,7 +88,14 @@ p {
   padding:18px 0px 18px 0px !important;
   font-size:40px;
   color:#444444;
+  border-right:1px solid #dadada;  
   display:inline-block;
+    a {
+    color: $gray;
+    &:hover {
+      color: $grayMediumLight;
+    }
+  }
 }
 
 
@@ -163,7 +168,6 @@ aside {
 }
 
 .stats {
-  overflow: auto;
   a {
     float: left;
     padding: 0 10px;
@@ -184,8 +188,6 @@ aside {
 }
 
 .user_avatars {
-  overflow: auto;
-  margin-top: 10px;
   .gravatar {
     margin: 1px 1px;
   }
