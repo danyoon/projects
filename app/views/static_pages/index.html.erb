@@ -27,13 +27,15 @@
         <h1>Search Results<h1>
             <img src="http://placehold.it/320x200" alt="ALT NAME">
             <div class="caption">
-              <h3>France</h3>
+              <div id="countryLabel">Country</div>
               <div class="btn btn-large btn-block">Select</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <script>
+
+      <script>
+
 $(function(){
   var map,
   markerIndex = 0,
@@ -51,15 +53,25 @@ $(function(){
       }
     },
     container: $('#world-map'),
-    onRegionSelected: function(){
-      if (window.localStorage) {
-        window.localStorage.setItem(
-          'jvectormap-selected-regions',
-          JSON.stringify(map.getSelectedRegions())
-        );
-      }
-    }
+    onRegionClick: showMenu,
+    onRegionSelected: showLocation
   });
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
 });
-    </script>
+
+function showMenu(e, code){
+  if (window.localStorage) {
+    $('#countryLabel').text(code);
+  }
+}
+
+function showLocation(e, code, isSelected, selectedRegions){
+  if (window.localStorage) {
+    window.localStorage.setItem(
+      'jvectormap-selected-regions',
+      JSON.stringify(selectedRegions)
+    );
+  }
+}
+
+      </script>
