@@ -28,7 +28,7 @@
             <img src="http://placehold.it/320x200" alt="ALT NAME">
             <div class="caption">
               <div id="countryLabel">Country</div>
-              <div class="btn btn-large btn-block">Select</div>
+              <a id="countryURL" class="btn btn-large btn-block">Select</a>
             </div>
           </div>
         </div>
@@ -62,6 +62,7 @@ $(function(){
 function showMenu(e, code){
   if (window.localStorage) {
     $('#countryLabel').text(code);
+    $("#countryURL").attr("href", code);
   }
 }
 
