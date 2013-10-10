@@ -34,10 +34,6 @@ FirstApp::Application.routes.draw do
   match '/staticblurb',   to: 'static_pages#staticblurb'
   match '/staticcontact', to: 'static_pages#staticcontact'
   match '/stanford', to: 'static_pages#stanford'
-  match '/sf', to: 'static_pages#sf'
-  match '/lv', to: 'static_pages#lv'
-  match '/nyc', to: 'static_pages#nyc'
-
   root to: 'static_pages#index'
 
   # The priority is based upon order of creation:
