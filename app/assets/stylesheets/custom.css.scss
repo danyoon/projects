@@ -89,7 +89,7 @@ p {
   border-right:1px solid #dadada;  
   display:inline-block;
     a {
-    color: $gray;
+    color: $grayMediumLight;
     &:hover {
       color: $grayMediumLight;
     }
@@ -140,7 +140,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -169,15 +169,15 @@ aside {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $grayLighter;
-    color: gray;
+    border-left: 1px solid $grayMediumLight;
+    color: $grayMediumLight;
     &:first-child {
       padding-left: 0;
       border: 0;
     }
     &:hover {
       text-decoration: none;
-      color: $blue;
+      color: $grayMediumLight;
     }
   }
   strong {
@@ -226,9 +226,9 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $grayMediumLight;
     }
   }
 }
@@ -253,9 +253,9 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $grayMediumLight;
     }
   }
 }
@@ -281,7 +281,7 @@ input {
 }
 
 .timestamp {
-  color: $grayLight;
+  color: $grayMediumLight;
 }
 
 aside {
@@ -293,7 +293,7 @@ aside {
 
 .hero-unit {
   padding-top: 10px;
-  padding-bottom: 10px;  
+  padding-bottom: 1px;  
   padding-left: 10px;
   padding-right: 10px;  
   margin-bottom: 30px;
