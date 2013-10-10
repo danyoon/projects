@@ -1,12 +1,10 @@
 <div class="container">
   <br>
   <div class="row">
-    <div class="btn-group">
-      <%= link_to "Stanford", root_path, class:"btn btn-large span3"%>
-      <%= link_to "San Francisco", root_path, class:"btn btn-large span3"%>
-      <%= link_to "Las Vegas", root_path, class:"btn btn-large span3"%>
-      <%= link_to "New York", root_path, class:"btn btn-large span2", id:"countryLabel"%>
-    </div>
+    <%= link_to "Stanford", root_path, class:"btn btn-large span3"%>
+    <%= link_to "San Francisco", home_path, class:"btn btn-large span3"%>
+    <%= link_to "Las Vegas", root_path, class:"btn btn-large span3"%>
+    <%= link_to "New York", root_path, class:"btn btn-large span2", id:"countryLabel"%>
   </div>
   <div class="row">
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
