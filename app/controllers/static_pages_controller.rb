@@ -8,18 +8,22 @@ class StaticPagesController < ApplicationController
 
   def stanford
     @title = 'Home'
+    @user = current_user        
   end
 
   def sf
     @title = 'Home'
+    @user = current_user        
   end
 
   def lv
     @title = 'Home'
+    @user = current_user        
   end
 
   def nyc
     @title = 'Home'
+    @user = current_user        
   end
  
   def statichotels
