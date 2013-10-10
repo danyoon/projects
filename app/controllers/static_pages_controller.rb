@@ -6,10 +6,22 @@ class StaticPagesController < ApplicationController
     @location = request.location
   end  
 
-  def home
+  def stanford
     @title = 'Home'
   end
-  
+
+  def sf
+    @title = 'Home'
+  end
+
+  def lv
+    @title = 'Home'
+  end
+
+  def nyc
+    @title = 'Home'
+  end
+ 
   def statichotels
     @user = current_user    
     @hotels = Hotel.paginate(page: params[:page])
