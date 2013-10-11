@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   def stanford
     @title = 'Home'
     @user = current_user
-    @hotels = Hotel.where(city:"Palo Alto").paginate(page: params[:page])
+    @hotels = Hotel.where(city:"Washington").paginate(page: params[:page])
   end
 
   def sf
