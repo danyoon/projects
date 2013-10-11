@@ -39,7 +39,7 @@ class StaticPagesController < ApplicationController
   def drh
     @title = 'DiamondRock Hospitality'
     @user = current_user
-    @hotels = Hotel.where(owner:"HST").paginate(page: params[:page])        
+    @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def sho
