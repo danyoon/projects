@@ -1,8 +1,7 @@
-<div class="span3">
-  <div class="well">
-    <h3><%= firstDate.strftime("%a") %></h3>
-    <h3><%= firstDate.strftime("%b %e") %></h3>
-    <hr>
-    <%= render :partial => 'shared/summary_price', :collection => @summary_prices, :locals => { :firstDate => firstDate } %>
-  </div>
-</div>
+<tr>    
+  <td>
+  <%= firstDate.strftime("%a") %>
+  <%= firstDate.strftime("%b %e") %>
+  </td>
+  <%= render :partial => 'shared/summary_price', :collection => @summary_prices, :locals => { :firstDate => firstDate } %>
+</tr>
