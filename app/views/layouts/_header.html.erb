@@ -1,14 +1,14 @@
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-  <div class="navbar-header">  
-      <ul class="nav navbar-left">
+    <div class="navbar-header">  
         <%= link_to "A World Directory of Hotels", root_path, id: "biglogo" %>
-      </ul>
+    </div>
+    <div class="nav">
       <% if user_signed_in? %>
         <%= render 'shared/top_loggedin' %> 
-      <% else %>
+    <% else %>
         <%= render 'shared/top_main' %> 
-      <% end %>
+    <% end %>
     </div>
   </div>
 </header>
