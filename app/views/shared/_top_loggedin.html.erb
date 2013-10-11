@@ -1,4 +1,4 @@
-<div class="navbar-right">
+<ul class="nav navbar-nav navbar-right">
   <%= link_to gravatar_for(@user, size: 50), user_path(@user) %>
   <div class="btn btn btn-large dropdown-toggle" data-toggle="dropdown", id:"logo"><%=@user.name%><b class="caret"></b></div>
   <ul class="dropdown-menu">
@@ -7,4 +7,4 @@
     <li><%= link_to "Settings", edit_user_registration_path, class: "btn btn-link" %></li>
     <li><%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-link" %></li>
   </ul>
-</div>
+</ul>
