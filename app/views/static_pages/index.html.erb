@@ -1,5 +1,4 @@
 <div class="container">
-  <br>
   <div class="row">
     <div class="btn-group btn-group-justified">
     <%= link_to "Stanford", stanford_path, class:"btn"%>
@@ -11,6 +10,20 @@
   <div class="row">
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
+  <div class="row">
+    <div class="btn-group btn-group-justified">
+    <%= link_to "HST", hst_path, class:"btn"%>
+    <%= link_to "DRH", drh_path, class:"btn"%>
+    <%= link_to "SHO", sho_path, class:"btn"%>
+    <%= link_to "BEE", bee_path, class:"btn"%>
+    <%= link_to "PEB", peb_path, class:"btn"%>
+    <%= link_to "CHSP", chsp_path, class:"btn"%>
+    <%= link_to "MGM", mgm_path, class:"btn"%>
+    <%= link_to "LVS", lvs_path, class:"btn"%>
+    <%= link_to "WYNN", wynn_path, class:"btn"%>
+    <%= link_to "CZR", czr_path, class:"btn"%>
+    </div>
+  </div>
 </div>
 <script>
 $(function(){
@@ -18,7 +31,7 @@ $(function(){
   markerIndex = 0,
   markersCoords = {};
 
-  map = new jvm.WorldMap({
+  map = new jvm.WorldMap({<D-s>
     map: 'world_mill_en',
     regionsSelectable: true,
     regionStyle: {
