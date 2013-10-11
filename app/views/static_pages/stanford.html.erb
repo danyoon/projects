@@ -1,39 +1,8 @@
-<div class="container">
-  <div class="row">
-    <div class="span4">
-      <div class="thumbnail">
-        <%= image_tag("family-wall.jpg", alt: "Family") %>      
-      </div>
-    </div>
-    <div class="span4">
-      <div class="well">
-        <p><b>
-          What is the best place you ever stayed at?  What made it so special? 
-        </b></p>
-        <p>
-        For many, it's hard to pinpoint one single thing.  It is not just the room.  Or the service.
-        </p>
-        <p>
-        It is many little things.  That together make it a special experience.
-        </p>
-        <p><b>
-          Ever think about how hard it is for a hotel or a host to get it all right?  And then to exceed that day in and day out?  
-        </b></p>
-        <p>
-        Many times, it makes more sense to be an office building or apartment complex.  But they remain in the hospitality sector.
-        </p>
-        <p>
-        They do it because someone wants to serve guests.  Because sometimes at the right place, you not only got to get away and see the world, but also live better if only for the few days you were on vacation.
-        </p>
-        <p><b>
-          Through our technology, we empower the hosts and hotels to continue the tradition of serving guests.
-        </b></p>
-      </div>
-    </div>
-    <div class="span4">
-      <div class="thumbnail">
-        <%= image_tag("family-painting.jpg", alt: "Family") %>
-      </div>
-    </div>
-  </div>
+<div class='container'>
+<h1>Stanford</h1>
+
+<ul class="thumbnails">
+  <%= render @hotels %>
+</ul>
+<%= will_paginate @hotels %>
 </div>

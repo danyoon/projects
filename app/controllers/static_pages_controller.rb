@@ -8,7 +8,9 @@ class StaticPagesController < ApplicationController
 
   def stanford
     @title = 'Home'
-    @user = current_user        
+    @user = current_user
+    hotels = Hotel.find_all_by_city "Palo Alto"
+    @hotels = hotels.paginate(page: params[:page])
   end
 
   def sf
