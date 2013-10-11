@@ -2,27 +2,28 @@
   <td>
     <%#= image_tag(hotel.image, :size => "50x50") %>
     <%= hotel.name %>
-    <br>
-    <%= hotel.address + " / " + hotel.city + " " + hotel.zipcode.to_s %>        
   </td>
   <td>
-    <%= %>
+    <%= hotel.address %>    
+  </td>
+  <td>
+    <%= hotel.city %>
+  </td>
+  <td>
+    <%= hotel.zipcode.to_s %>
+  </td>
+  <td>
     <%#= hotel.mainstreet %>
     <%#= hotel.crossstreet %>
-    <%#= hotel.key %>
-    <%#= hotel.owner %>
   </td>
-  <% 7.times do |i| %>
   <td>
-    <% price = Price.find_all_by_date_for_and_hotel_id(Date.today + i.day,hotel.id) %>
-    <% unless (price.id rescue nil).nil? || (price.rate rescue nil).nil? %>
-      <%= number_to_currency(price.first.rate) %>
-    <% else %>
-      <%= number_to_currency(0.0) %>
-    <% end %>
+    <%= hotel.key %>
   </td>
-  <% end %>
+  <td>
+    <%= hotel.owner %>
+  </td>
   <td>
     <%= link_to "Track / Follow", hotel, class:"btn btn-info"%>
   </td>
 </tr>
+

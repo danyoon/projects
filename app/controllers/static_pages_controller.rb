@@ -84,7 +84,6 @@ class StaticPagesController < ApplicationController
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
-
   def mgm
     @title = 'MGM Resorts'
     @user = current_user
