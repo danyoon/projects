@@ -7,91 +7,91 @@ class StaticPagesController < ApplicationController
   end  
 
   def stanford
-    @title = 'Home'
+    @title = 'Stanford'
     @user = current_user
     @hotels = Hotel.where(city:"Palo Alto").paginate(page: params[:page])
   end
 
   def sf
-    @title = 'Home'
+    @title = 'San Francisco'
     @user = current_user
     @hotels = Hotel.where(city:"San Francisco").paginate(page: params[:page])        
   end
 
   def lv
-    @title = 'Home'
+    @title = 'Las Vegas'
     @user = current_user
     @hotels = Hotel.where(city:"Las Vegas").paginate(page: params[:page])        
   end
 
   def nyc
-    @title = 'Home'
+    @title = 'New York City'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def hst
-    @title = 'Home'
+    @title = 'Host Hotels'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
  
   def drh
-    @title = 'Home'
+    @title = 'DiamondRock Hospitality'
     @user = current_user
     @hotels = Hotel.where(owner:"HST").paginate(page: params[:page])        
   end
 
   def sho
-    @title = 'Home'
+    @title = 'Sunstone Hotel Investors'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def lho
-    @title = 'Home'
+    @title = 'LaSalle Hotel Properties'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def bee
-    @title = 'Home'
+    @title = 'Strategic Hotels and Resorts'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def peb
-    @title = 'Home'
+    @title = 'Pebblebrook Hotel Trust'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def chsp
-    @title = 'Home'
+    @title = 'Chesapeake Lodging'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def mgm
-    @title = 'Home'
+    @title = 'MGM Resorts'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def lvs
-    @title = 'Home'
+    @title = 'Las Vegas Sands'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def wynn
-    @title = 'Home'
+    @title = 'Wynn Resorts'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end
 
   def czr
-    @title = 'Home'
+    @title = 'Caesars Entertainment'
     @user = current_user
     @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
   end

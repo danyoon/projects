@@ -37,6 +37,17 @@ FirstApp::Application.routes.draw do
   match '/sf', to: 'static_pages#sf'
   match '/lv', to: 'static_pages#lv'
   match '/nyc', to: 'static_pages#nyc'
+  match '/hst', to: 'static_pages#hst'
+  match '/drh', to: 'static_pages#drh'
+  match '/sho', to: 'static_pages#sho'
+  match '/lho', to: 'static_pages#lho'
+  match '/peb', to: 'static_pages#peb'
+  match '/chsp', to: 'static_pages#chsp'
+  match '/bee', to: 'static_pages#bee'
+  match '/mgm', to: 'static_pages#mgm'
+  match '/lvs', to: 'static_pages#lvs'
+  match '/wynn', to: 'static_pages#wynn'
+  match '/czr', to: 'static_pages#czr'
   
   root to: 'static_pages#index'
 
