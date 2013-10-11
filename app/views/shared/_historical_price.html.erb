@@ -1,4 +1,3 @@
-<li>
 <h2>Room Type
 <% unless (historical_price.rate rescue nil).nil? %>
   <span class="price pull-right"><b><%= number_to_currency(historical_price.rate) %></b><br>
@@ -9,4 +8,3 @@
     <span class="timestamp">Checked <%=  time_ago_in_words(historical_price.updated_at) %> ago</span>
 <% end %>
 <span class="price pull-right">0 Rooms Left</span>
-</li>
