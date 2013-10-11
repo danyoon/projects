@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jvectormap
+//= require jvectormap/maps/world_mill_en
 //= require jvectormap/maps/world_merc_en
 //= require bootstrap

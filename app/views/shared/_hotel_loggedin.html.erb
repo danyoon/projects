@@ -1,18 +1,18 @@
 <tr>
   <td>
-    <%= image_tag(hotel.image, :size => "50x50") %>`
-  </td>
-  <td>
+    <%#= image_tag(hotel.image, :size => "50x50") %>
     <%= hotel.name %>
+    <br>
+    <%= hotel.address + hotel.city + hotel.zipcode.to_s  %>        
   </td>
   <td>
-    <%= hotel.address %>    
+    <% price = Price.find_all_by_date_for_and_hotel_id(@price.date_for,hotel_id) %>
+  </td>
+
+
   </td>
   <td>
-    <%= hotel.city %>
-  </td>
-  <td>
-    <%#= hotel.zipcode.to_s %>
+    <%= %>
     <%#= hotel.mainstreet %>
     <%#= hotel.crossstreet %>
     <%#= hotel.key %>

@@ -11,4 +11,5 @@
  *= require_self
  *= require_tree
  *= require bootstrap
+ *= require jquery-jvectormap-1.2.2
  */
