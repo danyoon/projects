@@ -1,3 +1,4 @@
+@import "bootstrap";
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -72,12 +73,6 @@ p {
   font-size:18px;
   color:#444444;
   display:inline-block
-  a {
-    color: #FFFFFF;
-    &:hover { 
-      color: #FFFFFF;
-    }
-  }
 }
 
 #biglogo {
@@ -86,12 +81,6 @@ p {
   font-size:40px;
   color:#444444;
   display:inline-block;
-    a {
-    color: #FFFFFF;
-    &:hover {
-      color: #FFFFFF;
-    }
-  }
 }
 
 
