@@ -1,12 +1,14 @@
 <% provide(:title, @hotel.name) %>
-<div class="btn-group btn-group-justified">
-  <%= link_to @hotel.name, "", class:"btn" %>
-</div>
+<div class="container">
+  <div class="btn-group btn-group-justified">
+    <%= link_to @hotel.name, "", class:"btn" %>
+  </div>
   <%= render 'connect_form' if signed_in? %>    
 
-<% if @hotel.prices.any? %>
-  <table class="table table-bordered">
-  <%= render @prices %>
-</table>
-<%= will_paginate @prices %>
+  <% if @hotel.prices.any? %>
+    <table class="table table-bordered">
+    <%= render @prices %>
+  </table>
+  <%= will_paginate @prices %>
 <% end %>
+</div>
