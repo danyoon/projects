@@ -1,10 +1,9 @@
 <%= provide(:title, @title) %>
 <div class="container">
-  <h1><%= @title %></h1>
   <% if @users.any? %>
-    <ul class="thumbnails">
+  <table class="table table-bordered">
     <%= render @users %>
-  </ul>
+  </table>
   <%= will_paginate @users %>
 <% end %>
 </div>

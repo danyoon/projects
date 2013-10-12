@@ -1,9 +1,8 @@
-<% provide(:title, 'All users') %>
+<% provide(:title, 'User Directory') %>
 <div class="container">
-  <h1>All users</h1>
-  <ul class="thumbnails">
+  <table class="table table-bordered">
     <%= render @users %>
-  </ul>
+  </table>
   <%= will_paginate @users %>
 </div>
 

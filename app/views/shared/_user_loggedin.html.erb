@@ -1,9 +1,11 @@
-<li class="span4">
-<div class="thumbnail">
-  <%= gravatar_for(user, size: 300) %>`
-  <div class="caption">
-    <h4><%= user.name %></h4>
-    <%= link_to "Track / Follow", user, class:"btn btn-block btn-info"%>
-  </div>
-</div>
-</li>
+<tr>
+  <td>
+  <%= gravatar_for(user,size: 100)%>`
+  </td>
+  <td>
+    <%= user.name %>
+  </td>
+  <td>
+    <%= link_to "Track / Follow", user, class:"btn btn-info"%>
+  </td>
+</tr>

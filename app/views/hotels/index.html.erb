@@ -1,16 +1,17 @@
-<% provide(:title, 'All hotels') %>
+<% provide(:title, 'Hotel Directory') %>
 <div class="container">
-  <h1>All hotels</h1>
   <% if current_user.admin == TRUE %>
+    <div class="btn-group btn-group-justified">
     <%= form_tag import_hotels_path, multipart: true do %>
       <%= file_field_tag :file %>
-      <%= submit_tag "Load from CSV", class: "btn btn-link" %>
-      <%= link_to "Export to CSV", hotels_path(format: "csv"), class: "btn btn-link" %>
+      <%= submit_tag "Load from CSV", class: "btn" %>
+      <%= link_to "Export to CSV", hotels_path(format: "csv"), class: "btn" %>
+    <% end %>
+    </div>
   <% end %>
-  <% end %>
-  <ul class="thumbnails">
+  <table class="table table-bordered">
     <%= render @hotels %>
-  </ul>
+  </table>
   <%= will_paginate @hotels %>
 </div>
 
