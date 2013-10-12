@@ -2,12 +2,12 @@
 <div class="container">
   <% if current_user.admin == TRUE %>
     <div class="btn-group btn-group-justified">
+    <%= link_to "Export Database to CSV", hotels_path(format: "csv"), class: "btn" %>
+    </div>
     <%= form_tag import_hotels_path, multipart: true do %>
       <%= file_field_tag :file %>
-      <%= link_to submit_tag "Load from CSV", class: "btn" %>
-      <%= link_to "Export to CSV", hotels_path(format: "csv"), class: "btn" %>
+      <%= submit_tag "Load Database from CSV", class: "btn" %>
     <% end %>
-    </div>
   <% end %>
   <table class="table table-bordered">
     <%= render @hotels %>
