@@ -130,7 +130,7 @@ class StaticPagesController < ApplicationController
   def czr
     @title = 'Caesars Entertainment'
     @user = current_user
-    @hotels = Hotel.where(owner:"Caesars Entertainment(CZR)").paginate(page: params[:page])        
+    @hotels = Hotel.where(owner:"Caesars Entertainment (CZR)").paginate(page: params[:page])        
   end
 
   def staticcontact
