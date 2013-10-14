@@ -1,7 +1,6 @@
 <div class='container'>
-  <%= link_to @title %>
   <div class="btn-group btn-group-justified">
-    <%= link_to "$0.00 Today", "", class:"btn"%>
+    <%= link_to @title + " : $0.00", "", class:"btn"%>
     <%= link_to "1Q : $0.00", "", class:"btn"%>
     <%= link_to "2Q : $0.00", "", class:"btn"%>
     <%= link_to "3Q : $0.00", "", class:"btn"%>
@@ -20,7 +19,6 @@
   <%= will_paginate @hotels %>
 
 </div>
-
 
 
 
