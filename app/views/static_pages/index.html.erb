@@ -56,6 +56,15 @@ $(function(){
                              fill: '#2E8B57'
                            }
                          },
+                         markersSelectable: true,
+                         markerStyle: {
+                           initial: {
+                             fill: 'white'
+                           },
+                           selected: {
+                             fill: '#2E8B57'
+                           }
+                         },
                          container: $('#world-map'),
                          onRegionClick: showMenuLocation,
                          onRegionSelected: showLocation,
