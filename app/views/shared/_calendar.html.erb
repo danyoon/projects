@@ -3,7 +3,7 @@
   <% a.in_groups_of(7, false) do |group| %>
     <% group.each do |index| %>
     <% firstDate = Date.today + index.day %>
-    <%= render :partial => 'shared/summary_week', :locals => { :firstDate => firstDate } %>
+    <%= render :partial => 'shared/calendar_week', :locals => { :firstDate => firstDate } %>
   <% end %>
 <% end %>
 </div>

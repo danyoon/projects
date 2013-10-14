@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <%#= image_tag(hotel.image, :size => "50x50") %>
+    <%= hotel.name %>
+  </td>
+  <td>
+    <%= hotel.address %>    
+  </td>
+  <td>
+    <%= hotel.city %>
+  </td>
+  <td>
+    <%= hotel.zipcode.to_s %>
+  </td>
+  <td>
+    <%#= hotel.mainstreet %>
+    <%#= hotel.crossstreet %>
+  </td>
+  <td>
+    <%= hotel.key %>
+  </td>
+  <td>
+    <%= hotel.owner %>
+  </td>
+  <td>
+    <%= link_to "Track / Follow", hotel, class:"btn btn-info"%>
+  </td>
+</tr>
+

@@ -2,5 +2,5 @@
     <%= firstDate.strftime("%a") %>
     <%= firstDate.strftime("%b %e") %>
     <hr>
-    <%= render :partial => 'shared/summary_price', :collection => @summary_prices, :locals => { :firstDate => firstDate } %>
+    <%= render :partial => 'shared/calendar_price', :collection => @calendar_prices, :locals => { :firstDate => firstDate } %>
 </div>
