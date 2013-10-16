@@ -23,9 +23,7 @@
     <%= hotel.owner %>
   </td>
   <td>
-    <% if signed_in? %>
-      <%= render 'hotels/connect_form', hotel: hotel  %>
-    <% end %>
+    <%= render 'hotels/connect_form', hotel: hotel  %>
     <%= link_to "Track / Follow", hotel, class:"btn btn-info"%>
   </td>
 </tr>

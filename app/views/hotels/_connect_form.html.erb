@@ -1,7 +1,7 @@
-<% if current_user.connecting?(hotel) %>
-  <div id="connect_form">
+<div id="connect_form">
+  <% if user_signed_in? and current_user.connecting?(hotel) %>
     <%= render 'hotels/disconnect', hotel: hotel %>
   <% else %>
     <%= render 'hotels/connect', hotel: hotel %>
-  </div>
-<% end %>
+  <% end %>
+</div>
