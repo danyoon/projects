@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @title = @user.name    
     @summary_prices = @user.connected_hotels.paginate(page: params[:page])
   end
