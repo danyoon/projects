@@ -3,7 +3,9 @@
   <div class="btn-group btn-group-justified">
     <%= link_to @hotel.name, "", class:"btn" %>
   </div>
-  <%= render 'connect_form' if signed_in? %>
+  <% if signed_in? %>
+    <%= render 'hotels/connect_form', hotel: @hotel  %>
+  <% end %>
 
   <% if @hotel.prices.any? %>
     <table class="table table-bordered">

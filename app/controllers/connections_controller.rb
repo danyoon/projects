@@ -5,7 +5,7 @@ class ConnectionsController < ApplicationController
     @hotel = Hotel.find(params[:connection][:connected_id])
     current_user.connect!(@hotel)
     respond_to do |format|
-      format.html { redirect_to @hotel }
+      format.html { redirect_to :back }
       format.js
     end
   end
@@ -14,7 +14,7 @@ class ConnectionsController < ApplicationController
     @hotel = Connection.find(params[:id]).connected
     current_user.disconnect!(@hotel)
     respond_to do |format|
-      format.html { redirect_to @hotel }
+      format.html { redirect_to :back }
       format.js
     end
   end
