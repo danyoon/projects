@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20130417213956) do
 
   create_table "authentications", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "provider"
-    t.string    "uid"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "connections", :force => true do |t|
@@ -33,26 +33,26 @@ ActiveRecord::Schema.define(:version => 20130417213956) do
   add_index "connections", ["connecter_id"], :name => "index_connections_on_connecter_id"
 
   create_table "hotels", :force => true do |t|
-    t.string    "name"
-    t.string    "address"
-    t.string    "city"
-    t.string    "country"
-    t.integer   "zipcode"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
-    t.string    "mainstreet"
-    t.string    "crossstreet"
-    t.string    "key"
-    t.string    "owner"
-    t.string    "image"
-    t.string    "hotelID"
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.integer  "zipcode"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "mainstreet"
+    t.string   "crossstreet"
+    t.string   "key"
+    t.string   "owner"
+    t.string   "image"
+    t.string   "hotelID"
   end
 
   create_table "microposts", :force => true do |t|
-    t.string    "content"
-    t.integer   "user_id"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(:version => 20130417213956) do
   end
 
   create_table "relationships", :force => true do |t|
-    t.integer   "follower_id"
-    t.integer   "followed_id"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
@@ -77,24 +77,24 @@ ActiveRecord::Schema.define(:version => 20130417213956) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "email"
-    t.timestamp "created_at",                             :null => false
-    t.timestamp "updated_at",                             :null => false
-    t.string    "password_digest"
-    t.string    "remember_token"
-    t.boolean   "admin"
-    t.string    "password_reset_token"
-    t.timestamp "password_reset_sent_at"
-    t.string    "encrypted_password",     :default => "", :null => false
-    t.string    "reset_password_token"
-    t.timestamp "reset_password_sent_at"
-    t.timestamp "remember_created_at"
-    t.integer   "sign_in_count",          :default => 0
-    t.timestamp "current_sign_in_at"
-    t.timestamp "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
