@@ -1,0 +1,27 @@
+<thead>
+  <% if user_signed_in? %>
+    <tr>
+      <th>Hotel</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Zipcode</th>
+      <th></th>
+      <th>Key</th>
+      <th>Owner</th>
+      <th>Menu</th>
+    </tr>
+
+    <%= render hotels %>
+  <% else %>
+    <tr>
+      <th>Hotel</th>
+      <th></th>
+      <% (Date.today...Date.today + 7.days).each do |date| %>
+        <th><%= date %></th>
+      <% end %>
+      <th>Menu</th>
+    </tr>
+
+    <%= render hotels %>
+  <% end %>
+</thead>

@@ -14,7 +14,7 @@
   </div>
 
   <table class="table table-bordered">
-    <%= render @hotels %>
+    <%= render 'hotels/hotels', hotels: @hotels %>
   </table>
   <%= will_paginate @hotels %>
 

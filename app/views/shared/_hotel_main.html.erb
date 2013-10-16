@@ -13,14 +13,10 @@
     <%#= hotel.owner %>
   </td>
   <% 7.times do |i| %>
-  <td>
-    <% price = Price.find_all_by_date_for_and_hotel_id(Date.today + i.day,hotel.id) %>
-    <% unless (price.id rescue nil).nil? || (price.rate rescue nil).nil? %>
-      <%= number_to_currency(price.first.rate) %>
-    <% else %>
-      <%= number_to_currency(0.0) %>
-    <% end %>
-  </td>
+    <td>
+      <% price = hotel.prices.find_by_date_for(Date.today + i.day) %>
+      <%= decorate_price(price ? price.rate : nil) %>
+    </td>
   <% end %>
   <td>
     <%= render 'hotels/connect_form', hotel: hotel  %>
