@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name    
-    @summary_prices = @user.connected_hotels.paginate(page: params[:page])
+    @hotels = @user.connected_hotels
+    @summary_prices = @hotels.paginate(page: params[:page])
   end
 
   def following

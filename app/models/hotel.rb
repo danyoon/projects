@@ -20,6 +20,43 @@ class Hotel < ActiveRecord::Base
       hotel = find_by_id(row["id"]) || new
       hotel.attributes = row.to_hash.slice(*accessible_attributes)
       hotel.save!
-    end  
+    end
+  end
+
+  def self.average_prices(opts=nil)
+    prices = Price.joins(:hotel).where(hotel_id: all)
+    period =  if opts.is_a? NilClass
+                prices.scoped
+              elsif opts.is_a? String
+                from, to = calculate_quarter_period(opts)
+                prices.where(date_for: from..to)
+              else
+                from, to = opts[:from], opts[:to]
+                prices.where(date_for: from..to)
+              end
+
+    period.average(:rate)
+  end
+
+private
+  def self.calculate_quarter_period(quarter)
+    year = Date.today.year
+    case quarter
+    when '1Q'
+      from = Date.parse("#{year}-01-01")
+      to = Date.parse("#{year}-03-31")
+    when '2Q'
+      from = Date.parse("#{year}-04-01")
+      to = Date.parse("#{year}-06-30")
+    when '3Q'
+      from = Date.parse("#{year}-07-01")
+      to = Date.parse("#{year}-09-30")
+    when '4Q'
+      from = Date.parse("#{year}-10-01")
+      to = Date.parse("#{year}-12-31")
+    end
+    [from, to]
   end
 end
+
+

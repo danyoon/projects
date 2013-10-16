@@ -1,10 +1,10 @@
 <div class='container'>
   <div class="btn-group btn-group-justified">
-    <%= link_to @title + " : $0.00", "", class:"btn"%>
-    <%= link_to "1Q : $0.00", "", class:"btn"%>
-    <%= link_to "2Q : $0.00", "", class:"btn"%>
-    <%= link_to "3Q : $0.00", "", class:"btn"%>
-    <%= link_to "4Q : $0.00", "", class:"btn"%>
+    <%= link_to @title + " : " + average_price(@hotels), "", class:"btn"%>
+    <%= link_to "1Q : " + average_price(@hotels, '1Q'), "", class:"btn"%>
+    <%= link_to "2Q : " + average_price(@hotels, '2Q'), "", class:"btn"%>
+    <%= link_to "3Q : " + average_price(@hotels, '3Q'), "", class:"btn"%>
+    <%= link_to "4Q : " + average_price(@hotels, '4Q'), "", class:"btn"%>
   </div>
 
   <div class="btn-group btn-group-justified">  
