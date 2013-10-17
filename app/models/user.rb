@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   end
 
   def connect!(other_hotel)
-    connections.create!(connected_id: other_hotel.id)
+    connections.create!(connected_id: other_hotel.id) unless connecting?(other_hotel)
   end
 
   def disconnect!(other_hotel)
