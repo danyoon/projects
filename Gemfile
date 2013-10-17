@@ -17,6 +17,7 @@ gem 'fullcalendar-rails'
 gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
 gem 'geocoder'
 gem 'jvectormap-rails', '~> 1.0.0'
+gem 'heroku-forward'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
