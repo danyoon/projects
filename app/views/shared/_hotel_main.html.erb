@@ -12,9 +12,9 @@
     <%#= hotel.key %>
     <%#= hotel.owner %>
   </td>
-  <% 7.times do |i| %>
+  <% (@day_start...@day_start + 7.days).each do |date| %>
     <td>
-      <% price = hotel.prices.find_by_date_for(Date.today + i.day) %>
+      <% price = hotel.prices.find_by_date_for(date) %>
       <%= decorate_price(price ? price.rate : nil) %>
     </td>
   <% end %>

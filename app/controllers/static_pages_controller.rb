@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_filter :find_day_start
+
   require 'json'
   def index
     @title = 'Home'
@@ -136,5 +138,14 @@ class StaticPagesController < ApplicationController
   def staticcontact
     @user = current_user 
     @title = 'Contact Information'
+  end
+
+private
+  def find_day_start
+    @day_start = if params[:day_start]
+                   Date.parse(params[:day_start])
+                 else
+                   Date.today
+                 end
   end
 end
