@@ -33,6 +33,9 @@
   </div>
 </div>
 <script>
+
+var App = {};
+
 $(function(){
   var map,
   markerIndex = 0,
@@ -41,10 +44,10 @@ $(function(){
   map = new jvm.WorldMap({
     map: 'world_mill_en',
      markers: [
-      {latLng: [40, -73], name: 'New York'},
-      {latLng: [37, -122], name: 'San Francisco'},
-      {latLng: [34, -118], name: 'Los Angeles'},
-      {latLng: [36, -115], name: 'Las Vegas'},
+      {latLng: [40, -73], name: 'New York', code: "<%=j 'New York'.parameterize %>"},
+      {latLng: [37, -122], name: 'San Francisco', code: "<%=j 'San Francisco'.parameterize %>"},
+      {latLng: [34, -118], name: 'Los Angeles', code: "<%=j 'Los Angeles'.parameterize %>"},
+      {latLng: [36, -115], name: 'Las Vegas', code: "<%=j 'Las Vegas'.parameterize %>"},
     ],
 
                          regionsSelectable: true,
@@ -71,14 +74,18 @@ $(function(){
                          onMarkerClick: showMenuCity,
                          onMarkerSelected: showCity
                           });
+  App.map = map;
+
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
   map.setSelectedMarkers( JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]' ) );
-
 });
 
 function showMenuLocation(e, code){
   if (window.localStorage) {
-    $('#countryLabel').text(code);
+    var label = $('#countryLabel');
+    label.text(code);
+    label.attr('href', "/countries/" + code);
+
     $("#countryURL").attr("href", code);
   }
 }
@@ -92,10 +99,16 @@ function showLocation(e, code, isSelected, selectedRegions){
   }
 }
 
-function showMenuCity(e, code){
+function showMenuCity(e, value){
   if (window.localStorage) {
-    $('#countryLabel').text(code);
-    $("#countryURL").attr("href", code);
+    var marker = App.map.markers[value];
+    var name = marker.config.name;
+    var code = marker.config.code;
+    var label = $('#countryLabel');
+
+    label.text(name);
+    label.attr('href', "/cities/" + code);
+    $("#countryURL").attr("href", name);
   }
 }
 

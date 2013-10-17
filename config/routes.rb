@@ -54,7 +54,10 @@ FirstApp::Application.routes.draw do
   match '/lvs', to: 'static_pages#lvs'
   match '/wynn', to: 'static_pages#wynn'
   match '/czr', to: 'static_pages#czr'
-  
+
+  get '/cities/:city_code', to: 'static_pages#by_city'
+  get '/countries/:country_code', to: 'static_pages#by_country'
+
   root to: 'static_pages#index'
 
   # The priority is based upon order of creation:

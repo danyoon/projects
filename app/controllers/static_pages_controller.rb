@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_filter :find_day_start
+
   require 'json'
   def index
     @title = 'Home'
@@ -134,7 +136,29 @@ class StaticPagesController < ApplicationController
   end
 
   def staticcontact
-    @user = current_user 
+    @user = current_user
     @title = 'Contact Information'
+  end
+
+  def by_country
+    @title = "Search by Country: #{params[:country_code]}"
+    @user = current_user
+    @hotels = Hotel.where(country: params[:country_code]).paginate(page: params[:page])
+  end
+
+  def by_city
+    city_code = params[:city_code].underscore.humanize.titleize
+    @title = "Search by City: #{city_code}"
+    @user = current_user
+    @hotels = Hotel.where(city: city_code).paginate(page: params[:page])
+  end
+
+private
+  def find_day_start
+    @day_start = if params[:day_start]
+                   Date.parse(params[:day_start])
+                 else
+                   Date.today
+                 end
   end
 end
