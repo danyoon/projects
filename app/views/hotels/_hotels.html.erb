@@ -1,16 +1,5 @@
 <thead>
   <% if user_signed_in? %>
-    <tr>
-      <th>Hotel</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th></th>
-      <th>Key</th>
-      <th>Owner</th>
-      <th>Menu</th>
-    </tr>
-
     <%= render hotels %>
   <% else %>
     <tr>
@@ -20,7 +9,7 @@
         <th><%= date %></th>
       <% end %>
       <th><%= link_to "->", params.merge(day_start: @day_start + 7.day) %></th>
-      <th>Menu</th>
+      <th>Track</th>
     </tr>
 
     <%= render hotels %>
