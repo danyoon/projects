@@ -2,13 +2,8 @@
 
 <td>
   <% unless (price.id rescue nil).nil? || (price.rate rescue nil).nil? %>
-    <%= link_to image_tag(summary_price.image, :size => "50x50"), historical_price_path(price.id) %>
-    <%= link_to summary_price.name, historical_price_path(price.id) %>  
-    <%= link_to number_to_currency(price.rate) %>
+    <%= link_to number_to_currency(price.rate), historical_price_path(price.id) %>
   <% else %>
-    <%= link_to image_tag(summary_price.image, :size => "50x50") %>
-    <%= link_to summary_price.name%>  
-    <%= link_to number_to_currency(0.0) %>
+    <%= number_to_currency(0.0) %>
   <% end %>
 </td>
-    

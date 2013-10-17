@@ -1,4 +1,15 @@
 <table class="table table-bordered">
+  <tr>
+    <th>Day</th>
+    <% @summary_prices.each do |hotel| %>
+      <th>
+        <%= link_to hotel do %>
+          <%= image_tag(hotel.image, :size => "50x50") %>
+          <%= hotel.name %>
+        <% end %>
+      </th>
+    <% end %>
+  </tr>
   <% a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] %>
   <% a.in_groups_of(7, false) do |group| %>
     <% group.each do |index| %>
