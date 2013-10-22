@@ -1,6 +1,8 @@
 <div class="col-sm-6 col-md-3">
   <div class="thumbnail">
-    <%= image_tag(hotel.image, :size => "320x200") %>`
+    <%#= image_tag(hotel.image, :size => "320x200") %>
+    <%= image_tag("http://placehold.it/200x150", :size => "300x200") %>    
+    <%= link_to "Add Picture", hotel, class: "btn btn-default btn-block" %>
     <div class="caption">
       <h4><%= hotel.name %></h4>
       <address>
@@ -16,10 +18,12 @@
         <strong>Owner: </strong><%= hotel.owner %><br>
       </address>
       <%= render 'hotels/connect_form', hotel: hotel  %>
-      <%= link_to "Details", hotel %>
+      <div class="btn-group btn-group-justified">
+        <%= link_to "Prices", hotel, class: "btn" %>
+        <%= link_to "Details", hotel, class: "btn" %>
+      </div>
     </div>
   </div>
 </div>
-
 
 
