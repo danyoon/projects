@@ -1,0 +1,27 @@
+<tr>
+  <td>
+    <%#= image_tag(hotel.image, :size => "50x50") %>
+    <%= hotel.name %>
+    <br>
+    <%= hotel.address + " / " + hotel.city + " " + hotel.zipcode.to_s %>        
+  </td>
+  <td>
+    <%= %>
+    <%#= hotel.mainstreet %>
+    <%#= hotel.crossstreet %>
+    <%#= hotel.key %>
+    <%#= hotel.owner %>
+  </td>
+  <% (@day_start...@day_start + 7.days).each do |date| %>
+    <td>
+      <% price = hotel.prices.find_by_date_for(date) %>
+      <%= decorate_price(price ? price.rate : nil) %>
+    </td>
+  <% end %>
+  <td>
+  </td>
+  <td>
+    <%= render 'hotels/connect_form', hotel: hotel  %>
+    <%= link_to "Details", hotel %>
+  </td>
+</tr>
