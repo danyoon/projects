@@ -15,4 +15,5 @@
 //= require jvectormap
 //= require jvectormap/maps/world_mill_en
 //= require jvectormap/maps/world_merc_en
+//= require hotels
 //= require bootstrap

@@ -1,0 +1,59 @@
+<div id="wrapper">
+  <div id="columns">
+    <% @hotels.each do |hotel| %>
+      <div class="hotel-grid pin thumbnail">
+        <%= image_tag("http://placehold.it/200x150", :size => "300x200") %>
+        <%= link_to "Add Picture", hotel, class: "btn btn-default btn-block" %>
+
+        <div class="caption">
+          <h4><%= hotel.name %></h4>
+
+          <div class="info summary-info <%= user_signed_in? ? "hidden" : "" %>">
+            <address>
+              <strong>Address</strong><br>
+              <%= hotel.address %><br>
+              <%= hotel.city + ", "+ hotel.country %>&nbsp;
+              <%= hotel.zipcode.to_s %><br>
+              <strong>Cross Street: </strong><%= hotel.mainstreet %><br>
+              <strong>Cross Street: </strong><%= hotel.crossstreet %><br>
+            </address>
+            <address>
+              <strong>Rooms/Keys: </strong><%= hotel.key %><br>
+              <strong>Owner: </strong><%= hotel.owner %><br>
+            </address>
+          </div>
+
+          <div class="info price-info <%= user_signed_in? ? "" : "hidden" %>">
+            <table class="table col-sm-5 col-md-2">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+
+              <% (@day_start...@day_start + 7.days).each do |date| %>
+                <tbody>
+                  <tr>
+                  <td><%= date %></td>
+                  <td><% price = hotel.prices.find_by_date_for(date) %>
+                  <%= decorate_price(price ? price.rate : nil) %>
+                  </td>
+                </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+
+          <%= render 'hotels/connect_form', hotel: hotel  %>
+
+          <div class="btn-group btn-group-justified">
+            <%= link_to "Summary", "#", class: "btn btn-summary btn-toggle" + " " + (user_signed_in? ? "" : "hidden") %>
+            <%= link_to "Price", "#", class: "btn btn-price btn-toggle" + " " + (user_signed_in? ? "hidden" : "") %>
+            <%= link_to "Details", hotel, class: "btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

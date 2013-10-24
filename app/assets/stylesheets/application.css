@@ -13,3 +13,7 @@
  *= require bootstrap
  *= require jquery-jvectormap-1.2.2
  */
+
+.hidden {
+  display: none;
+}

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_filter :find_day_start
+  before_filter :find_day_start, :find_view_type
 
   require 'json'
   def index
@@ -160,5 +160,9 @@ private
                  else
                    Date.today
                  end
+  end
+
+  def find_view_type
+    @view_type = params[:view_type] ? params[:view_type].to_sym : :thumbnail
   end
 end

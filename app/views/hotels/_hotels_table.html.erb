@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Hotel</th>
+    <th><%= link_to "<-", params.merge(day_start: @day_start - 7.day) %></th>
+    <% (@day_start...@day_start + 7.days).each do |date| %>
+      <th><%= date %></th>
+    <% end %>
+    <th><%= link_to "->", params.merge(day_start: @day_start + 7.day) %></th>
+    <th>Track</th>
+  </tr>
+
+  <% @hotels.each do |hotel| %>
+    <tr>
+      <td>
+        <%= hotel.name %>
+        <br>
+        <%= hotel.address + " / " + hotel.city + " " + hotel.zipcode.to_s %>
+      </td>
+      <td>
+      </td>
+      <% (@day_start...@day_start + 7.days).each do |date| %>
+        <td>
+          <% price = hotel.prices.find_by_date_for(date) %>
+          <%= decorate_price(price ? price.rate : nil) %>
+        </td>
+      <% end %>
+      <td>
+      </td>
+      <td>
+        <%= render 'hotels/connect_form', hotel: hotel  %>
+        <%= link_to "Details", hotel %>
+      </td>
+    </tr>
+
+  <% end %>
+</table>

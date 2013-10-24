@@ -1,22 +1,30 @@
 <div class='container'>
-  <div class="row">
-    <div class="btn-group pull-right" data-toggle="buttons">
-      <%= link_to "Thumbnail View", "", class:"btn btn-default span2"%>
-      <%= link_to "Table View", "", class:"btn btn-default span2"%>
+  <div class="menu">
+    <div class="btn-group pull-left" data-toggle="buttons"> 
+      <%= link_to "Hotels", "", class: "btn btn-default span2" %>
+      <%= link_to "Restaurants", "", class: "btn btn-default span2" %>
+    </div>
+    <div class="btn-group pull-right">
+      <%= link_to "Thumbnail View", params.merge(view_type: 'thumbnail'), class: "btn btn-default span2"%>
+      <%= link_to "Table View", params.merge(view_type: 'table'), class: "btn btn-default span2"%>
+    </div>
+
+    <div class="btn-group btn-group-justified">
+      <% today = Date.today %>
+      <%= link_to @title + " : " + average_price(@hotels), params.merge(day_start: today), class:"btn"%>
+      <%= link_to "1Q : " + average_price(@hotels, '1Q'), params.merge(day_start: today.change(month: 1, day: 1)), class:"btn"%>
+      <%= link_to "2Q : " + average_price(@hotels, '2Q'), params.merge(day_start: today.change(month: 4, day: 1)), class:"btn"%>
+      <%= link_to "3Q : " + average_price(@hotels, '3Q'), params.merge(day_start: today.change(month: 7, day: 1)), class:"btn"%>
+      <%= link_to "4Q : " + average_price(@hotels, '4Q'), params.merge(day_start: today.change(month: 10, day: 1)), class:"btn"%>
     </div>
   </div>
-  <div class="btn-group btn-group-justified">
-    <% today = Date.today %>
-    <%= link_to @title + " : " + average_price(@hotels), params.merge(day_start: today), class:"btn"%>
-    <%= link_to "1Q : " + average_price(@hotels, '1Q'), params.merge(day_start: today.change(month: 1, day: 1)), class:"btn"%>
-    <%= link_to "2Q : " + average_price(@hotels, '2Q'), params.merge(day_start: today.change(month: 4, day: 1)), class:"btn"%>
-    <%= link_to "3Q : " + average_price(@hotels, '3Q'), params.merge(day_start: today.change(month: 7, day: 1)), class:"btn"%>
-    <%= link_to "4Q : " + average_price(@hotels, '4Q'), params.merge(day_start: today.change(month: 10, day: 1)), class:"btn"%>
-  </div>
 
-  <table class="table table-bordered">
-    <%= render 'hotels/hotels', hotels: @hotels %>
-  </table>
+  <% if @view_type == :thumbnail %>
+    <%= render 'hotels/hotels_thumbnail' %>
+  <% else %>
+    <%= render 'hotels/hotels_table' %>
+  <% end %>
+
   <%= will_paginate @hotels %>
 </div>
 
