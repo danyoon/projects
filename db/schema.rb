@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417213956) do
+ActiveRecord::Schema.define(:version => 20131024022225) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20130417213956) do
   add_index "connections", ["connected_id"], :name => "index_connections_on_connected_id"
   add_index "connections", ["connecter_id", "connected_id"], :name => "index_connections_on_connecter_id_and_connected_id", :unique => true
   add_index "connections", ["connecter_id"], :name => "index_connections_on_connecter_id"
+
+  create_table "hotel_photos", :force => true do |t|
+    t.integer  "hotel_id"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "hotel_photos", ["hotel_id"], :name => "index_hotel_photos_on_hotel_id"
+  add_index "hotel_photos", ["user_id"], :name => "index_hotel_photos_on_user_id"
 
   create_table "hotels", :force => true do |t|
     t.string   "name"

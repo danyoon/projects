@@ -1,4 +1,6 @@
 class HotelsController < ApplicationController
+  before_filter :authenticate_user!, only: [:upload]
+
   require 'csv'
 
   def index
@@ -22,6 +24,17 @@ class HotelsController < ApplicationController
   def import
     Hotel.import(params[:file])
     redirect_to hotels_url, notice: "Hotels imported."
+  end
+
+  def upload
+    @hotel = Hotel.find(params[:id])
+
+    previous = @hotel.photos.by_user(current_user)
+    previous.destroy if previous
+
+    current = @hotel.photos.create!(user_id: current_user.id, image: params[:hotel][:photo])
+
+    redirect_to :back, notice: "Successfully uploaded photo."
   end
 
   def connecters

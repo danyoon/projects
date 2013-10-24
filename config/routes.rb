@@ -6,11 +6,17 @@ FirstApp::Application.routes.draw do
     get 'signout', to: 'devise/sessions#destroy'
     get 'signup',  to: 'devise/registrations#new'
   end
-  
+
   resources :authentications
   resources :hotels do
-    member {get :connecters}
-    collection {post :import }  
+    member do
+      get :connecters
+      post :upload
+    end
+
+    collection do
+      post :import
+    end
   end
 
   resources :users do

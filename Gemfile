@@ -19,6 +19,9 @@ gem 'geocoder'
 gem 'jvectormap-rails', '~> 1.0.0'
 gem 'heroku-forward'
 
+gem 'carrierwave'
+gem 'cloudinary'
+
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
