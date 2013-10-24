@@ -1,0 +1,19 @@
+<!--
+  Goal
+   * [DONE]load/export database
+   * make admin layout
+   * edit hotel information
+   * edit expedia key/secret
+-->
+
+
+<h3>Load & Export Database</h3>
+
+<%= form_tag [:import, :admin, :hotels], multipart: true do %>
+  <%= file_field_tag :file, class:"span2" %>
+  <%= submit_tag "Load Database from CSV", class: "btn btn-primary" %>
+<% end %>
+
+<p class="seperator">or</p>
+
+<%= link_to "Export Database to CSV", hotels_path(format: "csv"), class: "btn btn-primary btn-block" %>

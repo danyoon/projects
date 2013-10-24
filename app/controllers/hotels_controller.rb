@@ -6,7 +6,7 @@ class HotelsController < ApplicationController
   def index
     @hotels = Hotel.paginate(page: params[:page])
     @user = current_user
-    @title = "All Hotels"    
+    @title = "All Hotels"
     hotelsall = Hotel.order(:id)
     respond_to do |format|
       format.html
@@ -19,11 +19,6 @@ class HotelsController < ApplicationController
     @user = current_user
     @prices = @hotel.prices.paginate(page: params[:page])
     @title = @hotel.name
-  end
-
-  def import
-    Hotel.import(params[:file])
-    redirect_to hotels_url, notice: "Hotels imported."
   end
 
   def upload

@@ -1,22 +1,6 @@
 <% provide(:title, 'Hotel Directory') %>
 <div class="container">
-  <% if current_user.admin == TRUE %>
-    <table class="table">
-      <tr>
-      <td>      
-      <%= form_tag import_hotels_path, multipart: true do %>
-        <%= file_field_tag :file, class:"span2" %>
-      </td>
-      <td>
-        <%= submit_tag "Load Database from CSV", class: "btn btn-primary span2" %>
-        </td>
-        <td>
-        <%= link_to "Export Database to CSV", hotels_path(format: "csv"), class: "btn btn-primary span2 pull-right" %>
-      </td>
-      </tr>
-  <% end %>
-  </div>
-<% end %>
+
   <br>
   <br>
   <table class="table table-bordered">

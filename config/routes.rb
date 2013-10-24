@@ -7,15 +7,23 @@ FirstApp::Application.routes.draw do
     get 'signup',  to: 'devise/registrations#new'
   end
 
+  namespace :admin do
+    resources :hotels, only: [:index, :edit, :update] do
+      collection do
+        post :import
+      end
+    end
+
+    get 'database' => "database#index"
+
+    root to: 'welcome#index'
+  end
+
   resources :authentications
   resources :hotels do
     member do
       get :connecters
       post :upload
-    end
-
-    collection do
-      post :import
     end
   end
 

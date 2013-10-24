@@ -1,0 +1,31 @@
+<h3>Hotel List</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Zip Code</th>
+      <th>Menu</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.country %></td>
+        <td><%= hotel.city %></td>
+        <td><%= hotel.address %></td>
+        <td><%= hotel.zipcode %></td>
+        <td>
+          <%= link_to "Edit", [:edit, :admin, hotel], class: "btn btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @hotels %>
