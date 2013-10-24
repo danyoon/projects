@@ -1,12 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="btn-group btn-group-justified">
-      <%= link_to "Stanford", stanford_path, class:"btn"%>
-      <%= link_to "San Francisco", sf_path, class:"btn"%>
-      <%= link_to "Las Vegas", lv_path, class:"btn"%>
-      <%= link_to "New York", nyc_path, class:"btn", id:"countryLabel"%>
-    </div>
-  </div>
+    <div class="col-md-3"><h4>Select a Country or City:</h4></div>
+    <div class="col-md-9"><%= link_to"New York", nyc_path, class:"btn btn-default btn-block", id:"countryLabel"%></div>
+  </div>    
   <div class="row">
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
