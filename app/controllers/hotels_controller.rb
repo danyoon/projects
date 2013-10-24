@@ -21,6 +21,19 @@ class HotelsController < ApplicationController
     @title = @hotel.name
   end
 
+  def new
+    @hotel = Hotel.new
+  end
+
+  def create
+    @hotel = Hotel.new(params[:hotel])
+    @hotel.save!
+
+    current_user.connect!(@hotel) if current_user
+
+    redirect_to @hotel
+  end
+
   def upload
     @hotel = Hotel.find(params[:id])
 
@@ -40,10 +53,10 @@ class HotelsController < ApplicationController
   end
 
   def self.search(search)
-  if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-  else
-    find(:all)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
-end
 end

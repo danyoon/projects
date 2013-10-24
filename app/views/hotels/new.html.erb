@@ -1,0 +1,20 @@
+<%= simple_form_for @hotel, html: {id: 'hotel-form'} do |f| %>
+  <legend>
+    Add Property
+  </legend>
+
+  <fieldset>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :country, as: 'String' %>
+    <%= f.input :zipcode, as: 'String' %>
+    <%= f.input :mainstreet %>
+    <%= f.input :crossstreet %>
+    <%= f.input :key %>
+    <%= f.input :owner %>
+    <%= f.input :hotelID %>
+  </fieldset>
+
+  <%= f.button :submit %>
+<% end %>
