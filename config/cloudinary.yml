@@ -1,0 +1,21 @@
+---
+development:
+  cloud_name: thousandsoft
+  api_key: '324267819415126'
+  api_secret: gsgrdJnRU_Fm9RfUthbYcydX4Mk
+  enhance_image_tag: true
+  static_image_support: false
+
+production:
+  cloud_name: thousandsoft
+  api_key: '324267819415126'
+  api_secret: gsgrdJnRU_Fm9RfUthbYcydX4Mk
+  enhance_image_tag: true
+  static_image_support: true
+
+test:
+  cloud_name: thousandsoft
+  api_key: '324267819415126'
+  api_secret: gsgrdJnRU_Fm9RfUthbYcydX4Mk
+  enhance_image_tag: true
+  static_image_support: false

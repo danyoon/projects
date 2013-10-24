@@ -6,6 +6,8 @@ class Hotel < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :connecters, through: :reverse_connections, source: :connecter
 
+  has_many :photos, class_name: 'HotelPhoto'
+
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names

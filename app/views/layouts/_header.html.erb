@@ -3,13 +3,19 @@
     <div class="navbar-header">
       <%= link_to "Links to Places You Love", root_path, id: "biglogo" %>
     </div>
-    <div class="nav">
+
+    <div class="nav navbar-right">
       <% if user_signed_in? %>
-        <%= render 'shared/top_loggedin' %> 
-    <% else %>
-        <%= render 'shared/top_main' %> 
-    <% end %>
+        <%= render 'shared/top_loggedin' %>
+      <% else %>
+        <%= render 'shared/top_main' %>
+      <% end %>
     </div>
+
+    <ul class="nav navbar-right">
+      <li><%= link_to "Add Property", [:new, :hotel], class: "btn btn-xlarge btn-default", id: "logo" %></li>
+    </ul>
+
   </div>
 </header>
 

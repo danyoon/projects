@@ -6,11 +6,25 @@ FirstApp::Application.routes.draw do
     get 'signout', to: 'devise/sessions#destroy'
     get 'signup',  to: 'devise/registrations#new'
   end
-  
+
+  namespace :admin do
+    resources :hotels, only: [:index, :edit, :update] do
+      collection do
+        post :import
+      end
+    end
+
+    get 'database' => "database#index"
+
+    root to: 'welcome#index'
+  end
+
   resources :authentications
   resources :hotels do
-    member {get :connecters}
-    collection {post :import }  
+    member do
+      get :connecters
+      post :upload
+    end
   end
 
   resources :users do

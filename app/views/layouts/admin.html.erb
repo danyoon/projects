@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+    <%= stylesheet_link_tag  "application", media: "all" %>
+    <%#= stylesheet_link_tag  "jquery-jvectormap-1.2.2.css" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery-1.9.1.js" %>
+    <%= javascript_include_tag "jquery-jvectormap-1.2.2.min.js" %>
+    <%= javascript_include_tag "jquery-jvectormap-world-mill-en.js" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "Admin", [:admin, :root], id: "biglogo" %>
+        </div>
+
+        <div class="nav">
+          <%= render 'shared/top_loggedin' %>
+        </div>
+      </div>
+    </header>
+
+    <div id="admin-content">
+      <div class="container">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+
+      <div class="btn-group btn-group-justified">
+        <%= link_to "Root", [:admin, :root], class: 'btn' %>
+        <%= link_to "Load & Export", [:admin, :database], class: 'btn' %>
+        <%= link_to "Hotel", [:admin, :hotels], class: 'btn' %>
+      </div>
+
+      <%= yield %>
+
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>

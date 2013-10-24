@@ -1,4 +1,4 @@
-$(function(){
+function toggleHotelInfo(){
   var hotels = $('.hotel-grid');
   var toggles = hotels.find('.btn-toggle');
 
@@ -28,4 +28,29 @@ $(function(){
       summaryBtn.removeClass('hidden');
     }
   });
+}
+
+function uploadHotelPhoto(){
+  var form = $('form.hotel-photo-upload-form');
+  var file = form.find('input[type="file"]');
+  var submit = form.find('input[type="submit"]');
+
+  file.on('change', function(e){
+    e.preventDefault();
+    var form = $(this).parent();
+
+    form.submit();
+  });
+
+  submit.on('click', function(e){
+    e.preventDefault();
+    var field = $(this).parent().find('input[type="file"]');
+
+    field.click();
+  });
+}
+
+$(function(){
+  toggleHotelInfo();
+  uploadHotelPhoto();
 });
