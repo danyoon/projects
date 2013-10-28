@@ -16,7 +16,7 @@
             <%= f.submit "Add Picture", class: "btn btn-default btn-block" %>
           <% end %>
         <% else %>
-          <%= link_to "Add Picture", :new_user_session, class: "btn btn-default btn-block" %>
+          <%= link_to "Add Picture", [:upload, hotel], method: 'post', class: "btn btn-default btn-block" %>
         <% end %>
 
         <div class="caption">
