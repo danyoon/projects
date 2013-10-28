@@ -42,6 +42,8 @@ class HotelsController < ApplicationController
 
     current = @hotel.photos.create!(user_id: current_user.id, image: params[:hotel][:photo])
 
+    current_user.connect!(@hotel)
+
     redirect_to :back, notice: "Successfully uploaded photo."
   end
 
