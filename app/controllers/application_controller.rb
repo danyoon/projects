@@ -8,10 +8,13 @@ class ApplicationController < ActionController::Base
       current_user.connect!(hotel)
     end
 
+    url = session[:redirect_url]
+
+    session.delete(session[:redirect_url])
     session.delete(session[:redirect_type])
     session.delete(session[:redirect_value])
 
-    current_user
+    url || current_user
   end
 
   def after_sign_out_path_for(resource_or_scope)
