@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_filter :authenticate_user!, only: [:upload]
+  before_filter :login_required, only: [:upload]
 
   require 'csv'
 
@@ -42,6 +42,8 @@ class HotelsController < ApplicationController
 
     current = @hotel.photos.create!(user_id: current_user.id, image: params[:hotel][:photo])
 
+    current_user.connect!(@hotel)
+
     redirect_to :back, notice: "Successfully uploaded photo."
   end
 
@@ -57,6 +59,14 @@ class HotelsController < ApplicationController
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
       find(:all)
+    end
+  end
+
+private
+  def login_required
+    unless user_signed_in?
+      session[:redirect_url] = request.referer
+      redirect_to [:new, :user_session]
     end
   end
 end
