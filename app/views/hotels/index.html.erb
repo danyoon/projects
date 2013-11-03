@@ -3,7 +3,7 @@
   <% if current_user.admin == TRUE %>
     <h3>Load & Export Database</h3>
 
-  <%= form_tag [:import, :admin, :hotels], multipart: true do %>
+  <%= form_tag [:import], multipart: true do %>
     <%= file_field_tag :file, class:"span2" %>
   <%= submit_tag "Load Database from CSV", class: "btn btn-primary" %>
 <% end %>
