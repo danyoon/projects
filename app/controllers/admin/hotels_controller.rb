@@ -1,4 +1,6 @@
 class Admin::HotelsController < Admin::ApplicationController
+  require 'csv'
+
   def index
     @hotels = Hotel.paginate(page: params[:page])
   end
