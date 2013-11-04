@@ -7,11 +7,6 @@ class HotelsController < ApplicationController
     @hotels = Hotel.paginate(page: params[:page])
     @user = current_user
     @title = "All Hotels"
-    hotelsall = Hotel.order(:id)
-    respond_to do |format|
-      format.html
-      format.csv { send_data hotelsall.to_csv }
-    end
   end
 
   def show
