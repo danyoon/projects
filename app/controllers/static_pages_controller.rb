@@ -6,7 +6,9 @@ class StaticPagesController < ApplicationController
     @title = 'Home'
     @user = current_user
     @location = request.location
-  end  
+
+    @mostly_connected = User.mostly_connected.limit(3)
+  end
 
   def stanford
     @title = 'Stanford'
