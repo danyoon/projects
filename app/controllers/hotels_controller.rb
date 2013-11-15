@@ -57,6 +57,24 @@ class HotelsController < ApplicationController
     end
   end
 
+  def send_user_form
+    @hotel = Hotel.find(params[:id])
+  end
+
+  def send_user
+    @hotel = Hotel.find(params[:id])
+    @user = User.find_by_name(params[:username])
+
+    if !@user
+      redirect_to :back, alert: "can't find user named \"#{params[:username]}\""
+    elsif @user.connecting?(@hotel)
+      redirect_to :back, alert: "\"#{params[:username]}\" is already connecting this hotel"
+    else
+      @user.connect!(@hotel)
+      redirect_to :back, notice: "Successfully send hotel to \"#{params[:username]}\""
+    end
+  end
+
 private
   def login_required
     unless user_signed_in?

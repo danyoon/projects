@@ -60,6 +60,9 @@
           </div>
 
           <%= render 'hotels/connect_form', hotel: hotel  %>
+          <%= form_for [:send_user, hotel], method: 'GET', remote: true do |f| %>
+            <%= f.submit "Send", class: 'btn btn-info btn-hotel-send' %>
+          <% end %>
 
           <div class="btn-group btn-group-justified">
             <%= link_to "Summary", "#", class: "btn btn-summary btn-toggle" + " " + (user_signed_in? ? "" : "hidden") %>
