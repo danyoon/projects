@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :find_day_start, :find_view_type
+
   def index
     @users = User.paginate(page: params[:page])
     @user = current_user
@@ -31,5 +33,18 @@ class UsersController < ApplicationController
     @title = "Connecting"
     @hotels = @user.connected_hotels.paginate(page: params[:page])
     render 'show_connect'
+  end
+
+private
+  def find_day_start
+    @day_start = if params[:day_start]
+                   Date.parse(params[:day_start])
+                 else
+                   Date.today
+                 end
+  end
+
+  def find_view_type
+    @view_type = params[:view_type] ? params[:view_type].to_sym : :thumbnail
   end
 end
