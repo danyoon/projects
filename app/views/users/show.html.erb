@@ -21,7 +21,9 @@
     </div>
   </div>
 
-  <table class="table table-bordered">
-    <%= render 'shared/summary' %>
-  </table>
+  <% if @view_type == :thumbnail %>
+    <%= render 'users/partials/thumbnail_view' %>
+  <% else %>
+    <%= render 'users/partials/table_view' %>
+  <% end %>
 </div>

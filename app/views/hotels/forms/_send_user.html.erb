@@ -1,0 +1,25 @@
+<div id="hotel-send-user-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_for [:send_user, @hotel], class: 'form-horizontal' do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Send</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="control-group">
+            <%= f.label :user_name %>
+            <div class="controls">
+              <%= text_field_tag :username %>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit "Send", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

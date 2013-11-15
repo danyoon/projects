@@ -1,0 +1,10 @@
+var form = "<%=j render 'hotels/forms/send_user', hotel: @hotel %>";
+
+$('body').append(form);
+
+var modal = $('#hotel-send-user-modal');
+
+modal.modal();
+modal.on('hidden.bs.modal', function () {
+  modal.remove();
+})

@@ -24,6 +24,9 @@ FirstApp::Application.routes.draw do
     member do
       get :connecters
       post :upload
+
+      get :send_user, action: 'send_user_form'
+      put :send_user
     end
   end
 

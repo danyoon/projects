@@ -33,10 +33,10 @@
   </div>
   <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "1. Daniel Yoon (1 pt)", nyc_path, class:"btn"%>
-      <%= link_to "2. Kara Ward (1 pt)", nyc_path, class:"btn"%> 
-      <%= link_to "3. User 3 (1 pt)", nyc_path, class:"btn"%>                 
-    </div>    
+      <% @mostly_connected.each_with_index do |user, index| %>
+        <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
+      <% end %>
+    </div>
   </div>
 </div>
 <script>

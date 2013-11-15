@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.mostly_connected
+    User.order('connections_count DESC')
+  end
+
   def userfeed
     Micropost.from_users_followed_by(self)
   end
