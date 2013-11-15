@@ -60,6 +60,7 @@
           </div>
 
           <%= render 'hotels/connect_form', hotel: hotel  %>
+          <%= render 'hotels/send_form', hotel: hotel  %>
 
           <div class="btn-group btn-group-justified">
             <%= link_to "Summary", "#", class: "btn btn-summary btn-toggle" + " " + (user_signed_in? ? "" : "hidden") %>
