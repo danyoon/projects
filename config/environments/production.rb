@@ -61,6 +61,15 @@ FirstApp::Application.configure do
   :authentication       => 'plain',
   :enable_starttls_auto => true}
 
+  default_url_options = {
+    host: 'thousandsoft.com'
+  }
+
+  config.action_mailer.default_url_options = default_url_options
+  config.action_controller.default_url_options = default_url_options
+
+  Rails.application.routes.default_url_options = default_url_options
+
   # Enable threaded mode
   # config.threadsafe!
 

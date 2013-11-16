@@ -21,6 +21,7 @@ gem 'heroku-forward'
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'mailgun'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

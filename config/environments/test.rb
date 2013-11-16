@@ -35,6 +35,16 @@ FirstApp::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  default_url_options = {
+    host: "localhost:3000"
+  }
+
+  config.action_mailer.default_url_options = default_url_options
+  config.action_controller.default_url_options = default_url_options
+
+  Rails.application.routes.default_url_options = default_url_options
+
+
   # Speed up tests by lowering BCrypt's cost function.
   require 'bcrypt'
   silence_warnings do
