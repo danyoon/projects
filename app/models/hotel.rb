@@ -7,6 +7,7 @@ class Hotel < ActiveRecord::Base
   has_many :connecters, through: :reverse_connections, source: :connecter
 
   has_many :photos, class_name: 'HotelPhoto'
+  has_many :permlinks, class_name: 'HotelPermlink'
 
   def self.to_csv
     CSV.generate do |csv|

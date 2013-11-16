@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_filter :login_required, only: [:upload]
+  before_filter :login_required, only: [:upload, :send_user]
 
   require 'csv'
 
@@ -63,15 +63,32 @@ class HotelsController < ApplicationController
 
   def send_user
     @hotel = Hotel.find(params[:id])
-    @user = User.find_by_name(params[:username])
 
-    if !@user
-      redirect_to :back, alert: "can't find user named \"#{params[:username]}\""
-    elsif @user.connecting?(@hotel)
-      redirect_to :back, alert: "\"#{params[:username]}\" is already connecting this hotel"
+    if params[:user].index("@") == nil
+      @user = User.find_by_name(params[:user])
+
+      if !@user
+        redirect_to :back, alert: "can't find user named \"#{params[:user]}\""
+      elsif @user.connecting?(@hotel)
+        redirect_to :back, alert: "\"#{params[:user]}\" is already connecting this hotel"
+      else
+        @user.connect!(@hotel)
+        redirect_to :back, notice: "Successfully send hotel to \"#{params[:user]}\""
+      end
     else
-      @user.connect!(@hotel)
-      redirect_to :back, notice: "Successfully send hotel to \"#{params[:username]}\""
+      permlink = current_user.hotel_permlinks.generate!(@hotel)
+      link = Rails.application.routes.url_helpers.permlink_url(permlink)
+
+      arguments = {
+        from: "noreply@thousandsoft.com",
+        to: params[:user],
+        subject: "#{current_user.name} sent information of \"#{@hotel.name}\"",
+        html: "see the <a href=\"#{link}\" target=\"_blank\">link</a>"
+      }
+
+      Mailgun().messages.send_email(arguments)
+
+      redirect_to :back, notice: "Successfully send a hotel to \"#{params[:user]}\""
     end
   end
 
