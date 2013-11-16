@@ -38,7 +38,8 @@ FirstApp::Application.configure do
   config.middleware.use Rails::Rack::LogTailer
 
   default_url_options = {
-    host: "localhost:3000"
+    host: "127.0.0.1",
+    port: 3000
   }
 
   config.action_mailer.default_url_options = default_url_options

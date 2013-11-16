@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115073834) do
+ActiveRecord::Schema.define(:version => 20131116070818) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20131115073834) do
   add_index "connections", ["connecter_id", "connected_id"], :name => "index_connections_on_connecter_id_and_connected_id", :unique => true
   add_index "connections", ["connecter_id"], :name => "index_connections_on_connecter_id"
 
+  create_table "hotel_permlinks", :force => true do |t|
+    t.string   "key"
+    t.integer  "sender_id"
+    t.integer  "hotel_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "hotel_permlinks", ["key", "sender_id", "hotel_id"], :name => "index_hotel_permlinks_on_key_and_sender_id_and_hotel_id"
+
   create_table "hotel_photos", :force => true do |t|
     t.integer  "hotel_id"
     t.integer  "user_id"
@@ -49,14 +59,15 @@ ActiveRecord::Schema.define(:version => 20131115073834) do
     t.string   "city"
     t.string   "country"
     t.integer  "zipcode"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "mainstreet"
     t.string   "crossstreet"
     t.string   "key"
     t.string   "owner"
     t.string   "image"
     t.string   "hotelID"
+    t.integer  "permlinks_count", :default => 0
   end
 
   create_table "microposts", :force => true do |t|
@@ -107,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20131115073834) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "connections_count",      :default => 0
+    t.integer  "hotel_permlinks_count",  :default => 0
   end
 
   add_index "users", ["connections_count"], :name => "index_users_on_connections_count"

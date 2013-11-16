@@ -76,7 +76,8 @@ class HotelsController < ApplicationController
         redirect_to :back, notice: "Successfully send hotel to \"#{params[:user]}\""
       end
     else
-      link = Rails.application.routes.url_helpers.hotel_url(@hotel)
+      permlink = current_user.hotel_permlinks.generate!(@hotel)
+      link = Rails.application.routes.url_helpers.permlink_url(permlink)
 
       arguments = {
         from: "noreply@thousandsoft.com",

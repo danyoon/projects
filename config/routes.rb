@@ -39,6 +39,8 @@ FirstApp::Application.routes.draw do
     member {get :historical}
   end
 
+  resources :permlinks, only: [:show]
+
   # Additional user actions separated out into a new controller,
   # ProfilesController, due to conflicts with /users/:id route and
   # Devise's standard routes
