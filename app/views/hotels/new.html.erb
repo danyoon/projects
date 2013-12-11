@@ -7,6 +7,7 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :city %>
+    <%= f.input :temperature, :as => :select, :collection => [['Argentina','AR'],['Brazil','BR'],['Uruguay','UY']] %>
     <%= f.input :country, as: 'String' %>
     <%= f.input :zipcode, as: 'String' %>
     <%#= f.input :mainstreet %>
