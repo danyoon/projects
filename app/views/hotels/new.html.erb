@@ -4,12 +4,12 @@
   </legend>
 
   <fieldset>
+    <%= f.input :country, :as => :select, :collection => [['Argentina','AR'],['Brazil','BR'],['Uruguay','UY']] %>    
+    <%= f.input :city, as: 'String' %>
     <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :temperature, :as => :select, :collection => [['Argentina','AR'],['Brazil','BR'],['Uruguay','UY']] %>
-    <%= f.input :country, as: 'String' %>
     <%= f.input :zipcode, as: 'String' %>
+    <%#= f.input :country, as: 'String' %>    
     <%#= f.input :mainstreet %>
     <%#= f.input :crossstreet %>
     <%#= f.input :key %>
