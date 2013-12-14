@@ -38,11 +38,15 @@
   <div class="row">
     <h4>See the Collection of our Top Curators</h4>
   </div>
-  <div class="hotel-grid pin thumbnail">
-     <% @mostly_connected.each_with_index do |user, index| %>
-        <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn-xlarge"%>
-    <% end %>
+  <% @mostly_connected.in_groups_of(3,false).each do |mostly_connected| %>
+  <div class="row">
+    <div class="btn-group btn-group-justified">
+      <% mostly_connected.each_with_index do |user, index| %>
+      <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
+      <% end %>
+    </div>
   </div>
+  <% end %>
 </div>
 <script>
 
