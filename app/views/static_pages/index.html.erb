@@ -40,7 +40,7 @@
   </div>
   <div class="row">
      <% @mostly_connected.each_with_index do |user, index| %>
-        <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
+        <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn-xlarge"%>
     <% end %>
   </div>
 </div>
