@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3"><h4>Select a Country or City:</h4></div>
-    <div class="col-md-9"><%= link_to"New York", nyc_path, class:"btn btn-default btn-block", id:"countryLabel"%></div>
+    <div class="col-md-12"><%= link_to "Add Property", [:new, :hotel], class: "btn btn-default btn-block" %></div>
   </div>    
   <div class="row">
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"><h4>Select a Country or City:</h4></div>
+    <div class="col-md-9"><%= link_to"New York", nyc_path, class:"btn btn-default btn-block", id:"countryLabel"%></div>
+  </div>
+  <div class="row">
+    <h4>See the Collection by Company</h4>
   </div>
   <div class="row">
     <div class="btn-group btn-group-justified">
@@ -29,13 +35,13 @@
   </div>
   <hr>
   <div class="row">
-    <h4>See the Collection of our Top Curators </h4>
+    <h4>See the Collection of our Top Curators</h4>
   </div>
   <div class="row">
     <div class="btn-group btn-group-justified">
       <% @mostly_connected.each_with_index do |user, index| %>
         <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
@@ -50,7 +56,7 @@ $(function(){
 
   map = new jvm.WorldMap({
     map: 'world_mill_en',
-     markers: [
+    markers: [
       {latLng: [40, -73], name: 'New York', code: "<%=j 'New York'.parameterize %>"},
       {latLng: [37, -122], name: 'San Francisco', code: "<%=j 'San Francisco'.parameterize %>"},
       {latLng: [34, -118], name: 'Los Angeles', code: "<%=j 'Los Angeles'.parameterize %>"},
@@ -62,30 +68,30 @@ $(function(){
       {latLng: [25, -80], name: 'Miami Beach', code: "<%=j 'Miami Beach'.parameterize %>"},                  
     ],
 
-                         regionsSelectable: true,
-                         regionStyle: {
-                           initial: {
-                             fill: 'white'
-                           },
-                           selected: {
-                             fill: '#2E8B57'
-                           }
-                         },
-                         markersSelectable: true,
-                         markerStyle: {
-                           initial: {
-                             fill: 'white'
-                           },
-                           selected: {
-                             fill: '#2E8B57'
-                           }
-                         },
-                         container: $('#world-map'),
-                         onRegionClick: showMenuLocation,
-                         onRegionSelected: showLocation,
-                         onMarkerClick: showMenuCity,
-                         onMarkerSelected: showCity
-                          });
+    regionsSelectable: true,
+    regionStyle: {
+      initial: {
+        fill: 'white'
+      },
+      selected: {
+        fill: '#2E8B57'
+      }
+    },
+    markersSelectable: true,
+    markerStyle: {
+      initial: {
+        fill: 'white'
+      },
+      selected: {
+        fill: '#2E8B57'
+      }
+    },
+    container: $('#world-map'),
+    onRegionClick: showMenuLocation,
+    onRegionSelected: showLocation,
+    onMarkerClick: showMenuCity,
+    onMarkerSelected: showCity
+  });
   App.map = map;
 
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
