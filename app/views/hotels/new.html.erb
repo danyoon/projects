@@ -1,21 +1,75 @@
 <%= simple_form_for @hotel, html: {id: 'hotel-form'} do |f| %>
   <legend>
-    Add Property
-  </legend>
+  Add Property
+</legend>
 
-  <fieldset>
-    <%= f.input :country, :as => :select, :collection => [['Argentina','AR'],['Brazil','BR'],['Uruguay','UY']] %>    
-    <%= f.input :city, as: 'String' %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :zipcode, as: 'String' %>
-    <%#= f.input :country, as: 'String' %>    
-    <%#= f.input :mainstreet %>
-    <%#= f.input :crossstreet %>
-    <%#= f.input :key %>
-    <%#= f.input :owner %>
-    <%#= f.input :hotelID %>
-  </fieldset>
+<fieldset>
+  <%= f.input :country, :as => :select, 
+    :collection => 
+  [['Great Britain','GB'],
+   ['Austria','AT'],
+   ['Croatia','HR'],
+   ['Czech Republic','CZ'],     
+   ['France','FR'],
+   ['Germany','DE'],
+   ['Greece','GR'],
+   ['Iceland','IS'],
+   ['Ireland','IT'],     
+   ['Italy','IT'],
+   ['Poland','PL'],
+   ['Portugal','PT'],     
+   ['Spain','ES'],
+   ['Switzerland','CH'],
+   ['Turkey','TR'],
+   ['Cambodia','KH'],
+   ['China','CN'],
+   ['India','IN'],
+   ['Indonesia','ID'],
+   ['Japan','JP'],
+   ['Laos','LA'],
+   ['Malaysia','MY'],
+   ['Myanmar','MM'],
+   ['Philippines','PH'],
+   ['Russia','RU'],
+   ['Thailand','TH'],
+   ['Vietnam','VN'],
+   ['Argentina','AR'],
+   ['Brazil','BR'],
+   ['Chile','CL'],
+   ['Costa Rica','CR'],
+   ['Ecuador','EC'],
+   ['Mexico','MX'],
+   ['Nicaragua','NI'],
+   ['Panama','PA'],
+   ['Peru','PE'],
+   ['Uruguay','UY'],
+   ['Botswana','BW'],
+   ['Egypt','EG'],
+   ['Ethiopia','ET'],
+   ['Ghana','GH'],
+   ['Kenya','KE'],   
+   ['Morocco','MA'],
+   ['Mozambique','MZ'],
+   ['Namibia','NA'],
+   ['Tanzania','TZ'],
+   ['South Africa','ZA'],
+   ['Zambia','ZM'],
+   ['Zimbabwe','ZW'],
+   ['Australia','AU'],
+   ['New Zealand','NZ']
+  ] 
+%>    
+<%= f.input :city, as: 'String' %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%#= f.input :zipcode, as: 'String' %>
+  <%#= f.input :country, as: 'String' %>    
+  <%#= f.input :mainstreet %>
+  <%#= f.input :crossstreet %>
+  <%#= f.input :key %>
+  <%#= f.input :owner %>
+  <%#= f.input :hotelID %>
+</fieldset>
 
-  <%= f.button :submit %>
+<%= f.button :submit %>
 <% end %>
