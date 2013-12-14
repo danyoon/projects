@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
     @user = current_user
     @location = request.location
 
-    @mostly_connected = User.mostly_connected.limit(3)
+    @mostly_connected = User.mostly_connected.limit(10)
   end
 
   def stanford
