@@ -38,14 +38,16 @@
   <div class="row">
     <h4>See the Collection of our Top Curators</h4>
   </div>
-  <% @mostly_connected.each_with_index.in_groups_of(3,false)  do |mostly_connected, index| %>
+  <% @mostly_connected.each_with_index do |mostly_connected, index| %>
+  <% mostly_connected.in_groups_of(3,false) do |mostly_connected_row| %>
   <div class="row">
     <div class="btn-group btn-group-justified">
-      <% mostly_connected.each do |user| %>
+      <% mostly_connected_row.each do |user| %>
     <%= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
     <% end %>
     </div>
   </div>
+  <% end %>  
   <% end %>
 </div>
 <script>
