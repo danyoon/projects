@@ -1,15 +1,7 @@
 <% provide(:title, 'Hotel Directory') %>
 <div class="container">
   <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Connect</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>Hotel1</td>
-      <td><%= link_to "Connect To Hotel", "", class: "btn btn-primary"  %></td>
-    </tr>
+    <%= render @hotels %>
   </table>
+  <%= will_paginate @hotels %>
 </div>
-

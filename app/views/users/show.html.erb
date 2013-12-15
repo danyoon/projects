@@ -2,11 +2,7 @@
 
 <div class="container">
   <div class="menu">
-    <div class="btn-group pull-left" data-toggle="buttons"> 
-      <%= link_to "Hotels", "", class: "btn btn-default span2" %>
-      <%= link_to "Restaurants", "", class: "btn btn-default span2" %>
-    </div>
-    <div class="btn-group pull-right">
+    <div class="btn-group pull-left">
       <%= link_to "Thumbnail View", params.merge(view_type: 'thumbnail'), class: "btn btn-default span2"%>
       <%= link_to "Table View", params.merge(view_type: 'table'), class: "btn btn-default span2"%>
     </div>
