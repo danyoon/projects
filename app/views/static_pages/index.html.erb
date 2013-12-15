@@ -43,7 +43,6 @@
     <div class="btn-group btn-group-justified">
       <% mostly_connected.each do |user| %>
     <%= gravatar_for(user,size: 100)%>
-    <br>
     <%= link_to "#{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
     <%#= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
   <% end %>
