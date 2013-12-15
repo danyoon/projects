@@ -40,10 +40,12 @@
   </div>
   <% @mostly_connected.in_groups_of(3,false).each_with_index do |mostly_connected, index| %>
   <div class="row">
-      <% mostly_connected.each do |user| %>   
+    <% mostly_connected.each do |user| %>
+    <div class="btn-group btn-group-justified">    
     <%= link_to gravatar_for(user,size: 100)+"#{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
     <%#= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
   <% end %>
+    </div>
   </div>
   <% end %>
 </div>
