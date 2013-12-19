@@ -142,6 +142,10 @@ GEM
       railties (~> 3.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    koala (1.8.0rc1)
+      addressable
+      faraday
+      multi_json
     libv8 (3.11.8.17)
     listen (1.0.3)
       rb-fsevent (>= 0.9.3)
@@ -313,6 +317,7 @@ DEPENDENCIES
   heroku-forward
   jquery-rails
   jvectormap-rails (~> 1.0.0)
+  koala (~> 1.8.0rc1)
   mailgun
   mocha
   nifty-generators

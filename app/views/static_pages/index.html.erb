@@ -101,7 +101,7 @@ $(function(){
 
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
   map.setSelectedMarkers( JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]' ) );
-  var mainsvg=document.getElementById('svgforImg');                           
+  var mainsvg=document.getElementById('world-map');                           
   var canvas=document.getElementById('canvas');                       
   var ctx = canvas.getContext("2d");
                         var data=mainsvg.innerHTML;

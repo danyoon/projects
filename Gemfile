@@ -18,6 +18,7 @@ gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
 gem 'geocoder'
 gem 'jvectormap-rails', '~> 1.0.0'
 gem 'heroku-forward'
+gem "koala", '~> 1.8.0rc1'
 
 gem 'carrierwave'
 gem 'cloudinary'
