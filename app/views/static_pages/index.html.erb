@@ -101,6 +101,21 @@ $(function(){
 
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
   map.setSelectedMarkers( JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]' ) );
+  var mainsvg=document.getElementById('svgforImg');                           
+  var canvas=document.getElementById('canvas');                       
+  var ctx = canvas.getContext("2d");
+                        var data=mainsvg.innerHTML;
+                        var DOMURL = self.URL || self.webkitURL || self;
+                        var svg = new Blob([data], {
+                                type: "image/svg+xml;charset=utf-8"
+                        });
+                        var url = DOMURL.createObjectURL(svg);
+                        var img = new Image();
+  img.onload = function() {
+                               ctx.drawImage(img, 0, 0);
+                                DOMURL.revokeObjectURL(url);                                  
+                                var imageurl = canvas.toDataURL("image/png");
+}
 });
 
 function showMenuLocation(e, code){
