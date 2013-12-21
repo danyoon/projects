@@ -16,13 +16,24 @@
           <%= link_to image_tag("email.png", alt: "Email") + "To Email Contacts", signin_path, class: "btn", id:"logo" %>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12"> 
-        <input type="text" class="form-control" placeholder="Subject">
+      <div class="row">
+        <div class="col-md-12"> 
+          <input type="text" class="form-control" placeholder="Subject">
+        </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12"> 
+      <input type="text" class="form-control" placeholder="Message Body (Not Disappearing)">
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-md-12"> 
+      <input type="text" class="form-control" placeholder="Message Body (Disappearing)">
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12"><h4><%#= link_to "Add Place to Your Profile", [:new, :hotel], class: "btn btn-default btn-block" %></h4></div>
   </div>    
