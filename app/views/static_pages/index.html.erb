@@ -1,50 +1,49 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=150"
+      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
       alt="">
     </div>
-    <div class="col-md-3">
-      <%= link_to image_tag("google.png", alt: "Google") + "To Gmail Contacts", user_omniauth_authorize_path(:google_oauth2), class: "btn", id:"logo" %>
-    </div>  
-    <div class="col-md-3">
-      <%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contacts", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %>
-    </div>      
-    <div class="col-md-3">
-      <%= link_to image_tag("email.png", alt: "Email") + "To Email Contacts", signin_path, class: "btn", id:"logo" %>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to image_tag("google.png", alt: "Google") + "To Gmail Contacts", user_omniauth_authorize_path(:google_oauth2), class: "btn", id:"logo" %>
+        </div>  
+        <div class="col-md-4">
+          <%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contacts", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %>
+        </div>      
+        <div class="col-md-4">
+          <%= link_to image_tag("email.png", alt: "Email") + "To Email Contacts", signin_path, class: "btn", id:"logo" %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2">
+    <div class="row">
+      <div class="col-md-12"> 
+        <input type="text" class="form-control" placeholder="Subject">
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2"> 
-    </div>
-    <div class="col-md-9"> 
-      <input type="text" class="form-control" placeholder="Subject">
-    </div>
+    <div class="col-md-12"><h4><%#= link_to "Add Place to Your Profile", [:new, :hotel], class: "btn btn-default btn-block" %></h4></div>
+  </div>    
+  <div class="row">
+    <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12"><h4><%#= link_to "Add Place to Your Profile", [:new, :hotel], class: "btn btn-default btn-block" %></h4></div>
-</div>    
-<div class="row">
-  <div class="thumbnail" id="world-map" style="height: 400px"></div>
-</div>
-<div class="row">
-  <%= link_to "Send New York", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%></div>
+  <div class="row">
+    <%= link_to "Send New York", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%></div>
 </div>
 <hr>
 <div class="row">
-<h4>See the Collection of our Top Curators</h4>
+  <h4>See the Collection of our Top Curators</h4>
 </div>
 <% @mostly_connected.in_groups_of(3,false).each_with_index do |mostly_connected, index| %>
-<div class="row">
-<div class="btn-group btn-group-justified">        
-  <% mostly_connected.each do |user| %>
-    <%= link_to gravatar_for(user,size: 100)+"#{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
-  <%#= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
-<% end %>
-</div>
+  <div class="row">
+  <div class="btn-group btn-group-justified">        
+    <% mostly_connected.each do |user| %>
+      <%= link_to gravatar_for(user,size: 100)+"#{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
+    <%#= link_to "#{index + 1}. #{user.name} (#{user.connections_count} pt)", user, class: "btn"%>
+  <% end %>
+  </div>
 </div>
   <% end %>
   </div>
@@ -54,23 +53,23 @@
   </div>
   <div class="row">
 <div class="btn-group btn-group-justified">
-<%= link_to "HST", hst_path, class:"btn"%>
-<%= link_to "DRH", drh_path, class:"btn"%>
-<%= link_to "SHO", sho_path, class:"btn"%>
-<%= link_to "LHO", lho_path, class:"btn"%>
-<%= link_to "BEE", bee_path, class:"btn"%>
-<%= link_to "PEB", peb_path, class:"btn"%>
-<%= link_to "CHSP", chsp_path, class:"btn"%>
-<%= link_to "AHP", ahp_path, class:"btn" %>
-<%= link_to "AHT", aht_path, class:"btn" %>
-<%= link_to "RLJ", rlj_path, class:"btn" %>
-<%= link_to "FCH", fch_path, class:"btn" %>
-<%= link_to "HT", ht_path, class:"btn" %>
-<%= link_to "HPT", hpt_path, class:"btn" %>
-<%= link_to "MGM", mgm_path, class:"btn"%>
-<%= link_to "LVS", lvs_path, class:"btn"%>
-<%= link_to "WYNN", wynn_path, class:"btn"%>
-<%= link_to "CZR", czr_path, class:"btn"%>
+  <%= link_to "HST", hst_path, class:"btn"%>
+  <%= link_to "DRH", drh_path, class:"btn"%>
+  <%= link_to "SHO", sho_path, class:"btn"%>
+  <%= link_to "LHO", lho_path, class:"btn"%>
+  <%= link_to "BEE", bee_path, class:"btn"%>
+  <%= link_to "PEB", peb_path, class:"btn"%>
+  <%= link_to "CHSP", chsp_path, class:"btn"%>
+  <%= link_to "AHP", ahp_path, class:"btn" %>
+  <%= link_to "AHT", aht_path, class:"btn" %>
+  <%= link_to "RLJ", rlj_path, class:"btn" %>
+  <%= link_to "FCH", fch_path, class:"btn" %>
+  <%= link_to "HT", ht_path, class:"btn" %>
+  <%= link_to "HPT", hpt_path, class:"btn" %>
+  <%= link_to "MGM", mgm_path, class:"btn"%>
+  <%= link_to "LVS", lvs_path, class:"btn"%>
+  <%= link_to "WYNN", wynn_path, class:"btn"%>
+  <%= link_to "CZR", czr_path, class:"btn"%>
 </div>
   </div>
 </div>
