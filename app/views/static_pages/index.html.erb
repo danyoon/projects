@@ -1,8 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=90"
-      alt="">
+      <% if user_signed_in? %>
+        <%= render 'shared/top_loggedin' %>
+      <% else %>
+        <%= render 'shared/top_main' %>
+      <% end %>
     </div>
     <div class="col-md-10">
       <div class="row">
@@ -34,7 +37,6 @@
   <div class="row">
     <div class="col-md-12"><%= link_to "NYC >>>", nyc_path, class: "btn btn-link btn-block", id:"countryLabel" %></h4></div>
   </div>  
-  <br>
   <div class="row">
     <div class="btn-group btn-group-justified">
       <%= link_to "Send as Normal", [:new, :hotel], class:"btn btn-lg btn-success btn-block", id:"countryLabel"%>
