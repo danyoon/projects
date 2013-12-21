@@ -27,17 +27,18 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12"><h4><%#= link_to "Add Place to Your Profile", [:new, :hotel], class: "btn btn-default btn-block" %></h4></div>
-  </div>    
+  </div>  
   <div class="row">
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
   <div class="row">
+    <div class="col-md-12"><%= link_to "NYC >>>", nyc_path, class: "btn btn-default btn-block", id:"countryLabel" %></h4></div>
+  </div>  
+  <br>
+  <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Send as Normal (In Message Body)", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%>
-      <%= link_to "Send as Disappearing (In Temporary Link)", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%>
+      <%= link_to "Send as Normal", [:new, :hotel], class:"btn btn-lg btn-success btn-block", id:"countryLabel"%>
+      <%= link_to "Send as Disappearing (In Temporary Link)", [:new, :hotel], class:"btn btn-lg btn-success btn-block", id:"countryLabel"%>
     </div>
   </div>
 </div>
@@ -131,27 +132,12 @@ $(function(){
 
   map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
   map.setSelectedMarkers( JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]' ) );
-  var mainsvg=document.getElementById('world-map');                           
-  var canvas=document.getElementById('canvas');                       
-  var ctx = canvas.getContext("2d");
-  var data=mainsvg.innerHTML;
-  var DOMURL = self.URL || self.webkitURL || self;
-  var svg = new Blob([data], {
-    type: "image/svg+xml;charset=utf-8"
-  });
-  var url = DOMURL.createObjectURL(svg);
-  var img = new Image();
-  img.onload = function() {
-    ctx.drawImage(img, 0, 0);
-    DOMURL.revokeObjectURL(url);                                  
-    var imageurl = canvas.toDataURL("image/png");
-  }
 });
 
 function showMenuLocation(e, code){
   if (window.localStorage) {
     var label = $('#countryLabel');
-    label.text(code);
+    label.text(code + ">>>");
     label.attr('href', "/countries/" + code);
 
     $("#countryURL").attr("href", code);
@@ -174,7 +160,7 @@ function showMenuCity(e, value){
     var code = marker.config.code;
     var label = $('#countryLabel');
 
-    label.text(name);
+    label.text(name + ">>>");
     label.attr('href', "/cities/" + code);
     $("#countryURL").attr("href", name);
   }
