@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
-    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-    alt="">
-  </div>
-  <div class="row">
-    <div class="col-md-3"><h4>To:</h4></div>
-    <div class="col-md-3"><%= link_to image_tag("google.png", alt: "Google") + "To Gmail Contact", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-link", id:"logo" %></div>
-    <div class="col-md-3"><%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contact", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %></div>
-    <div class="col-md-3"><%= link_to image_tag("email.png", alt: "Email") + "To Custom Contact", signin_path, class: "btn", id:"logo" %></div>
-  </div>
-  <div class="row">
-    <div class="col-md-3"><h4>Subject</h4></div>
-    <div class="col-md-9"><input type="text" class="form-control" placeholder="Subject"></div>
+    <div class="col-md-3">
+      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+      alt="">
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-3"><h4>To:</h4></div>
+        <div class="col-md-2"><%= link_to image_tag("google.png", alt: "Google") + "To Gmail Contact", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-link", id:"logo" %></div>
+        <div class="col-md-2"><%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contact", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %></div>
+        <div class="col-md-2"><%= link_to image_tag("email.png", alt: "Email") + "To Custom Contact", signin_path, class: "btn", id:"logo" %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><h4>Subject:</h4></div>
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="Subject"></div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row">
