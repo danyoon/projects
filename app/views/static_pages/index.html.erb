@@ -28,22 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12"> 
-      <hr>
-    </div>  
-  </div>
-  <div class="row">
-    <div class="col-md-12"> 
-      <input type="text" class="form-control" placeholder="Message Body (Not Disappearing)">
-    </div>  
-  </div>
-  <div class="row">
-    <div class="col-md-12"> 
-      <input type="text" class="form-control" placeholder="Message Attachment Link (Disappearing)">
-    </div>
-  </div>
-
+  <hr>
   <div class="row">
     <div class="col-md-12"><h4><%#= link_to "Add Place to Your Profile", [:new, :hotel], class: "btn btn-default btn-block" %></h4></div>
   </div>    
@@ -66,32 +51,30 @@
   <% end %>
   </div>
 </div>
-  <% end %>
-  </div>
-  <hr>
-  <div class="row">
-<h4>See the Collection by Company</h4>
-  </div>
-  <div class="row">
-<div class="btn-group btn-group-justified">
-  <%= link_to "HST", hst_path, class:"btn"%>
-  <%= link_to "DRH", drh_path, class:"btn"%>
-  <%= link_to "SHO", sho_path, class:"btn"%>
-  <%= link_to "LHO", lho_path, class:"btn"%>
-  <%= link_to "BEE", bee_path, class:"btn"%>
-  <%= link_to "PEB", peb_path, class:"btn"%>
-  <%= link_to "CHSP", chsp_path, class:"btn"%>
-  <%= link_to "AHP", ahp_path, class:"btn" %>
-  <%= link_to "AHT", aht_path, class:"btn" %>
-  <%= link_to "RLJ", rlj_path, class:"btn" %>
-  <%= link_to "FCH", fch_path, class:"btn" %>
-  <%= link_to "HT", ht_path, class:"btn" %>
-  <%= link_to "HPT", hpt_path, class:"btn" %>
-  <%= link_to "MGM", mgm_path, class:"btn"%>
-  <%= link_to "LVS", lvs_path, class:"btn"%>
-  <%= link_to "WYNN", wynn_path, class:"btn"%>
-  <%= link_to "CZR", czr_path, class:"btn"%>
+<% end %>
+<hr>
+<div class="row">
+  <h4>See the Collection by Company</h4>
 </div>
+<div class="row">
+  <div class="btn-group btn-group-justified">
+    <%= link_to "HST", hst_path, class:"btn"%>
+    <%= link_to "DRH", drh_path, class:"btn"%>
+    <%= link_to "SHO", sho_path, class:"btn"%>
+    <%= link_to "LHO", lho_path, class:"btn"%>
+    <%= link_to "BEE", bee_path, class:"btn"%>
+    <%= link_to "PEB", peb_path, class:"btn"%>
+    <%= link_to "CHSP", chsp_path, class:"btn"%>
+    <%= link_to "AHP", ahp_path, class:"btn" %>
+    <%= link_to "AHT", aht_path, class:"btn" %>
+    <%= link_to "RLJ", rlj_path, class:"btn" %>
+    <%= link_to "FCH", fch_path, class:"btn" %>
+    <%= link_to "HT", ht_path, class:"btn" %>
+    <%= link_to "HPT", hpt_path, class:"btn" %>
+    <%= link_to "MGM", mgm_path, class:"btn"%>
+    <%= link_to "LVS", lvs_path, class:"btn"%>
+    <%= link_to "WYNN", wynn_path, class:"btn"%>
+    <%= link_to "CZR", czr_path, class:"btn"%>
   </div>
 </div>
 <script>
