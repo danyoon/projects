@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=80"
+      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=90"
       alt="">
     </div>
     <div class="col-md-10">
@@ -36,7 +36,13 @@
     <div class="thumbnail" id="world-map" style="height: 400px"></div>
   </div>
   <div class="row">
-    <%= link_to "Send New York", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%></div>
+    <div class="col-md-6"> 
+      <%= link_to "Send as Normal (In Message Body)", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%>
+    </div>
+    <div class="col-md-6"> 
+      <%= link_to "Send as Disappearing (In Temporary Link)", nyc_path, class:"btn btn-lg btn-primary btn-block", id:"countryLabel"%>
+    </div>
+  </div>
 </div>
 <hr>
 <div class="row">
