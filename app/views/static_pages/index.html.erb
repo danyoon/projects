@@ -10,20 +10,13 @@
     <div class="col-md-10">
       <% if user_signed_in? %>
         <%= render 'shared/to_loggedin' %>
+        <br>
+        <%= render 'shared/subject_loggedin' %>
     <% else %>
-        <%= render 'shared/to_main' %>
+      <%= render 'shared/to_main' %>
+      <br>
+      <%= render 'shared/subject_main' %>
     <% end %>
-
-      <div class="row">
-        <div class="col-md-12"> 
-          <br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12"> 
-          <input type="text" class="form-control" placeholder="Subject">
-        </div>
-      </div>
     </div>
   </div>
   <div class="row">
@@ -38,7 +31,7 @@
       <div class="carousel-inner">
         <div class="item active">
           <div class="jumbotron"  style="height: 400px">
-            <textarea class="form-control" rows="6"></textarea>
+            <textarea class="form-control" rows="10"></textarea>
           </div>
           <div class="carousel-caption">
             <%= link_to "Enter Text ^^^", class: "btn btn-link" %>...
@@ -50,9 +43,7 @@
             <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
           </div>
         </div>
-
       </div>
-
 
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
