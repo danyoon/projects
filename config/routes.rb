@@ -30,12 +30,12 @@ FirstApp::Application.routes.draw do
     end
   end
 
-  resources :microposts, only: [:create, :destroy] do
+  resources :microposts do
     member do
       get :send_user, action: 'send_user_form'
       put :send_user
     end
-  end
+  end  
 
   resources :users do
     member {get :following, :followers}
