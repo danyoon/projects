@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url, :flash => { :success => "Micropost created!" }
     else
       @feed_items = []
-      render 'static_pages/home'
+      render 'static_pages/index'
     end
   end
 
@@ -18,5 +18,38 @@ class MicropostsController < ApplicationController
     end
     # in both cases, redirect to root_path
     redirect_to root_url
+  end
+
+  def send_user_form
+    @hotel = Hotel.find(params[:id])
+  end
+
+  def send_user
+    @hotel = Hotel.find(params[:id])
+
+    if params[:user].index("@") == nil
+      @user = User.find_by_name(params[:user])
+
+      if !@user
+        redirect_to :back, alert: "Can't find user named \"#{params[:user]}\""
+      else
+        @user.connect!(@hotel)
+        redirect_to :back, notice: "Successfully send hotel to \"#{params[:user]}\""
+      end
+    else
+      permlink = current_user.hotel_permlinks.generate!(@hotel)
+      link = Rails.application.routes.url_helpers.permlink_url(permlink)
+
+      arguments = {
+        from: "noreply@thousandsoft.com",
+        to: params[:user],
+        subject: "#{current_user.name} has sent you a message",
+        html: "see the <a href=\"#{link}\" target=\"_blank\">link</a>"
+      }
+
+      Mailgun().messages.send_email(arguments)
+
+      redirect_to :back, notice: "Successfully send a hotel to \"#{params[:user]}\""
+    end
   end
 end

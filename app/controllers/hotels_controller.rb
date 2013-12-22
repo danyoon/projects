@@ -82,13 +82,13 @@ class HotelsController < ApplicationController
       arguments = {
         from: "noreply@thousandsoft.com",
         to: params[:user],
-        subject: "#{current_user.name} sent information of \"#{@hotel.name}\"",
-        html: "see the <a href=\"#{link}\" target=\"_blank\">link</a>"
+        subject: "#{current_user.name} has sent you information sent you information on \"#{@hotel.name}\"",
+        html: "See the hotel at <a href=\"#{link}\" target=\"_blank\">link</a>"
       }
 
       Mailgun().messages.send_email(arguments)
 
-      redirect_to :back, notice: "Successfully send a hotel to \"#{params[:user]}\""
+      redirect_to :back, notice: "Successfully sent a hotel to \"#{params[:user]}\""
     end
   end
 

@@ -10,10 +10,10 @@
     <div class="col-md-10">
       <% if user_signed_in? %>
         <%= render 'shared/to_loggedin' %>
-        <br>
-        <%= render 'shared/subject_loggedin' %>
+      <br>
+      <%= render 'shared/subject_loggedin' %>
     <% else %>
-      <%= render 'shared/to_main' %>
+        <%= render 'shared/to_main' %>
       <br>
       <%= render 'shared/subject_main' %>
     <% end %>
@@ -21,29 +21,50 @@
   </div>
   <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <div class="jumbotron"  style="height: 400px">
-            <textarea class="form-control" rows="10"></textarea>
-          </div>
-          <div class="carousel-caption">
-            <%= link_to "Enter Text ^^^", class: "btn btn-link" %>...
-          </div>
-        </div>
-        <div class="item">
           <div class="thumbnail" id="world-map" style="height: 400px"></div>
           <div class="carousel-caption">
             <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
           </div>
         </div>
+
+        <div class="item">
+          <div class="jumbotron" style="height: 400px">
+            <textarea class="form-control" rows="20"></textarea>
+          </div>
+          <div class="carousel-caption">
+            <div class="btn-group btn-group-justified">
+              <%= link_to "HST", hst_path, class:"btn"%>
+              <%= link_to "DRH", drh_path, class:"btn"%>
+              <%= link_to "SHO", sho_path, class:"btn"%>
+              <%= link_to "LHO", lho_path, class:"btn"%>
+              <%= link_to "BEE", bee_path, class:"btn"%>
+              <%= link_to "PEB", peb_path, class:"btn"%>
+              <%= link_to "CHSP", chsp_path, class:"btn"%>
+              <%= link_to "AHP", ahp_path, class:"btn" %>
+              <%= link_to "AHT", aht_path, class:"btn" %>
+              <%= link_to "RLJ", rlj_path, class:"btn" %>
+              <%= link_to "FCH", fch_path, class:"btn" %>
+              <%= link_to "HT", ht_path, class:"btn" %>
+              <%= link_to "HPT", hpt_path, class:"btn" %>
+              <%= link_to "MGM", mgm_path, class:"btn"%>
+              <%= link_to "LVS", lvs_path, class:"btn"%>
+              <%= link_to "WYNN", wynn_path, class:"btn"%>
+              <%= link_to "CZR", czr_path, class:"btn"%>
+            </div>
+
+          </div>
+        </div>
       </div>
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      </ol>
 
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -55,12 +76,8 @@
     </div>
   </div>  
   <div class="row">
-  </div>
-  <div class="row">
-  </div>  
-  <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Send as Normal", [:new, :hotel], class:"btn btn-lg btn-success btn-block", id:"countryLabel"%>
+      <%= render 'microposts/send_form' %>
       <%= link_to "Send as Disappearing (In Temporary Link)", [:new, :hotel], class:"btn btn-lg btn-success btn-block", id:"countryLabel"%>
     </div>
   </div>
@@ -78,31 +95,8 @@
     </div>
   </div>
 <% end %>
-  <hr>
-  <div class="row">
-    <h4>Companies</h4>
-  </div>
-  <div class="row">
-    <div class="btn-group btn-group-justified">
-      <%= link_to "HST", hst_path, class:"btn"%>
-      <%= link_to "DRH", drh_path, class:"btn"%>
-      <%= link_to "SHO", sho_path, class:"btn"%>
-      <%= link_to "LHO", lho_path, class:"btn"%>
-      <%= link_to "BEE", bee_path, class:"btn"%>
-      <%= link_to "PEB", peb_path, class:"btn"%>
-      <%= link_to "CHSP", chsp_path, class:"btn"%>
-      <%= link_to "AHP", ahp_path, class:"btn" %>
-      <%= link_to "AHT", aht_path, class:"btn" %>
-      <%= link_to "RLJ", rlj_path, class:"btn" %>
-      <%= link_to "FCH", fch_path, class:"btn" %>
-      <%= link_to "HT", ht_path, class:"btn" %>
-      <%= link_to "HPT", hpt_path, class:"btn" %>
-      <%= link_to "MGM", mgm_path, class:"btn"%>
-      <%= link_to "LVS", lvs_path, class:"btn"%>
-      <%= link_to "WYNN", wynn_path, class:"btn"%>
-      <%= link_to "CZR", czr_path, class:"btn"%>
-    </div>
-  </div>
+
+
   <script>
 
 var App = {};

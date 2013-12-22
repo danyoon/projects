@@ -10,12 +10,6 @@ class StaticPagesController < ApplicationController
     @mostly_connected = User.mostly_connected.limit(15)
   end
 
-  def nyc
-    @title = 'New York City'
-    @user = current_user
-    @hotels = Hotel.where(city:"New York").paginate(page: params[:page])        
-  end
-
   def hst
     @title = 'Host Hotels and Resorts'
     @user = current_user

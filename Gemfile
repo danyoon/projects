@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'faker', '1.0.1'
+gem 'rails_12factor'
+gem 'heroku-forward'
+
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails'
@@ -11,14 +13,14 @@ gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'devise'
 gem 'figaro'
-gem 'expedia'
 gem 'whenever', :require => false
+gem 'expedia'
+gem "koala", '~> 1.8.0rc1'
+
+gem 'jvectormap-rails', '~> 1.0.0'
+gem 'geocoder'
 gem 'fullcalendar-rails' 
 gem 'flot-rails', :git => "https://github.com/Kjarrigan/flot-rails.git"
-gem 'geocoder'
-gem 'jvectormap-rails', '~> 1.0.0'
-gem 'heroku-forward'
-gem "koala", '~> 1.8.0rc1'
 
 gem 'carrierwave'
 gem 'cloudinary'
@@ -30,7 +32,6 @@ group :development, :test do
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'  
   gem 'spork', '0.9.2'
-  gem 'therubyracer'
   gem "nifty-generators"
 end
 
@@ -46,6 +47,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.1.0'
   gem 'cucumber-rails', '1.2.1', :require => false
+  gem 'faker'
 end
 
 group :production do
