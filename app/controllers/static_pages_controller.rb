@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   def index
     @title = 'Home'
     @user = current_user
+    @micropost = current_user.microposts.build
     @location = request.location
 
     @mostly_connected = User.mostly_connected.limit(15)
