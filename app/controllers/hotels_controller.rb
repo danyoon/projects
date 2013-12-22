@@ -68,9 +68,9 @@ class HotelsController < ApplicationController
       @user = User.find_by_name(params[:user])
 
       if !@user
-        redirect_to :back, alert: "can't find user named \"#{params[:user]}\""
+        redirect_to :back, alert: "Can't find user named \"#{params[:user]}\""
       elsif @user.connecting?(@hotel)
-        redirect_to :back, alert: "\"#{params[:user]}\" is already connecting this hotel"
+        redirect_to :back, alert: "\"#{params[:user]}\" is already connected to this hotel"
       else
         @user.connect!(@hotel)
         redirect_to :back, notice: "Successfully send hotel to \"#{params[:user]}\""
@@ -82,7 +82,7 @@ class HotelsController < ApplicationController
       arguments = {
         from: "noreply@thousandsoft.com",
         to: params[:user],
-        subject: "#{current_user.name} has sent you information sent you information on \"#{@hotel.name}\"",
+        subject: "#{current_user.name} has sent you information on the following \"#{@hotel.name}\"",
         html: "See the hotel at <a href=\"#{link}\" target=\"_blank\">link</a>"
       }
 

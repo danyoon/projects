@@ -30,6 +30,13 @@ FirstApp::Application.routes.draw do
     end
   end
 
+  resources :microposts, only: [:create, :destroy] do
+    member do
+      get :send_user, action: 'send_user_form'
+      put :send_user
+    end
+  end
+
   resources :users do
     member {get :following, :followers}
     member {get :connecting}
@@ -44,13 +51,11 @@ FirstApp::Application.routes.draw do
   # Additional user actions separated out into a new controller,
   # ProfilesController, due to conflicts with /users/:id route and
   # Devise's standard routes
-  resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :prices, only: [:create, :destroy]
   resources :connections, only: [:create, :destroy]
   
   match '/staticcontact', to: 'static_pages#staticcontact'
-  match '/nyc', to: 'static_pages#nyc'
   match '/hst', to: 'static_pages#hst'
   match '/drh', to: 'static_pages#drh'
   match '/sho', to: 'static_pages#sho'
