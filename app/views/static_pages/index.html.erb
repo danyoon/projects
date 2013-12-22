@@ -77,7 +77,7 @@
   </div>  
   <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Send as Nondisappearing (In Message Body)", [:new, :micropost], class:"btn btn-lg btn-success btn-block"%>      
+      <%= render 'microposts/sendform' %>      
       <%= link_to "Send as Disappearing (In Temporary Link)", [:new, :micropost], class:"btn btn-lg btn-success btn-block"%>
     </div>
   </div>
