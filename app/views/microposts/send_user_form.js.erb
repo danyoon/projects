@@ -1,8 +1,8 @@
-var form = "<%=j render 'hotels/forms/send_user', hotel: @hotel %>";
+var form = "<%=j render 'hotels/forms/send_user' %>";
 
 $('body').append(form);
 
-var modal = $('#hotel-send-user-modal');
+var modal = $('#micropost-send-user-modal');
 
 modal.modal();
 modal.on('hidden.bs.modal', function () {
