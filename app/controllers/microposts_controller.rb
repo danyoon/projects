@@ -1,11 +1,21 @@
 class MicropostsController < ApplicationController
+  def new
+    @micropost = Micropost.new
+  end
 
   def create
     @micropost = current_user.microposts.build(params[:micropost])
+    arguments = {
+        from: "noreply@thousandsoft.com",
+        to: params[:user],
+        subject: "#{current_user.name} has sent you a message",
+        html: "Test"
+      }
+    Mailgun().messages.send_email(arguments)
+
     if @micropost.save
       redirect_to root_url, :flash => { :success => "Micropost created!" }
     else
-      @feed_items = []
       render 'static_pages/index'
     end
   end
@@ -34,14 +44,6 @@ class MicropostsController < ApplicationController
         redirect_to :back, notice: "Successfully sent a message to \"#{params[:user]}\""
       end
     else
-      arguments = {
-        from: "noreply@thousandsoft.com",
-        to: params[:user],
-        subject: "#{current_user.name} has sent you a message",
-        html: "Test"
-      }
-
-      Mailgun().messages.send_email(arguments)
 
       redirect_to :back, notice: "Successfully send a message to \"#{params[:user]}\""
     end
