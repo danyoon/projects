@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="row">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -42,7 +42,11 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <div class="thumbnail" id="world-map" style="height: 400px"></div>
+          <div class="thumbnail" style="height: 400px">
+            <div class="jumbotron">
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+          </div>
           <div class="carousel-caption">
             <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
           </div>
