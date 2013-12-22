@@ -21,6 +21,7 @@ class MicropostsController < ApplicationController
   end
 
   def send_msg_form
+    @micropost = current_user.microposts.build(params[:micropost])    
   end
 
   def send_msg
