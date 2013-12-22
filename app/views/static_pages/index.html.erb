@@ -40,17 +40,17 @@
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner">
+      <div class="carousel-inner" style="height: 400px">
         <div class="item active">
-          <div class="jumbotron" style="height: 400px">
+          <div class="jumbotron">
               <textarea class="form-control" rows="3"></textarea>
           </div>
           <div class="carousel-caption">
-            <%= link_to "Enter Text >>>", class: "btn btn-link" %>...
+            <%= link_to "Enter Text", class: "btn btn-link" %>...
           </div>
         </div>
         <div class="item">
-          <div class="thumbnail" id="world-map" style="height: 400px"></div>
+          <div class="thumbnail" id="world-map"></div>
           <div class="carousel-caption">
             <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
           </div>
