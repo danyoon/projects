@@ -20,10 +20,10 @@ class MicropostsController < ApplicationController
     redirect_to root_url
   end
 
-  def send_user_form
+  def send_msg_form
   end
 
-  def send_user
+  def send_msg
     if params[:user].index("@") == nil
       @user = User.find_by_name(params[:user])
 
@@ -33,14 +33,11 @@ class MicropostsController < ApplicationController
         redirect_to :back, notice: "Successfully sent a message to \"#{params[:user]}\""
       end
     else
-      permlink = current_user.hotel_permlinks.generate!(@hotel)
-      link = Rails.application.routes.url_helpers.permlink_url(permlink)
-
       arguments = {
         from: "noreply@thousandsoft.com",
         to: params[:user],
         subject: "#{current_user.name} has sent you a message",
-        html: "see the <a href=\"#{link}\" target=\"_blank\">link</a>"
+        html: "Test"
       }
 
       Mailgun().messages.send_email(arguments)

@@ -32,8 +32,8 @@ FirstApp::Application.routes.draw do
 
   resources :microposts do
     member do
-      get :send_user, action: 'send_user_form'
-      put :send_user
+      get :send_msg, action: 'send_msg_form'
+      put :send_msg
     end
   end  
 

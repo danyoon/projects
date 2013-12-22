@@ -1,8 +1,8 @@
-var form = "<%=j render 'microposts/forms/send_user' %>";
+var form = "<%=j render 'microposts/forms/send_msg' %>";
 
 $('body').append(form);
 
-var modal = $('#micropost-send-user-modal');
+var modal = $('#micropost-send-msg-modal');
 
 modal.modal();
 modal.on('hidden.bs.modal', function () {
