@@ -44,9 +44,16 @@
         <div class="item active">
           <div class="thumbnail" id="world-map" style="height: 400px"></div>
           <div class="carousel-caption">
-            <%= link_to "Select Specific Place >>>", root_path, class: "btn", id:"countryLabel" %>...
+            <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
           </div>
         </div>
+        <div class="item">
+          <div class="thumbnail" id="world-map" style="height: 400px"></div>
+          <div class="carousel-caption">
+            <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
+          </div>
+        </div>
+
       </div>
 
 
@@ -161,7 +168,7 @@ $(function(){
   
   var label = $('#countryLabel');
   label.text("Select Specific Place From NYC >>>");
-  label.attr('href', "/cities/NYC");
+  label.attr('href', "/cities/nyc");
 
   $("#countryURL").attr("href", code);
 
