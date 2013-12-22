@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to image_tag("google.png", alt: "Google") + "To Gmail Contacts", user_omniauth_authorize_path(:google_oauth2), class: "btn", id:"logo" %>
+  </div>  
+  <div class="col-md-4">
+    <%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contacts", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %>
+  </div> 
+  <div class="col-md-4">
+    <%= link_to image_tag("email.png", alt: "Email") + "To Email Contacts", signin_path, class: "btn", id:"logo" %>
+  </div>
+</div>
+
