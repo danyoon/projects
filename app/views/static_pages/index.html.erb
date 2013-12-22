@@ -14,7 +14,7 @@
         </div>  
         <div class="col-md-4">
           <%= link_to image_tag("facebook.png", alt: "Facebook") + "To Facebook Contacts", user_omniauth_authorize_path(:facebook), class: "btn", id:"logo" %>
-        </div>      
+        </div> 
         <div class="col-md-4">
           <%= link_to image_tag("email.png", alt: "Email") + "To Email Contacts", signin_path, class: "btn", id:"logo" %>
         </div>
@@ -40,16 +40,16 @@
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner" style="height: 400px">
-        <div class="item active">
+      <div class="carousel-inner">
+        <div class="item active"style="height: 400px">
           <div class="jumbotron">
-              <textarea class="form-control" rows="3"></textarea>
+              <textarea class="form-control" rows="6"></textarea>
           </div>
           <div class="carousel-caption">
-            <%= link_to "Enter Text", class: "btn btn-link" %>...
+            <%= link_to "Enter Text ^^^", class: "btn btn-link" %>...
           </div>
         </div>
-        <div class="item">
+        <div class="item" style="height: 400px">
           <div class="thumbnail" id="world-map"></div>
           <div class="carousel-caption">
             <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"countryLabel" %>...
