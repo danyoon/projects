@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <% render(user_signed_in? ? 'shared/top_loggedin' : 'shared/top_main') %>
+      <%= render(user_signed_in? ? 'shared/top_loggedin' : 'shared/top_main') %>
     </div>
     <div class="col-md-10">
       <%= render(user_signed_in? ? 'shared/to_loggedin' : 'shared/to_main') %>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="row">
-      <% render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
+      <%= render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
   </div>  
 
   <div class="row">
