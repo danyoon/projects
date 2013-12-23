@@ -32,7 +32,6 @@ FirstApp::Application.routes.draw do
 
   resources :microposts do
     member do
-      get 'newmsg', to: 'micropost#new'
     end
   end  
 
@@ -53,7 +52,8 @@ FirstApp::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :prices, only: [:create, :destroy]
   resources :connections, only: [:create, :destroy]
-  
+ 
+  match 'newmsg', to: 'micropost#new'
   match '/staticcontact', to: 'static_pages#staticcontact'
   match '/hst', to: 'static_pages#hst'
   match '/drh', to: 'static_pages#drh'
