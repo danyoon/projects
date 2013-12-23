@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
         from: "noreply@thousandsoft.com",
         to: "zeradan@gmail.com",
         subject: "#{current_user.name}: #{params[:two]}",
-        html: "#{params[:three]}"
+        html: ":#{params[:three]}"
       }
     Mailgun().messages.send_email(arguments)
 
