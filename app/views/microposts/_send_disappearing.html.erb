@@ -1,4 +1,4 @@
-<%= form_for [:create, @micropost] do |f| %>
+<%= form_for [:send_msg, @micropost] do |f| %>
   <%= f.hidden_field :one, :value => "zeradan@gmail.com" %>
   <%= f.hidden_field :two, :value => "hello" %>
   <%= f.hidden_field :three, :value => "disappearing" %> 
