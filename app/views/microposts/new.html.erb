@@ -1,8 +1,8 @@
 <%= form_for(@micropost) do |f| %>
   <div class="field">
-    <%= f.hidden_field :to %>
-    <%= f.text_field :subject %>
-    <%= f.text_area :message %> 
+    <%= f.text_field :to, :value => :to %>
+    <%= f.text_field :subject, :value => :subject %>
+    <%= f.text_area :message, :value => :message %> 
   </div>
   <div class="actions">
     <%= f.submit %>
