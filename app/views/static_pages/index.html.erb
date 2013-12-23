@@ -9,53 +9,24 @@
       <%= render(user_signed_in? ? 'shared/subject_loggedin' : 'shared/subject_main') %>
     </div>
   </div>
-  <div class="row">
-      <%= render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
-  </div>  
+
 
   <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
           <%= render 'shared/body_map' %>
         </div>
-
         <div class="item">
-          <div class="jumbotron" style="height: 400px">
-          </div>
-          <div class="carousel-caption">
-            <div class="btn-group btn-group-justified">
-              <%= link_to "HST", hst_path, class:"btn"%>
-              <%= link_to "DRH", drh_path, class:"btn"%>
-              <%= link_to "SHO", sho_path, class:"btn"%>
-              <%= link_to "LHO", lho_path, class:"btn"%>
-              <%= link_to "BEE", bee_path, class:"btn"%>
-              <%= link_to "PEB", peb_path, class:"btn"%>
-              <%= link_to "CHSP", chsp_path, class:"btn"%>
-              <%= link_to "AHP", ahp_path, class:"btn" %>
-              <%= link_to "AHT", aht_path, class:"btn" %>
-              <%= link_to "RLJ", rlj_path, class:"btn" %>
-              <%= link_to "FCH", fch_path, class:"btn" %>
-              <%= link_to "HT", ht_path, class:"btn" %>
-              <%= link_to "HPT", hpt_path, class:"btn" %>
-              <%= link_to "MGM", mgm_path, class:"btn"%>
-              <%= link_to "LVS", lvs_path, class:"btn"%>
-              <%= link_to "WYNN", wynn_path, class:"btn"%>
-              <%= link_to "CZR", czr_path, class:"btn"%>
-            </div>
-
-          </div>
+          <%= render 'shared/body_picture' %>
         </div>
       </div>
-
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
       </ol>
-
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -64,7 +35,10 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-  </div>  
+  </div>
+    <div class="row">
+        <%= render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
+    </div>
   <div class="row">
     <div class="col-md-6">
       <%= render 'microposts/send_nondisappearing' %>
