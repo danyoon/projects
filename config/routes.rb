@@ -32,7 +32,7 @@ FirstApp::Application.routes.draw do
 
   resources :microposts do
     member do
-      get 'newmsg' to: 'micropost#new'
+      get 'newmsg', to: 'micropost#new'
     end
   end  
 
