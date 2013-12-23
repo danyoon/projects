@@ -1,124 +1,44 @@
 <div class="thumbnail" style="height: 400px">
   <div class="btn-group">
     <div class="btn-group btn-group-vertical">
-    <%= link_to "HST", hst_path, class:"btn"%>
-    <%= link_to "DRH", drh_path, class:"btn"%>
-    <%= link_to "SHO", sho_path, class:"btn"%>
-    <%= link_to "LHO", lho_path, class:"btn"%>
-    <%= link_to "BEE", bee_path, class:"btn"%>
-    <%= link_to "PEB", peb_path, class:"btn"%>
-    <%= link_to "CHSP", chsp_path, class:"btn"%>
-    <%= link_to "AHP", ahp_path, class:"btn" %>
-    <%= link_to "AHT", aht_path, class:"btn" %>
-    <%= link_to "RLJ", rlj_path, class:"btn" %>
-    <%= link_to "FCH", fch_path, class:"btn" %>
-    <%= link_to "HT", ht_path, class:"btn" %>
-    <%= link_to "HPT", hpt_path, class:"btn" %>
-    <%= link_to "MGM", mgm_path, class:"btn"%>
-    <%= link_to "LVS", lvs_path, class:"btn"%>
-    <%= link_to "WYNN", wynn_path, class:"btn"%>
-    <%= link_to "CZR", czr_path, class:"btn"%>
+      <div class="btn-group btn-justified">
+        <%= link_to "HST", hst_path, class:"btn"%>
+        <%= link_to "DRH", drh_path, class:"btn"%>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "SHO", sho_path, class:"btn"%>
+        <%= link_to "LHO", lho_path, class:"btn"%>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "BEE", bee_path, class:"btn"%>
+        <%= link_to "PEB", peb_path, class:"btn"%>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "CHSP", chsp_path, class:"btn"%>
+        <%= link_to "AHP", ahp_path, class:"btn" %>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "AHT", aht_path, class:"btn" %>
+        <%= link_to "RLJ", rlj_path, class:"btn" %>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "FCH", fch_path, class:"btn" %>
+        <%= link_to "HT", ht_path, class:"btn" %>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "HPT", hpt_path, class:"btn" %>
+        <%= link_to "MGM", mgm_path, class:"btn"%>
+      </div>
+      <div class="btn-group btn-justified">
+        <%= link_to "LVS", lvs_path, class:"btn"%>
+        <%= link_to "WYNN", wynn_path, class:"btn"%>
+      </div>
+      <div class="btn-group btn-justified">      
+        <%= link_to "CZR", czr_path, class:"btn"%>
+      </div>
+
     </div>
   </div>
 </div>
 <div class="carousel-caption">
 </div>
-
-
-<script>
-
-var App = {};
-
-$(function(){
-  var map,
-  markerIndex = 0,
-  markersCoords = {};
-
-  map = new jvm.WorldMap({
-    map: 'world_mill_en',
-    markers: [
-      {latLng: [40, -73], name: 'New York', code: "<%=j 'New York'.parameterize %>"},
-      {latLng: [37, -122], name: 'San Francisco', code: "<%=j 'San Francisco'.parameterize %>"},
-      {latLng: [34, -118], name: 'Los Angeles', code: "<%=j 'Los Angeles'.parameterize %>"},
-      {latLng: [36, -115], name: 'Las Vegas', code: "<%=j 'Las Vegas'.parameterize %>"},
-      {latLng: [41, -87], name: 'Chicago', code: "<%=j 'Chicago'.parameterize %>"},
-      {latLng: [42, -71], name: 'Boston', code: "<%=j 'Boston'.parameterize %>"},
-      {latLng: [38, -77], name: 'Washington DC', code: "<%=j 'Washington DC'.parameterize %>"},
-      {latLng: [29, -90], name: 'New Orleans', code: "<%=j 'New Orleans'.parameterize %>"},
-      {latLng: [25, -80], name: 'Miami Beach', code: "<%=j 'Miami Beach'.parameterize %>"},                  
-    ],
-
-    regionsSelectable: true,
-    regionStyle: {
-      initial: {
-        fill: 'white'
-      },
-      selected: {
-        fill: '#2E8B57'
-      }
-    },
-    markersSelectable: true,
-    markerStyle: {
-      initial: {
-        fill: 'white'
-      },
-      selected: {
-        fill: '#2E8B57'
-      }
-    },
-    container: $('#world-map'),
-    onRegionClick: showMenuLocation,
-    onRegionSelected: showLocation,
-    onMarkerClick: showMenuCity,
-    onMarkerSelected: showCity
-  });
-  App.map = map;
-  map.setSelectedRegions( JSON.parse( window.localStorage.getItem('jvectormap-selected-regions') || '[]' ) );
-  map.setSelectedMarkers( JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]' ) );
-
-  var label = $('#countryLabel');
-  label.text("Select Specific Place From NYC >>>");
-  label.attr('href', "/cities/nyc");
-
-  $("#countryURL").attr("href", code);
-
-});
-
-function showMenuLocation(e, code){
-  if (window.localStorage) {
-    var label = $('#countryLabel');
-    label.text("Select Specific Place From "+code+" >>>");
-    label.attr('href', "/countries/" + code);
-  }
-}
-
-function showLocation(e, code, isSelected, selectedRegions){
-  if (window.localStorage) {
-    window.localStorage.setItem(
-      'jvectormap-selected-regions',
-      JSON.stringify(selectedRegions)
-    );
-  }
-}
-
-function showMenuCity(e, value){
-  if (window.localStorage) {
-    var marker = App.map.markers[value];
-    var name = marker.config.name;
-    var code = marker.config.code;
-    var label = $('#countryLabel');
-
-    label.text("Select Specific Place From"+name + " >>>");
-    label.attr('href', "/cities/" + code);
-  }
-}
-
-function showCity(e, code, isSelected, selectedMarkers){
-  if (window.localStorage) {
-    window.localStorage.setItem(
-      'jvectormap-selected-regions',
-      JSON.stringify(selectedMarkers)
-    );
-  }
-}
-</script>
