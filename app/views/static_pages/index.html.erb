@@ -81,8 +81,8 @@
   </div>  
   <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Send (In Message Body)", msg_path(:to => "zeradan@gmail.com", :subject => "Hi", :message => "Test"), class:"btn btn-lg btn-primary btn-block", method: :post%>      
-      <%= link_to "Send Disappearing (In Temporary Link)", msg_path(:to => "zeradan@gmail.com", :subject => "Hi", :message => "Test"), class:"btn btn-lg btn-primary btn-block", method: :post%>
+      <%= link_to "Send (In Message Body)", msg_path, class:"btn btn-lg btn-primary btn-block", :to => "zeradan@gmail.com", :subject => "Hi", :message => "Test"%>      
+      <%= link_to "Send Disappearing (In Temporary Link)", msg_path, class:"btn btn-lg btn-primary btn-block", :to => "zeradan@gmail.com", :subject => "Hi", :message => "Test"%>
     </div>
   </div>
   <hr>
