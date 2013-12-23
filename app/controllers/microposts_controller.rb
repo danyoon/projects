@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
     
     arguments = {
         from: "noreply@thousandsoft.com",
-        to: params[:one],
+        to: "zeradan@gmail.com",
         subject: "#{current_user.name}: #{params[:two]}",
         html: "#{params[:three]}"
       }
