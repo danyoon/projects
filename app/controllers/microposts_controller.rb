@@ -11,9 +11,9 @@ class MicropostsController < ApplicationController
     Mailgun().messages.send_email(arguments)
 
     if @micropost.save
-      redirect_to root_url
+      redirect_to :back
     else
-      redirect_to root_url
+      redirect_to :back
     end
   end
 
