@@ -1,7 +1,6 @@
 class MicropostsController < ApplicationController
   def create
 
-    redirect_to :back,  notice: "Successfully send a message"
   end
 
   def destroy
