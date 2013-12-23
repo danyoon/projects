@@ -1,6 +1,0 @@
-<div class="well">
-    <%= firstDate.strftime("%a") %>
-    <%= firstDate.strftime("%b %e") %>
-    <hr>
-    <%= render :partial => 'shared/calendar_price', :collection => @calendar_prices, :locals => { :firstDate => firstDate } %>
-</div>
