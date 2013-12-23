@@ -1,6 +1,6 @@
 <%= form_for @micropost do |f| %>
-  <%= f.hidden_field :one, nil, :value => "zeradan@gmail.com" %>
-  <%= f.hidden_field :two, nil, :value => "hello" %>
-  <%= f.hidden_field :three, nil, :value => "disappearing" %> 
+  <%= f.hidden_field :one, :value => "zeradan@gmail.com" %>
+  <%= f.hidden_field :two, :value => "hello" %>
+  <%= f.hidden_field :three, :value => "disappearing" %> 
   <%= f.submit "Send Disappearing Message", class: 'btn btn-info' %>
 <% end %>
