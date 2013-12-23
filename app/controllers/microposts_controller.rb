@@ -10,11 +10,7 @@ class MicropostsController < ApplicationController
       }
     Mailgun().messages.send_email(arguments)
 
-    if @micropost.save
-      redirect_to :back
-    else
-      redirect_to :back
-    end
+    redirect_to :back
   end
 
   def destroy
