@@ -1,24 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <% if user_signed_in? %>
-        <%= render 'shared/top_loggedin' %>
-    <% else %>
-        <%= render 'shared/top_main' %>
-    <% end %>
+      <% render(user_signed_in? ? 'shared/top_loggedin' : 'shared/top_main') %>
     </div>
     <div class="col-md-10">
-      <% if user_signed_in? %>
-        <%= render 'shared/to_loggedin' %>
+      <%= render(user_signed_in? ? 'shared/to_loggedin' : 'shared/to_main') %>
       <br>
-      <%= render 'shared/subject_loggedin' %>
-    <% else %>
-        <%= render 'shared/to_main' %>
-      <br>
-      <%= render 'shared/subject_main' %>
-    <% end %>
+      <%= render(user_signed_in? ? 'shared/subject_loggedin' : 'shared/subject_main') %>
     </div>
   </div>
+  <div class="row">
+      <% render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
+  </div>  
+
   <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
 
@@ -30,11 +24,6 @@
 
         <div class="item">
           <div class="jumbotron" style="height: 400px">
-            <% if user_signed_in? %>
-              <%= render 'shared/message_loggedin' %>
-          <% else %>
-              <%= render 'shared/message_main' %>
-          <% end %>
           </div>
           <div class="carousel-caption">
             <div class="btn-group btn-group-justified">
