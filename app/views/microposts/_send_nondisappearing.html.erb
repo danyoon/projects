@@ -1,6 +1,6 @@
 <%= form_for @micropost do |f| %>
-  <%= f.hidden_field :one, 'zeradan@gmail.com' %>
-  <%= f.hidden_field :two, 'hello' %>
-  <%= f.hidden_field :three, 'nondisappearing' %> 
+  <%= f.hidden_field :one, :value =>  'zeradan@gmail.com' %>
+  <%= f.hidden_field :two, :value => 'hello' %>
+  <%= f.hidden_field :three, :value => 'nondisappearing' %> 
   <%= f.submit "Send Nondisappearing Message", class: 'btn btn-info' %>
 <% end %>
