@@ -1,6 +1,6 @@
 <div class="row">
   <div class="profile-img">
-  <%= link_to gravatar_for(current_user, size: 90), user_path(current_user) %>
+    <%= link_to gravatar_for(current_user, size: 90), user_path(current_user) %>
   </div>
 </div>
 <div class="row">
@@ -8,10 +8,10 @@
     <div class="btn", id:"logo"><%=current_user.name%></div>
     <div class="btn dropdown-toggle" data-toggle="dropdown", id:"logo"><i class="glyphicon glyphicon-chevron-down"></i></div>
     <ul class="dropdown-menu">
-     <li><%= link_to "Address Book", users_path, class: "btn btn btn-link" %></li>
-     <li><%= link_to "Message History", hotels_path, class: "btn btn btn-link" %></li>
+      <li><%= link_to "Address Book", users_path, class: "btn btn btn-link" %></li>
+      <li><%= link_to "Message History", hotels_path, class: "btn btn btn-link" %></li>
       <li><%= link_to "Settings", edit_user_registration_path, class: "btn btn-link" %></li>
       <li><%= link_to "Sign/Out", destroy_user_session_path, method: "delete", class: "btn btn-link" %></li>
     </ul>
-  <div>
+  </div>
 </div>
