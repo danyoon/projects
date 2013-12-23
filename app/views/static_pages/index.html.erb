@@ -9,7 +9,9 @@
       <%= render(user_signed_in? ? 'shared/subject_loggedin' : 'shared/subject_main') %>
     </div>
   </div>
-
+  <div class="row">
+    <%= render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
+  </div>
 
   <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -36,9 +38,7 @@
       </a>
     </div>
   </div>
-    <div class="row">
-        <%= render(user_signed_in? ? 'shared/message_loggedin' : 'shared/message_main') %>
-    </div>
+
   <div class="row">
     <div class="col-md-6">
       <%= render 'microposts/send_nondisappearing' %>
