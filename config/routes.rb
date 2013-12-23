@@ -53,7 +53,7 @@ FirstApp::Application.routes.draw do
   resources :prices, only: [:create, :destroy]
   resources :connections, only: [:create, :destroy]
  
-  match 'newmsg', to: 'microposts#new'
+  match 'msg', to: 'microposts#new'
   match '/staticcontact', to: 'static_pages#staticcontact'
   match '/hst', to: 'static_pages#hst'
   match '/drh', to: 'static_pages#drh'

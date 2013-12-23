@@ -81,8 +81,8 @@
   </div>  
   <div class="row">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Send (In Message Body)", newmsg_path, class:"btn btn-lg btn-primary btn-block"%>      
-      <%= link_to "Send Disappearing (In Temporary Link)", [:new, :micropost], class:"btn btn-lg btn-primary btn-block"%>
+      <%= link_to "Send (In Message Body)", msg_path(to: to, subject:subject, message:message), class:"btn btn-lg btn-primary btn-block", %>      
+      <%= link_to "Send Disappearing (In Temporary Link)", msg_path (to: to, subject:subject, message:message), class:"btn btn-lg btn-primary btn-block"%>
     </div>
   </div>
   <hr>
