@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       }
     Mailgun().messages.send_email(arguments)
 
-    redirect_to :back
+    redirect_to :back,  notice: "Successfully send a message"
   end
 
   def destroy
