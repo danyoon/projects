@@ -14,9 +14,12 @@ class MicropostsController < ApplicationController
   end
 
   def send_msg_form
+    @micropost = Micropost.new   
   end
 
   def send_msg
+    @micropost = Micropost.new   
+    
     if params[:to].index("@") == nil
       @user = User.find_by_name(params[:to])
 
