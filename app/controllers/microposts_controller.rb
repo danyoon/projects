@@ -6,12 +6,12 @@ class MicropostsController < ApplicationController
         from: "noreply@thousandsoft.com",
         to: params[:one],
         subject: "#{current_user.name}: #{params[:two]}",
-        html: params[:three]
+        html: "#{params[:three]}"
       }
     Mailgun().messages.send_email(arguments)
 
     if @micropost.save
-      redirect_to root_url, :flash => { :success => "Micropost created!" }
+      redirect_to root_url
     else
       redirect_to root_url
     end
