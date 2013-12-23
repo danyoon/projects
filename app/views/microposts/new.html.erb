@@ -1,9 +1,8 @@
-<h1>New micropost</h1>
-
 <%= form_for(@micropost) do |f| %>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
+    <%= f.hidden_field :to %>
+    <%= f.text_field :subject %>
+    <%= f.text_area :message %> 
   </div>
   <div class="actions">
     <%= f.submit %>
