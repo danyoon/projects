@@ -4,16 +4,16 @@ class MicropostsController < ApplicationController
     
     arguments = {
         from: "noreply@thousandsoft.com",
-        to: "zeradan@gmail.com",
+        to: params[:one],
         subject: "#{current_user.name}: #{params[:two]}",
-        html: "Test"
+        html: params[:three]
       }
     Mailgun().messages.send_email(arguments)
 
     if @micropost.save
       redirect_to root_url, :flash => { :success => "Micropost created!" }
     else
-      render 'static_pages/index'
+      redirect_to root_url
     end
   end
 
