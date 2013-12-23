@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
     else
       arguments = {
         from: "noreply@thousandsoft.com",
-        to: "zeradan@gmail.com",
+        to: params[:to],
         subject: "From #{current_user.name}: #{params[:subject]}",
         html: "From #{current_user.name}: #{params[:message]}"
       }

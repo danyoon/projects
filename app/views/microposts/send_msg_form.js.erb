@@ -1,4 +1,4 @@
-var form = "<%=j render 'microposts/forms/send_msg' %>";
+var form = "<%=j render 'microposts/forms/send_msg', micropost: @micropost %>";
 
 $('body').append(form);
 
