@@ -7,9 +7,9 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     arguments = {
         from: "noreply@thousandsoft.com",
-        to: "#{to}",
+        to: "#{one}",
         subject: "#{current_user.name} has sent you a message",
-        html: "#{message}"
+        html: "#{three}"
       }
     Mailgun().messages.send_email(arguments)
 
