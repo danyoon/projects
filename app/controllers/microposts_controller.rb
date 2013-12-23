@@ -1,12 +1,5 @@
 class MicropostsController < ApplicationController
   def create
-    arguments = {
-        from: "noreply@thousandsoft.com",
-        to: "zeradan@gmail.com",
-        subject: "From #{current_user.name}: #{params[:subject]}",
-        html: "From #{current_user.name}: #{params[:message]}"
-      }
-    Mailgun().messages.send_email(arguments)
 
     redirect_to :back,  notice: "Successfully send a message"
   end
@@ -22,12 +15,11 @@ class MicropostsController < ApplicationController
   end
 
   def send_msg_form
-    @micropost = current_user.microposts.build(params[:micropost])    
   end
 
   def send_msg
-    if params[:user].index("@") == nil
-      @user = User.find_by_name(params[:user])
+    if params[:to].index("@") == nil
+      @user = User.find_by_name(params[:to])
 
       if !@user
         redirect_to :back, alert: "Can't find user named \"#{params[:user]}\""
@@ -35,7 +27,13 @@ class MicropostsController < ApplicationController
         redirect_to :back, notice: "Successfully sent a message to \"#{params[:user]}\""
       end
     else
-
+      arguments = {
+        from: "noreply@thousandsoft.com",
+        to: "zeradan@gmail.com",
+        subject: "From #{current_user.name}: #{params[:subject]}",
+        html: "From #{current_user.name}: #{params[:message]}"
+      }
+      Mailgun().messages.send_email(arguments)
       redirect_to :back, notice: "Successfully send a message to \"#{params[:user]}\""
     end
   end
