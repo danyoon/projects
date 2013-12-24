@@ -1,13 +1,13 @@
 <%= form_for (@micropost) do |f| %>
-  <%= hidden_field_tag :tofinal %>
-  <%= hidden_field_tag :subjectfinal %>
-  <%= hidden_field_tag :messagefinal %>
+  <%= hidden_field_tag :tofinal, nil, id: 'tofinal' %>
+  <%= hidden_field_tag :subjectfinal, nil, id:'subjectfinal' %>
+  <%= hidden_field_tag :messagefinal, nil, id:'messagefinal' %>
   <%= f.submit "Send Nondisappearing Message", onclick:'update()', class: 'btn btn-lg btn-info' %>
 <% end %>
 <script>
 function update() {
   $("#tofinal").val("zeradan@gmail.com");
-  $('#subjectfinal').val($'#subject'.text());
-  $('#messagefinal').val($'#message'.text());
+  $('#subjectfinal').text($'#subject'.text());
+  $('#messagefinal').text($'#message'.text());
 }
 </script>
