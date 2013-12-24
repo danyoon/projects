@@ -2,14 +2,12 @@
   <%= hidden_field_tag :tofinal %>
   <%= hidden_field_tag :subjectfinal %>
   <%= hidden_field_tag :messagefinal %>
-  <%= f.submit "Send Nondisappearing Message", onclick:'alert("hey")', class: 'btn btn-lg btn-info' %>
+  <%= f.submit "Send Nondisappearing Message", onclick:'update()', class: 'btn btn-lg btn-info' %>
 <% end %>
 <script>
 function update() {
-  alert('hey');
-  document.getElementById('tofinal').value = "zeradan@gmail.com";
-
-  $('#subjectfinal').text($'#subject'.text());
-  $('#messagefinal').text($'#message'.text());
+  $("#tofinal").val ("zeradan@gmail.com");
+  $('#subjectfinal').val($'#subject'.text());
+  $('#messagefinal').val($'#message'.text());
 }
 </script>
