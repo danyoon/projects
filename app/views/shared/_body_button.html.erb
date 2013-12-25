@@ -1,44 +1,14 @@
 <div class="thumbnail" style="height: 400px">
   <% owners = Hotel.uniq.pluck(:owner) %>
-  <% owners.each do |owner|  %>
-    <%= link_to owner, hst_path, class:"btn btn-danger" %> 
+  <% owners.in_groups_of(2).each do |owner_row|  %>
+    <div class ="row">
+      <div class="btn-group btn-group-lg btn-group-justified">
+        <% owner_row.each do |owner| %>
+        <%= link_to owner, hst_path, class:"btn btn-success" %>   
+      <% end %>
+    </div>
+  </div>
   <% end %>
-
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "HST", hst_path, class:"btn btn-danger"%>
-    <%= link_to "DRH", drh_path, class:"btn btn-danger"%>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "SHO", sho_path, class:"btn btn-success"%>
-    <%= link_to "LHO", lho_path, class:"btn btn-success"%>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "BEE", bee_path, class:"btn btn-primary"%>
-    <%= link_to "PEB", peb_path, class:"btn btn-primary"%>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "CHSP", chsp_path, class:"btn btn-danger"%>
-    <%= link_to "AHP", ahp_path, class:"btn btn-danger" %>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "AHT", aht_path, class:"btn btn-success" %>
-    <%= link_to "RLJ", rlj_path, class:"btn btn-success" %>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "FCH", fch_path, class:"btn btn-primary" %>
-    <%= link_to "HT", ht_path, class:"btn btn-primary" %>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "HPT", hpt_path, class:"btn btn-danger" %>
-    <%= link_to "MGM", mgm_path, class:"btn btn-danger"%>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">
-    <%= link_to "LVS", lvs_path, class:"btn btn-success"%>
-    <%= link_to "WYNN", wynn_path, class:"btn btn-success"%>
-  </div>
-  <div class="btn-group btn-group-lg btn-group-justified">      
-    <%= link_to "CZR", czr_path, class:"btn btn-primary"%>
-  </div>
 </div>
 <div class="carousel-caption">
 </div>
