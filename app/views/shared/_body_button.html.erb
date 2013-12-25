@@ -9,7 +9,7 @@
       <% unless owner.nil? %>
       <% parameter = owner.parameterize %>
     <% end %>
-        <%= link_to_unless owner.nil?, owner, companies_path(parameter), class:"btn btn-default" %> 
+        <%= link_to owner, companies_path(parameter), class:"btn btn-default" %> 
     <% end %>
     </div>
   </div>
