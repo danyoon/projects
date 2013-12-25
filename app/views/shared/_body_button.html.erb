@@ -4,8 +4,7 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <% ticker = owner.match(/\(([^)]+)\)/)[1] unless owner.nil? %>
-      <%= link_to ticker, root_url, onclick:'getURL(ticker);', class:"btn btn-default", id:"companyLabel" %> 
+      <%= link_to owner, root_url, onclick:'getURL(owner);', class:"btn btn-default", id:"companyLabel" %> 
     <% end %>
     </div>
   </div>
@@ -15,9 +14,9 @@
 </div>
 
 <script>
-function getURL(ticker) {
+function getURL(owner) {
   var label = $('#companyLabel');
-
+  ticker = owner.match(/\(([^)]+)\)/)[1];
   label.attr('href', "/companies/" + ticker);
 }
 
