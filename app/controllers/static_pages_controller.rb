@@ -119,9 +119,10 @@ class StaticPagesController < ApplicationController
   end
 
   def by_company
+    company_code = params[:company_code].underscore.humanize.titleize
     @title = "Search by Company: #{params[:company_code]}"
     @user = current_user
-    @hotels = Hotel.where(owner: params[:company_code]).paginate(page: params[:page])     
+    @hotels = Hotel.where(owner: company_code).paginate(page: params[:page])     
   end
 
   def by_country

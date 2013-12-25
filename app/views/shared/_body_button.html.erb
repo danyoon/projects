@@ -16,8 +16,7 @@
 <script>
 function getURL(owner) {
   var label = $('#companyLabel');
-  ticker = owner.match(/\(([^)]+)\)/)[1];
-  label.attr('href', "/companies/" + ticker);
+  label.attr('href', "/companies/" + owner);
 }
 
 
