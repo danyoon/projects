@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
     @title = 'Home'
     @user = current_user
     @micropost = Micropost.new
+    @location = request.location
     @mostly_connected = User.mostly_connected.limit(15)
   end
 
