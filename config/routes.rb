@@ -74,7 +74,7 @@ FirstApp::Application.routes.draw do
   match '/wynn', to: 'static_pages#wynn'
   match '/czr', to: 'static_pages#czr'
 
-  get '/cities/:company_code', to: 'static_pages#by_company'
+  get '/companies/:company_code', to: 'static_pages#by_company'
   get '/cities/:city_code', to: 'static_pages#by_city'
   get '/countries/:country_code', to: 'static_pages#by_country'
 

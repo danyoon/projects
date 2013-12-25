@@ -4,7 +4,8 @@
     <div class ="row">
       <div class="btn-group btn-group-lg btn-group-justified">
         <% owner_row.each do |owner| %>
-          <%= link_to owner, root_path, class:"btn btn-default", id:"companyLabel" %> 
+          <% ticker = owner.match(/\(([^)]+)\)/)[1] %>
+          <%= link_to ticker, companies_path(ticker), class:"btn btn-default", id:"companyLabel" %> 
       <% end %>
     </div>
   </div>
@@ -13,17 +14,3 @@
 <div class="carousel-caption">
 </div>
 
-<script>
-$(function(){
-   getURL();
-});
-
-function getURL() {
-  var label = $('#companyLabel');
-
-  label.text("hey hey >>>");
-  label.attr('href', "/company/" + owner.match(/\(([^)]+)\)/)[1]);
-}
-
-
-</script>
