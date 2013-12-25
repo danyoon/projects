@@ -4,7 +4,7 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-      <%= link_to_function owner, 'showCompany()', class:"btn btn-default", id:"companyLabel" %> 
+        <%= link_to_function owner, 'showCompany(owner)', class:"btn btn-default", id:"companyLabel" %> 
     <% end %>
     </div>
   </div>
@@ -15,8 +15,11 @@
 </div>
 
 <script>
-  function showCompany(){
-    alert('hello all');
-  }
+function showCompany(owner){
+  var label = $('#companyLabel');
+
+  label.text("Select Specific Place From "+owner + " >>>");
+  label.attr('href', "/companies/" + owner);
+}
 </script>
 
