@@ -4,7 +4,7 @@
     <div class ="row">
       <div class="btn-group btn-group-lg btn-group-justified">
         <% owner_row.each do |owner| %>
-        <%= link_to owner, root_path, onclick: 'getURL(owner);', class:"btn btn-default", id:"companyLabel" %>   
+        <%= link_to owner, root_path, onclick: 'getURL();', class:"btn btn-default", id:"companyLabel" %>   
       <% end %>
     </div>
   </div>
@@ -14,7 +14,7 @@
 </div>
 
 <script>
-function getURL(owner) {
+function getURL() {
   var label = $('#companyLabel');
 
   label.text(""+owner+" >>>");
