@@ -5,7 +5,7 @@
       <div class="btn-group btn-group-lg btn-group-justified">
         <% owner_row.each do |owner| %>
           <%= link_to owner, root_path, class:"btn btn-default", id:"companyLabel" %> 
-          <%= javascript_tag 'getURL(owner)' %> 
+          <%= javascript_tag 'getURL(owner);' %> 
       <% end %>
     </div>
   </div>
