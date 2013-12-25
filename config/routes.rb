@@ -76,7 +76,7 @@ FirstApp::Application.routes.draw do
 
   get '/cities/:city_code', to: 'static_pages#by_city'
   get '/countries/:country_code', to: 'static_pages#by_country'
-  get '/companies/', to: 'static_pages#by_company', as: 'company'
+  get 'company', to: 'static_pages#by_company'
 
   root to: 'static_pages#index'
 
