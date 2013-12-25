@@ -4,7 +4,7 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <%= link_to_unless owner.nil?, company_path(owner), class:"btn btn-default" %> 
+        <%= link_to_unless owner.nil?, company_path(owner.parameterize), class:"btn btn-default" %> 
     <% end %>
     </div>
   </div>
