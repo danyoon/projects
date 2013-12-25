@@ -3,6 +3,11 @@ class Admin::HotelsController < Admin::ApplicationController
 
   def index
     @hotels = Hotel.paginate(page: params[:page])
+    @hotelsfull = Hotel.order(:id)
+    respond_to do |format|
+      format.html
+      format.csv { render text: @hotelsfull.to_csv }
+    end
   end
 
   def edit
