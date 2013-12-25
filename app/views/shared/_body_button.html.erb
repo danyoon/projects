@@ -4,7 +4,9 @@
     <div class ="row">
       <div class="btn-group btn-group-lg btn-group-justified">
         <% owner_row.each do |owner| %>
+          <% unless owner.match(/\(([^)]+)\)/).nil? %>
           <% ticker = owner.match(/\(([^)]+)\)/)[1] %>
+        <% end %>
           <%= link_to ticker, root_url, onclick:'getURL(ticker);', class:"btn btn-default", id:"companyLabel" %> 
       <% end %>
     </div>
