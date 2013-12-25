@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class="menu">
+    <div class="btn-group pull-left">
+      <%= link_to "Thumbnail View", params.merge(view_type: 'thumbnail'), class: "btn btn-default span2"%>
+      <%= link_to "Table View", params.merge(view_type: 'table'), class: "btn btn-default span2"%>
+    </div>
+  </div>
+
+  <% if @view_type == :thumbnail %>
+    <%= render 'hotels/hotels_thumbnail' %>
+  <% else %>
+    <%= render 'hotels/hotels_table' %>
+  <% end %>
+
+  <%= will_paginate @hotels %>
+</div>
+
