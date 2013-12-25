@@ -4,23 +4,12 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <%= link_to_function owner, 'showCompany()', class:"btn btn-default", id:"companyID" %> 
+        <%= link_to owner, company_path(owner), class:"btn btn-default" %> 
     <% end %>
     </div>
   </div>
 <% end %>
 </div>
 <div class="carousel-caption">
-  <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"companyLabel" %>...
 </div>
-
-<script>
-function showCompany(){
-  var id = $('#companyID');
-  var label = $('#companyLabel');
-
-  label.text("Select Specific Place From >>>"+id.text());
-  label.attr('href', "/companies/" +id.text());
-}
-</script>
 
