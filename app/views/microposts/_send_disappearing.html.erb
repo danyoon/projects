@@ -2,7 +2,7 @@
   <%= hidden_field_tag :tofinal %>
   <%= hidden_field_tag :subjectfinal %>
   <%= hidden_field_tag :messagefinal %>
-  <%= f.submit "Send Disappearing Message", class: 'btn btn-lg btn-info' %>
+  <%= f.submit "Send Disappearing Message", onclick:'update();', class: 'btn btn-lg btn-info' %>
 <% end %>
 <script>
 function update() {
