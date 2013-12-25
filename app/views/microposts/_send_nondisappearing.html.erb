@@ -6,7 +6,9 @@
 <% end %>
 <script>
 $(function(){
-  $('#submitbutton').click(update);
+  $('#submitbutton').click(function() {
+    update();
+  });
 }
 
 function update() {
