@@ -56,27 +56,9 @@ FirstApp::Application.routes.draw do
   resources :connections, only: [:create, :destroy]
  
   match '/staticcontact', to: 'static_pages#staticcontact'
-  match '/hst', to: 'static_pages#hst'
-  match '/drh', to: 'static_pages#drh'
-  match '/sho', to: 'static_pages#sho'
-  match '/lho', to: 'static_pages#lho'
-  match '/bee', to: 'static_pages#bee'  
-  match '/peb', to: 'static_pages#peb'
-  match '/chsp', to: 'static_pages#chsp'
-  match '/ahp', to: 'static_pages#ahp'
-  match '/aht', to: 'static_pages#aht'
-  match '/rlj', to: 'static_pages#rlj'
-  match '/fch', to: 'static_pages#fch'
-  match '/ht', to: 'static_pages#ht'
-  match '/hpt', to: 'static_pages#hpt'
-  match '/mgm', to: 'static_pages#mgm'
-  match '/lvs', to: 'static_pages#lvs'
-  match '/wynn', to: 'static_pages#wynn'
-  match '/czr', to: 'static_pages#czr'
-
   get '/cities/:city_code', to: 'static_pages#by_city'
   get '/countries/:country_code', to: 'static_pages#by_country'
-  get '/companies/', to: 'static_pages#by_company', as:'companies'
+  get '/companies/:company_code', to: 'static_pages#by_company'
 
   root to: 'static_pages#index'
 

@@ -6,10 +6,7 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-      <% unless owner.nil? %>
-      <% parameter = owner.parameterize %>
-    <% end %>
-        <%= link_to owner, companies_path(parameter), class:"btn btn-default" %> 
+        <%= link_to owner, "/companies/"+owner.parameterize, onclick:'clean();', class:"btn btn-default" %> 
     <% end %>
     </div>
   </div>
