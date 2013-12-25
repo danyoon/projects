@@ -1,7 +1,7 @@
 <div class="thumbnail" style="height: 400px">
   <% owners = Hotel.uniq.pluck(:owner) %>
-  <% owners.reject! { |c| c.empty? } %>
   <% owners.reject! { |c| c.nil? } %>
+  <% owners.reject! { |c| c.empty? } %>
   <% owners.in_groups_of(2).each do |owner_row|  %>
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
