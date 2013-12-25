@@ -118,6 +118,12 @@ class StaticPagesController < ApplicationController
     @title = 'Contact Information'
   end
 
+  def by_company
+    @title = "Search by Company: #{params[:company_code]}"
+    @user = current_user
+    @hotels = Hotel.where(owner: params[:company_code]).paginate(page: params[:page])     
+  end
+
   def by_country
     @title = "Search by Country: #{params[:country_code]}"
     @user = current_user

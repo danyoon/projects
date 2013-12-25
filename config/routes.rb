@@ -55,7 +55,6 @@ FirstApp::Application.routes.draw do
   resources :prices, only: [:create, :destroy]
   resources :connections, only: [:create, :destroy]
  
-  match 'msg', to: 'microposts#new'
   match '/staticcontact', to: 'static_pages#staticcontact'
   match '/hst', to: 'static_pages#hst'
   match '/drh', to: 'static_pages#drh'
@@ -75,6 +74,7 @@ FirstApp::Application.routes.draw do
   match '/wynn', to: 'static_pages#wynn'
   match '/czr', to: 'static_pages#czr'
 
+  get '/cities/:company_code', to: 'static_pages#by_company'
   get '/cities/:city_code', to: 'static_pages#by_city'
   get '/countries/:country_code', to: 'static_pages#by_country'
 
