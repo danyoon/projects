@@ -2,16 +2,16 @@
   <% owners = Hotel.uniq.pluck(:owner) %>
   <% owners.in_groups_of(2).each do |owner_row|  %>
     <div class ="row">
-      <div class="btn-group btn-group-lg btn-group-justified">
-        <% owner_row.each do |owner| %>
-          <% unless owner.match(/\(([^)]+)\)/).nil? %>
-          <% ticker = owner.match(/\(([^)]+)\)/)[1] %>
-        <% end %>
-          <%= link_to ticker, root_url, onclick:'getURL(ticker);', class:"btn btn-default", id:"companyLabel" %> 
-      <% end %>
+    <div class="btn-group btn-group-lg btn-group-justified">
+      <% owner_row.each do |owner| %>
+        <% unless owner.nil? %>
+        <% ticker = owner.match(/\(([^)]+)\)/)[1] %>
+    <% end %>
+      <%= link_to ticker, root_url, onclick:'getURL(ticker);', class:"btn btn-default", id:"companyLabel" %> 
+    <% end %>
     </div>
   </div>
-  <% end %>
+<% end %>
 </div>
 <div class="carousel-caption">
 </div>
