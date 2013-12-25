@@ -4,14 +4,14 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-      <% javascript_tag 'showCompany()' %>
-      <%= link_to owner, root_path, class:"btn btn-default", id:"companyLabel" %> 
+      <%= link_to_function owner, 'showCompany()', class:"btn btn-default", id:"companyLabel" %> 
     <% end %>
     </div>
   </div>
 <% end %>
 </div>
 <div class="carousel-caption">
+  <%= link_to "Select Specific Place >>>", root_path, class: "btn btn-link", id:"companyLabel" %>...
 </div>
 
 <script>
