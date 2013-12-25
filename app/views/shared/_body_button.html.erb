@@ -6,12 +6,13 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <%= link_to owner, "/companies/"+owner.parameterize, onclick:'clean();', class:"btn btn-default" %> 
+        <%= link_to owner, "/companies/"+owner.gsub(/\([^)]+\)\s+/,'')
+        .parameterize, onclick:'clean();', class:"btn btn-default" %> 
     <% end %>
+      </div>
     </div>
+  <% end %>
   </div>
-<% end %>
-</div>
-<div class="carousel-caption">
-</div>
+  <div class="carousel-caption">
+  </div>
 
