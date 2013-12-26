@@ -6,10 +6,10 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <% owner_name = owner.gsub(/\([^)]+\)\s+/,'').parameterize %>
-        <% owner_ticker = owner.match(/\([^)]+\)\s+/).last unless owner.match(/\([^)]+\)\s+/).nil? %>
+        <% owner_name = owner.gsub(/\(([^\)]+)\)/,'').parameterize %>
+        <% owner_ticker = owner.scan(/\(([^\)]+)\)/).last.first unless owner.match(/\([^)]+\)\s+/).nil? %>
         <% owner_full = owner_ticker.nil? ? owner_name : owner_name+"_"+owner_ticker %> 
-        <%= link_to owner, "/companies/"+"_"+owner_full, class:"btn btn-default" %> 
+        <%= link_to owner, "/companies/"+owner_full, class:"btn btn-default" %> 
     <% end %>
       </div>
     </div>
