@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
     company_code_clean = company_code_ticker.nil? ? company_code_name : company_code_name+" "+company_code_ticker
     @title = "Search by Company: #{params[company_code_clean]}"
     @user = current_user
-    @hotels = Hotel.search("owner",company_code_clean).paginate(page: params[:page])     
+    @hotels = Hotel.where(owner: company_code_clean).paginate(page: params[:page])     
   end
 
   def by_country
