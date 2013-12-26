@@ -6,7 +6,7 @@
     <div class ="row">
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
-        <% owner_name = owner.gsub(/\(([^\)]+)\)/,'').parameterize %>
+        <% owner_name = owner.gsub(/\(([^\)]+)\)/,'').replace(/\s/g, '-') %>
       <% owner_ticker = owner.match(/\(([^\)]+)\)/).to_s unless owner.match(/\(([^\)]+)\)/).nil? %>
       <% owner_full = owner_ticker.nil? ? owner_name : owner_name+"_"+owner_ticker %> 
       <%= link_to owner, "/companies/"+owner_full, class:"btn btn-default" %> 
