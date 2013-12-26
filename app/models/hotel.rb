@@ -61,13 +61,6 @@ private
     [from, to]
   end
   
-  def self.search(field, search)
-    if search
-      find(:all, :conditions => [field+" LIKE ?", "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
 end
 
 

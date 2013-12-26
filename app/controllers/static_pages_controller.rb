@@ -16,10 +16,13 @@ class StaticPagesController < ApplicationController
   end
 
   def by_company
-    company_code = params[:company_code].underscore.humanize.titleize
-    @title = "Search by Company: #{params[:company_code]}"
+    company_code = params[:company_code]
+    company_code_name = params[:company_code].split("_")[0].underscore.humanize.titleize
+    company_code_ticker = params[:company_code].split("_")[1]
+    company_code_clean = company_code_ticker.nil? ? company_code_name : company_code_name+"("+company_code_ticker+")"
+    @title = "Search by Company: #{params[company_code_clean]}"
     @user = current_user
-    @hotels = Hotel.search("owner",company_code).paginate(page: params[:page])     
+    @hotels = Hotel.search("owner",company_code_clean).paginate(page: params[:page])     
   end
 
   def by_country
