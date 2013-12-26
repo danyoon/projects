@@ -16,10 +16,10 @@ class StaticPagesController < ApplicationController
   end
 
   def by_company
-    company_code = params[:owner]
-    @title = "Search by Company: #{params[:owner]}"
+    company_code = params[:company_code].underscore.humanize.titleize
+    @title = "Search by Company: #{params[:company_code]}"
     @user = current_user
-    @hotels = Hotel.where(owner: company_code).paginate(page: params[:page])     
+    @hotels = Hotel.search("owner",company_code).paginate(page: params[:page])     
   end
 
   def by_country
@@ -46,5 +46,13 @@ private
 
   def find_view_type
     @view_type = params[:view_type] ? params[:view_type].to_sym : :thumbnail
+  end
+
+  def self.search(field, search)
+    if search
+      find(:all, :conditions => [field+"LIKE ?", "%#{search}%"])
+    else
+      find(:all)
+    end
   end
 end

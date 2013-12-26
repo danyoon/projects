@@ -7,7 +7,7 @@
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
         <%= link_to owner, "/companies/"+owner.gsub(/\([^)]+\)\s+/,'')
-        .parameterize, owner: owner, class:"btn btn-default" %> 
+        .parameterize, class:"btn btn-default" %> 
     <% end %>
       </div>
     </div>
