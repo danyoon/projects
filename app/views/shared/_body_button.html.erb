@@ -7,7 +7,7 @@
     <div class="btn-group btn-group-lg btn-group-justified">
       <% owner_row.each do |owner| %>
       <% owner_name = owner.gsub(' ', '-') %>
-      <%= link_to owner, "/companies/"+owner_name, class:"btn btn-default" %> 
+      <%= link_to owner, "/companies/"+owner_name, class:"btn btn-inverse" %> 
     <% end %>
     </div>
   </div>
