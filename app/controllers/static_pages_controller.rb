@@ -47,4 +47,12 @@ private
   def find_view_type
     @view_type = params[:view_type] ? params[:view_type].to_sym : :thumbnail
   end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 end

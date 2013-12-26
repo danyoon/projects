@@ -49,14 +49,6 @@ class HotelsController < ApplicationController
     render 'show_connect'
   end
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
-
   def send_user_form
     @hotel = Hotel.find(params[:id])
   end
@@ -99,4 +91,13 @@ private
       redirect_to [:new, :user_session]
     end
   end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
 end
