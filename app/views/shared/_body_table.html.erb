@@ -1,18 +1,17 @@
 <div class="thumbnail" style="height: 400px">
-  <table class="table table-condensed">
-    <% cities = Hotel.uniq.pluck(:city) %>
-    <% cities.reject! { |c| c.nil? } %>
-    <% cities.reject! { |c| c.empty? } %>
-    <% cities.in_groups_of(4,false).each do |city_row|  %> 
-      <tr class="active">
+  <% cities = Hotel.uniq.pluck(:city) %>
+  <% cities.reject! { |c| c.nil? } %>
+  <% cities.reject! { |c| c.empty? } %>
+  <% cities.in_groups_of(4,false).each do |city_row|  %> 
+    <div class ="row">
+    <div class="btn-group btn-group-lg btn-group-justified">
       <% city_row.each do |city| %>
-        <td>
-        <%= link_to city, "/cities/"+city.parameterize, class:"btn btn-link" %> 
-      </td>
+        <%= link_to city, "/cities/"+city.parameterize, class:"btn btn-link" %>
     <% end %>
-    </tr>
-  <% end %>
-  </table>
+    </div>
+  </div>
+<% end %>
 </div>
+
 <div class="carousel-caption">
 </div>
