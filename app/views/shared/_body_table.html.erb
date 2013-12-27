@@ -1,6 +1,6 @@
 <div class="thumbnail" style="height: 400px">
   <table class="table table-condensed">
-    <% cities = Hotel.uniq.pluck(:cities) %>
+    <% cities = Hotel.uniq.pluck(:city) %>
     <% cities.reject! { |c| c.nil? } %>
     <% cities.reject! { |c| c.empty? } %>
     <% cities.in_groups_of(2).each do |city_row|  %> 
