@@ -16,8 +16,7 @@ class MicropostsController < ApplicationController
         html:
         "<a href=http://www.thousandsoft.com target=\"_blank\">See the Message</a>
         <br>
-        <img src=#{request.protocol}#{request.host_with_port}#{asset_path("image.png")}></img>
-        "
+        <img src=#{request.protocol}#{request.host_with_port}#{asset_path("bcn-w.png")}></img>"
       }
       Mailgun().messages.send_email(arguments)
       redirect_to :back, notice: "Successfully send a message to \"#{params[:tofinal]}\""
