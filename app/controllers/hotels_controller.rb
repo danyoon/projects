@@ -75,7 +75,7 @@ class HotelsController < ApplicationController
         from: "noreply@thousandsoft.com",
         to: params[:user],
         subject: "Message from #{current_user.name} on \"#{@hotel.name}\"",
-        html: "See the hotel at <a href=\"#{link}\" target=\"_blank\">link</a>"
+        html: "See the hotel <a href=\"#{link}\" target=\"_blank\">here</a>"
       }
 
       Mailgun().messages.send_email(arguments)

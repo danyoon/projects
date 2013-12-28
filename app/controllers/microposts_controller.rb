@@ -13,9 +13,8 @@ class MicropostsController < ApplicationController
         from: "noreply@thousandsoft.com",
         to: params[:tofinal],
         subject: "Message from #{current_user.name}: #{params[:subjectfinal]}",
-        html: 
-        "
-        <a href=\"www.thousandsoft.com" target=\"_blank\">See the Message</a>
+        html:
+        "<a href=www.thousandsoft.com target=\"_blank\">See the Message</a>
         <br>
         <img src=http://www.thousandsoft.com/bcn-w.jpg></img>
         "
