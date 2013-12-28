@@ -16,7 +16,7 @@ class MicropostsController < ApplicationController
         html:
         "<a href=http://www.thousandsoft.com target=\"_blank\">See the Message</a>
         <br>
-        <img src=http://www.thousandsoft.com/bcn-w.jpg></img>
+        <img src=#{request.protocol}#{request.host_with_port}#{asset_path("image.png")}></img>
         "
       }
       Mailgun().messages.send_email(arguments)
