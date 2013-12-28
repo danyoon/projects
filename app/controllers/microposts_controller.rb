@@ -4,16 +4,21 @@ class MicropostsController < ApplicationController
       @user = User.find_by_name(params[:tofinal])
 
       if !@user
-        redirect_to :back, alert: "Can't find user named \"#{params[:tofinal]}\""
+        redirect_to :back, alert: "Unable to locate user named \"#{params[:tofinal]}\""
       else
         redirect_to :back, notice: "Successfully sent a message to \"#{params[:tofinal]}\""
       end
     else
       arguments = {
         from: "noreply@thousandsoft.com",
-        to: "zeradan@gmail.com",
-        subject: "From #{current_user.name}: #{params[:subjectfinal]}",
-        html: "From #{current_user.name}: #{params[:messagefinal]}"
+        to: params[:tofinal],
+        subject: "Message from #{current_user.name}: #{params[:subjectfinal]}",
+        html: 
+        "
+        <a href=\"www.thousandsoft.com" target=\"_blank\">See the Message</a>
+        <br>
+        <img src=http://www.thousandsoft.com/bcn-w.jpg></img>
+        "
       }
       Mailgun().messages.send_email(arguments)
       redirect_to :back, notice: "Successfully send a message to \"#{params[:tofinal]}\""
