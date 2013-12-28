@@ -14,9 +14,8 @@ class MicropostsController < ApplicationController
         to: params[:tofinal],
         subject: "Message from #{current_user.name}: #{params[:subjectfinal]}",
         html:
-        "<a href=http://www.thousandsoft.com target=\"_blank\">See the Message</a>
-        <br>
-        <img src=http://placehold.it/200x400></img>"
+        "<a href=http://www.thousandsoft.com>See the Message</a>
+        <br><img src=http://placehold.it/200x400></img>"
       }
       Mailgun().messages.send_email(arguments)
       redirect_to :back, notice: "Successfully send a message to \"#{params[:tofinal]}\""
