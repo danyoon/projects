@@ -1,3 +1,2 @@
-# ThousandSoft
-### Software for Sending Disappearing Messages
-
+# Projects
+### Dan Yoon
